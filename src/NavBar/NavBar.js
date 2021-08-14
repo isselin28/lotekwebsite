@@ -1,12 +1,17 @@
 import styled from "styled-components";
 import React from "react";
 import menuItems from "./MenuItems";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 
 const Nav = styled.div`
   display: flex;
 `;
 
-const Logo = styled.div``;
+const Logo = styled(FontAwesomeIcon).attrs({
+  icon: faShoppingBasket,
+  size: "lg",
+})``;
 
 function NavBar() {
   return (
