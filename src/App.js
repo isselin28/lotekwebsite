@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 import React from "react";
 import NavBar from "./NavBar/NavBar";
 import houseImage from "./assets/house_front_pencil_1.jpeg";
-import houseInsideImage from "./assets/house_inside_main.jpeg";
 import foodLotekPrepare from "./assets/food_lotek_prepare.png";
 import foodKolakBubur from "./assets/food_kolakbubur.jpg";
 import foodKolakCampur from "./assets/food_kolakcampur.jpg";
@@ -12,11 +11,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  ${({ fullWidth }) =>
-    css`
-      width: 100%;
-    `}
 `;
 
 const ContentWrapper = styled.div`
@@ -27,12 +21,18 @@ const ContentWrapper = styled.div`
 `;
 
 const Image = styled.img`
+  object-fit: cover;
   ${({ width, height }) =>
     css`
       width: ${width}px;
       height: ${height}px;
-      object-fit: cover;
     `}
+`;
+
+const StripImage = styled.img`
+  max-height: 80vh;
+  width: 100vw;
+  object-fit: cover;
 `;
 
 const Column = styled.div`
@@ -92,10 +92,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <Container fullWidth>
-        <Image src={houseInsideImage} alt="House" />
-        {/* <Image src={houseImage} alt="House" /> */}
-      </Container>
+      <StripImage src={houseImage} alt="House" />
       <Container>
         <ContentWrapper>
           <Column top="150">
