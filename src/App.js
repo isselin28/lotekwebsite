@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import React from "react";
 import NavBar from "./NavBar/NavBar";
-import houseImage from "./assets/house_front_pencil_1.jpeg";
+import houseImage from "./assets/house_front_pencil.jpeg";
 import foodLotekPrepare from "./assets/food_lotek_prepare.png";
 import foodKolakBubur from "./assets/food_kolakbubur.jpg";
 import foodKolakCampur from "./assets/food_kolakcampur.jpg";
@@ -10,6 +10,7 @@ import houseInside from "./assets/house_inside.png";
 import gofood from "./assets/gofood.png";
 import grabfood from "./assets/grabfood.png";
 import shopeefood from "./assets/shopeefood.png";
+import StripImage from "./StripImage/StripImage";
 
 const Container = styled.div`
   display: flex;
@@ -41,13 +42,6 @@ const Image = styled.img`
       width: ${width}px;
       height: ${height}px;
     `}
-`;
-
-const StripImage = styled.img`
-  max-height: 660px;
-  height: 80vh;
-  width: 100%;
-  object-fit: cover;
 `;
 
 const Column = styled.div`
@@ -146,7 +140,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <StripImage src={houseImage} alt="Lotek Kalipah Apo" />
+      <StripImage imageUrl={houseImage} position="top center" size="contain" />
       <Container>
         <ContentWrapper>
           <Column top="150">
@@ -204,19 +198,23 @@ function App() {
           <Image width="140" height="140" src={grabfood} alt="Kari Ayam" />
           <Image width="180" height="180" src={shopeefood} alt="Kari Ayam" />
         </DeliveryWrapper>
-        <StripImage src={houseInside} alt="Lotek Kalipah Apo" />
-        <FooterContainer>
-          <SocialMediaWrapper>
-            <IconWrapper>
-              <i class="fab fa-instagram fa-2x" /> lotekkalipahapo42
-            </IconWrapper>
-            <IconWrapper>
-              <i class="fab fa-whatsapp fa-2x" /> 812-123-123-123
-            </IconWrapper>
-          </SocialMediaWrapper>
-          <Copywright>&copy; 2021 by Isselin</Copywright>
-        </FooterContainer>
       </Container>
+      <StripImage
+        imageUrl={houseInside}
+        position="bottom center"
+        size="cover"
+      />
+      <FooterContainer>
+        <SocialMediaWrapper>
+          <IconWrapper>
+            <i class="fab fa-instagram fa-2x" /> lotekkalipahapo42
+          </IconWrapper>
+          <IconWrapper>
+            <i class="fab fa-whatsapp fa-2x" /> 813-8604-1621
+          </IconWrapper>
+        </SocialMediaWrapper>
+        <Copywright>&copy; 2021 by Isselin</Copywright>
+      </FooterContainer>
     </>
   );
 }
