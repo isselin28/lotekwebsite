@@ -93,9 +93,11 @@ const TextDescription = styled.div`
   font-family: "Lato", sans-serif;
   font-weight: 500;
   color: #605e5e;
-  line-height: 2;
+  line-height: 1.6;
+  letter-spacing: 1px;
 
   margin-bottom: 4px;
+  min-width: 110%;
 `;
 
 const FooterContainer = styled.div`
@@ -141,6 +143,7 @@ function App() {
     <>
       <NavBar />
       <StripImage imageUrl={houseImage} position="top center" size="contain" />
+      <div id="about" />
       <Container>
         <ContentWrapper>
           <Column top="150">
@@ -157,25 +160,28 @@ function App() {
               alt="Kolak Sagurangi"
             />
             <TextContainer>
-              <TextLabel>OUR RESTAURANT</TextLabel>
-              <TextTitle>Local fresh cuisine for everyone</TextTitle>
+              <TextLabel>OUR PLACE</TextLabel>
+              <TextTitle>Hadir di Bandung, Hadir di Jakarta</TextTitle>
               <TextDescription>
-                I'm a paragraph. Click here to add your own text and edit me.
-                It’s easy. Just click “Edit Text” or double click me to add your
-                own content and make changes to the font. Feel free to drag and
-                drop me anywhere you like on your page.
+                Citarasa Lotek Oma telah hadir di jakarta, mengobati kangen.
+                Rumah dengan suasana yang "homey" dan sejuk. Tempat yang tepat
+                bagi para pecinta sayuran dan makanan sehat.
               </TextDescription>
             </TextContainer>
           </Column>
           <Column>
             <TextContainer>
               <TextLabel>OUR RESTAURANT</TextLabel>
-              <TextTitle>Local fresh cuisine for everyone</TextTitle>
+              <TextTitle>Resep Oma sedjak 1953</TextTitle>
               <TextDescription>
-                I'm a paragraph. Click here to add your own text and edit me.
-                It’s easy. Just click “Edit Text” or double click me to add your
-                own content and make changes to the font. Feel free to drag and
-                drop me anywhere you like on your page.
+                Bermula di jalan <b>Kalipah Apo, Bandung</b>, <i>resep Lotek</i>{" "}
+                yang diwariskan Oma melalui generasi, sering menjadi sasaran
+                kuliner nusantara. Aroma legit bumbu kacang, renyahnya toge dan
+                kacang panjang, bumbu yang manis dan gurih berbaur dalam sebuah
+                piring bundar menjadi <i>menu khas Lotek</i>. Berbagai citarasa
+                Sunda seperti{" "}
+                <i>Gado-gado, Kariayam, Candil, Pacar, Ketan hitam</i> dan menu
+                spesial lainnya kini juga bisa dinikmati di Jakarta.
               </TextDescription>
             </TextContainer>
             <Image
@@ -192,6 +198,7 @@ function App() {
             />
           </Column>
         </ContentWrapper>
+
         <DeliveryWrapper>
           <TextTitle>Deliver to Your Doorstep</TextTitle>
           <Image width="140" height="140" src={gofood} alt="Kari Ayam" />
