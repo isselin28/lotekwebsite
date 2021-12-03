@@ -7,7 +7,14 @@ import foodKolakBubur from "./assets/food_kolakbubur.jpg";
 import foodKolakCampur from "./assets/food_kolakcampur.jpg";
 import foodKariayam from "./assets/food_kariayam.jpg";
 import houseInside from "./assets/inside_pencil_2.jpeg";
+import gofood from "./assets/gofood.png";
+import grabfood from "./assets/grabfood.png";
+import shopeefood from "./assets/shopeefood.png";
+import republika from "./assets/logo_republika.png";
+import detikfood from "./assets/logo_detikfood.png";
+import cnn from "./assets/logo_cnn.png";
 import StripImage from "./Components/StripImage";
+import LocationBar from "./Components/LocationBar";
 import { Typography } from "./Components/Typography";
 import { Container } from "./Components/Container";
 import { Image } from "./Components/Image";
@@ -92,6 +99,22 @@ const Copywright = styled(Typography).attrs({ variant: "body" })`
   bottom: 10px;
 `;
 
+const FeaturedWrapper = styled(Container).attrs({
+  justify: "center",
+})`
+  position: relative;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 80px;
+  margin-left: -30px;
+`;
+
+const Icon = styled(FontAwesomeIcon)`
+  color: #b98d4b;
+  font-size: ${(props) => props.size}px;
+  padding: 4px 8px 4px 0;
+`;
+
 function App() {
   return (
     <>
@@ -155,6 +178,42 @@ function App() {
           </Column>
         </ContentWrapper>
         <div id="menu" />
+
+        <Typography variant="body">Featured On</Typography>
+        <FeaturedWrapper>
+          <Container
+            direction="column"
+            justify="flex-end"
+            align="flex-end"
+            padding="16"
+          >
+            <Image width="255" src={republika} alt="republika" />
+            <Image width="195" src={detikfood} alt="detikfood" />
+          </Container>
+          <Image width="90" height="90" src={cnn} alt="cnn" />
+        </FeaturedWrapper>
+
+        <Container
+          direction="column"
+          justify="center"
+          align="center"
+          gap="10"
+          margin="20"
+        >
+          <Typography variant="title">Find Us</Typography>
+          <Typography variant="body">
+            *Due to Covid measurement, we only offers takeaway and online
+            delivery. Find us via:
+          </Typography>
+          <Container justify="center" align="center" gap="50">
+            <Image width="130" height="130" src={shopeefood} alt="shopee" />
+            <Image width="115" height="110" src={gofood} alt="gojek" />
+            <Image width="100" height="100" src={grabfood} alt="grab" />
+          </Container>
+        </Container>
+        <LocationBox>
+          <LocationBar />
+        </LocationBox>
       </Container>
       <StripImage
         imageUrl={houseInside}
