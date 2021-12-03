@@ -1,53 +1,39 @@
 import styled, { css } from "styled-components";
 import React from "react";
-import NavBar from "./NavBar/NavBar";
+import NavBar from "./Components/NavBar/NavBar";
 import houseImage from "./assets/house_front_pencil.jpeg";
 import foodLotekPrepare from "./assets/food_lotek_prepare.png";
 import foodKolakBubur from "./assets/food_kolakbubur.jpg";
 import foodKolakCampur from "./assets/food_kolakcampur.jpg";
 import foodKariayam from "./assets/food_kariayam.jpg";
-import houseInside from "./assets/house_inside.png";
-import gofood from "./assets/gofood.png";
-import grabfood from "./assets/grabfood.png";
-import shopeefood from "./assets/shopeefood.png";
-import StripImage from "./StripImage/StripImage";
+import houseInside from "./assets/inside_pencil_2.jpeg";
+import StripImage from "./Components/StripImage";
+import { Typography } from "./Components/Typography";
+import { Container } from "./Components/Container";
+import { Image } from "./Components/Image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
-
-const ContentWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const ContentWrapper = styled(Container).attrs({
+  align: "center",
+  justify: "center",
+})`
   gap: 40px;
   margin-bottom: 30px;
 `;
 
-const DeliveryWrapper = styled(ContentWrapper)`
-  gap: 30px;
-  border: 2px solid #94703a;
-  border-radius: 10px;
-  padding: 10px 50px;
-  margin-bottom: 30px;
+const LocationBox = styled(Container).attrs({
+  align: "center",
+  justify: "center",
+})`
+  width: 80%;
+  border: 1px solid #94703a;
+  border-radius: 5px;
 `;
 
-const Image = styled.img`
-  object-fit: cover;
-  ${({ width, height }) =>
-    css`
-      width: ${width}px;
-      height: ${height}px;
-    `}
-`;
-
-const Column = styled.div`
-  display: flex;
+const Column = styled(Container).attrs({
+  direction: "column",
+})`
   flex-wrap: wrap;
-  flex-direction: column;
   flex: 1;
   gap: 40px;
 
@@ -66,40 +52,6 @@ const TextContainer = styled.div`
   margin-bottom: 60px;
 `;
 
-const TextLabel = styled.div`
-  font-size: 14px;
-  font-family: "Lato", sans-serif;
-  font-weight: 500;
-  color: #605e5e;
-  letter-spacing: 2px;
-  line-height: 2;
-  text-transform: uppercase;
-
-  margin-bottom: 4px;
-`;
-
-const TextTitle = styled.div`
-  font-size: 30px;
-  font-family: "Libre Baskerville", serif;
-  font-style: italic;
-  font-weight: 300;
-  color: rgb(148, 112, 58);
-
-  margin-bottom: 4px;
-`;
-
-const TextDescription = styled.div`
-  font-size: 15px;
-  font-family: "Lato", sans-serif;
-  font-weight: 500;
-  color: #605e5e;
-  line-height: 1.6;
-  letter-spacing: 1px;
-
-  margin-bottom: 4px;
-  min-width: 110%;
-`;
-
 const FooterContainer = styled.div`
   max-height: 240px;
   height: 200px;
@@ -114,7 +66,9 @@ const FooterContainer = styled.div`
   position: relative;
 `;
 
-const IconWrapper = styled(TextLabel)`
+const IconWrapper = styled(Typography).attrs({
+  variant: "label",
+})`
   display: flex;
   color: white;
   font-size: 13px;
@@ -130,7 +84,7 @@ const SocialMediaWrapper = styled.div`
   top: 40px;
 `;
 
-const Copywright = styled(TextDescription)`
+const Copywright = styled(Typography).attrs({ variant: "body" })`
   color: white;
   font-size: 12px;
   letter-spacing: 1px;
@@ -144,7 +98,7 @@ function App() {
       <NavBar />
       <StripImage imageUrl={houseImage} position="top center" size="contain" />
       <div id="about" />
-      <Container>
+      <Container align="center" justify="center" direction="column">
         <ContentWrapper>
           <Column top="150">
             <Image
@@ -160,20 +114,22 @@ function App() {
               alt="Kolak Sagurangi"
             />
             <TextContainer>
-              <TextLabel>OUR PLACE</TextLabel>
-              <TextTitle>Hadir di Bandung, Hadir di Jakarta</TextTitle>
-              <TextDescription>
+              <Typography variant="label">OUR PLACE</Typography>
+              <Typography variant="title">
+                Hadir di Bandung, Hadir di Jakarta
+              </Typography>
+              <Typography variant="body">
                 Citarasa Lotek Oma telah hadir di jakarta, mengobati kangen.
                 Rumah dengan suasana yang "homey" dan sejuk. Tempat yang tepat
                 bagi para pecinta sayuran dan makanan sehat.
-              </TextDescription>
+              </Typography>
             </TextContainer>
           </Column>
           <Column>
             <TextContainer>
-              <TextLabel>OUR RESTAURANT</TextLabel>
-              <TextTitle>Resep Oma sedjak 1953</TextTitle>
-              <TextDescription>
+              <Typography variant="label">OUR RESTAURANT</Typography>
+              <Typography variant="title">Resep Oma sedjak 1953</Typography>
+              <Typography variant="body">
                 Bermula di jalan <b>Kalipah Apo, Bandung</b>, <i>resep Lotek</i>{" "}
                 yang diwariskan Oma melalui generasi, sering menjadi sasaran
                 kuliner nusantara. Aroma legit bumbu kacang, renyahnya toge dan
@@ -182,7 +138,7 @@ function App() {
                 Sunda seperti{" "}
                 <i>Gado-gado, Kariayam, Candil, Pacar, Ketan hitam</i> dan menu
                 spesial lainnya kini juga bisa dinikmati di Jakarta.
-              </TextDescription>
+              </Typography>
             </TextContainer>
             <Image
               width="450"
@@ -198,18 +154,13 @@ function App() {
             />
           </Column>
         </ContentWrapper>
-
-        <DeliveryWrapper>
-          <TextTitle>Deliver to Your Doorstep</TextTitle>
-          <Image width="140" height="140" src={gofood} alt="Kari Ayam" />
-          <Image width="140" height="140" src={grabfood} alt="Kari Ayam" />
-          <Image width="180" height="180" src={shopeefood} alt="Kari Ayam" />
-        </DeliveryWrapper>
+        <div id="menu" />
       </Container>
       <StripImage
         imageUrl={houseInside}
         position="bottom center"
         size="cover"
+        opacity="0.5"
       />
       <FooterContainer>
         <SocialMediaWrapper>
