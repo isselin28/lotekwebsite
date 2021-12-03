@@ -5,6 +5,9 @@ export const Container = styled.div`
   flex-direction: ${({ direction }) => direction};
   align-items: ${({ align }) => align};
   justify-content: ${({ justify }) => justify};
+  padding: ${({ padding }) => padding}px;
+  margin: ${({ margin }) => margin}px;
+  gap: ${({ gap }) => gap}px;
 
   ${({ fullWidth }) =>
     fullWidth &&

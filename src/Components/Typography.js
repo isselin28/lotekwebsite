@@ -37,5 +37,6 @@ export const Typography = styled.div`
     line-height: ${variants[variant].lineHeight};
 
     margin-bottom: 4px;
+    text-align: ${({ align }) => align};
   `}
 `;
