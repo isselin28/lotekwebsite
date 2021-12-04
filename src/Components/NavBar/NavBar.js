@@ -4,10 +4,10 @@ import { useState } from "react";
 import menuItems from "./MenuItems";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import logoLotek from "../assets/logo.png";
+import logoLotek from "../../assets/logo.png";
 
 const Nav = styled.nav`
-  background: #fffaf6;
+  background: #f7f0e8;
   height: 250px;
   display: flex;
   justify-content: center;
@@ -16,6 +16,8 @@ const Nav = styled.nav`
   @media (max-width: 960px) {
     position: relative;
   }
+
+  margin-bottom: 30px;
 `;
 
 const BurgerLogo = styled(FontAwesomeIcon).attrs({
@@ -31,9 +33,11 @@ const NavMenu = styled.ul`
   grid-gap: 50px;
   list-style: none;
   text-align: center;
-  width: 60vw;
+  width: 70vw;
   justify-content: center;
-  margin-right: 36px;
+  max-height: 36px;
+  margin: 10px;
+  padding: 0px;
 
   @media (max-width: 960px) {
     ${(active) => {
@@ -65,10 +69,11 @@ const NavLink = styled.a`
   color: #605e5e;
   text-decoration: none;
   padding: 4px 16px;
+  letter-spacing: -0.5px;
 
   @media (max-width: 960px) {
     text-align: center;
-    padding: 32px;
+    padding: 16px;
     width: 100%;
     display: table;
   }
@@ -100,11 +105,42 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  position: relative;
 `;
 
 const HeaderLine = styled.hr`
-  border-bottom: 0.1px solid #eae5e1;
-  width: 100%;
+  background-color: #eae5e1;
+  margin: 0px;
+  width: 100vw;
+`;
+
+const TextDescription = styled.div`
+  font-size: 11px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  color: #605e5e;
+  text-transform: uppercase;
+
+  margin-bottom: 4px;
+  position: absolute;
+  left: 40px;
+  top: 30px;
+  letter-spacing: 1px;
+`;
+
+const SocialMediaWrapper = styled(TextDescription)`
+  font-size: 11px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  color: #605e5e;
+  text-transform: uppercase;
+
+  margin-bottom: 4px;
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  letter-spacing: 1px;
 `;
 
 function NavBar() {
@@ -119,8 +155,18 @@ function NavBar() {
       <Nav>
         <BurgerLogo onClick={handleClick} />
         <Wrapper>
+          <TextDescription>
+            Jl. Batang Hari No.21,
+            <br /> Cideng, Gambir, Jakarta 10150
+          </TextDescription>
+          {/* <SocialMediaWrapper>
+            <i class="fab fa-instagram fa-2x" />
+            Hello
+          </SocialMediaWrapper> */}
           <Logo src={logoLotek} alt="Logo" />
-          <Title>LOTEK KALIPAH APO</Title>
+          <Title>LOTEK KALIPAH APO 42</Title>
+          {/* <Title>Sedjak 1953</Title> */}
+
           <NavMenu>
             {menuItems.map((item, index) => {
               return (
