@@ -20,6 +20,7 @@ const NavContainer = styled(Container).attrs({
   background: #f7f0e8;
   height: 250px;
   position: relative;
+  max-width: 100vw;
 `;
 
 const Nav = styled.nav`
@@ -100,8 +101,8 @@ const HeaderLine = styled.hr`
   border: none;
   border-bottom: 0.5px solid ${({ theme }) => theme.primary.dark};
   height: 0.5px;
-  margin: 4px;
-  width: 100vw;
+  margin: 0;
+  width: calc(100vw - 12px);
 `;
 
 const TextDescription = styled(Typography).attrs({
