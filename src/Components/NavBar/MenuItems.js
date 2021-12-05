@@ -15,9 +15,9 @@ const menuItems = [
     name: "menu",
   },
   {
-    title: "Contact Us",
-    url: "#contact",
-    name: "contact",
+    title: "Find Us",
+    url: "#find_us",
+    name: "find_us",
   },
 ];
 

@@ -1,22 +1,26 @@
 import styled, { css } from "styled-components";
 import React from "react";
-import { useState } from "react";
 import menuItems from "./MenuItems";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import logoLotek from "../../assets/logo.png";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
-const Nav = styled.nav`
+import logoLotek from "../../assets/logo.png";
+import { Typography } from "../Typography";
+import { Container } from "../Container";
+import { Image } from "../Image";
+
+const NavContainer = styled(Container).attrs({
+  justify: "center",
+  align: "center",
+})`
   background: #f7f0e8;
   height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  @media (max-width: 960px) {
-    position: relative;
-  }
+  position: relative;
+`;
 
+const Nav = styled.nav`
   margin-bottom: 30px;
 `;
 
@@ -25,6 +29,13 @@ const BurgerLogo = styled(FontAwesomeIcon).attrs({
   size: "lg",
 })`
   color: white;
+`;
+
+const SocialMediaIcon = styled(FontAwesomeIcon).attrs({
+  size: "lg",
+})`
+  color: #94703a;
+  padding: 4px;
 `;
 
 const NavMenu = styled.ul`
@@ -84,88 +95,64 @@ const NavLink = styled.a`
   }
 `;
 
-const Logo = styled.img`
-  width: 160px;
+const Logo = styled(Image).attrs({
+  width: 160,
+})`
   margin-top: 30px;
   margin-bottom: 16px;
 `;
 
-const Title = styled.div`
+const Title = styled(Typography).attrs({ variant: "title" })`
   font-size: 28px;
   font-family: "Lato", sans-serif;
-  font-weight: 300;
+  font-style: normal;
   letter-spacing: 2px;
-  color: rgb(148, 112, 58);
-
   margin-bottom: 4px;
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
 `;
 
 const HeaderLine = styled.hr`
-  background-color: #eae5e1;
-  margin: 0px;
+  border: none;
+  border-bottom: 0.5px solid #94703a;
+  height: 0.5px;
+  margin: 4px;
   width: 100vw;
 `;
 
-const TextDescription = styled.div`
-  font-size: 11px;
-  font-family: "Lato", sans-serif;
-  font-weight: 500;
-  color: #605e5e;
+const TextDescription = styled(Typography).attrs({
+  variant: "body",
+})`
+  font-size: 12px;
   text-transform: uppercase;
-
-  margin-bottom: 4px;
-  position: absolute;
-  left: 40px;
-  top: 30px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
 `;
 
-const SocialMediaWrapper = styled(TextDescription)`
-  font-size: 11px;
-  font-family: "Lato", sans-serif;
-  font-weight: 500;
-  color: #605e5e;
-  text-transform: uppercase;
-
-  margin-bottom: 4px;
+const PositionWrapper = styled.div`
   position: absolute;
-  top: 20px;
-  right: 40px;
-  letter-spacing: 1px;
+  top: ${(props) => props.top}px;
+  left: ${(props) => props.left}px;
+  right: ${(props) => props.right}px;
 `;
 
 function NavBar() {
-  const [clicked, setClicked] = useState(false);
-
-  const handleClick = () => {
-    setClicked(true);
-  };
-
   return (
-    <div>
+    <NavContainer>
       <Nav>
-        <BurgerLogo onClick={handleClick} />
-        <Wrapper>
-          <TextDescription>
-            Jl. Batang Hari No.21,
-            <br /> Cideng, Gambir, Jakarta 10150
-          </TextDescription>
-          {/* <SocialMediaWrapper>
-            <i class="fab fa-instagram fa-2x" />
-            Hello
-          </SocialMediaWrapper> */}
+        <BurgerLogo />
+        <Container direction="column" align="center" justify="center">
+          <PositionWrapper top="40" left="150">
+            <TextDescription variant="body">
+              Jl. Batang Hari No.21,
+              <br /> Cideng, Gambir, Jakarta 10150
+            </TextDescription>
+          </PositionWrapper>
           <Logo src={logoLotek} alt="Logo" />
           <Title>LOTEK KALIPAH APO 42</Title>
-          {/* <Title>Sedjak 1953</Title> */}
+
+          <PositionWrapper top="40" right="170">
+            <SocialMediaIcon icon={faInstagram} />
+            <SocialMediaIcon icon={faWhatsapp} />
+          </PositionWrapper>
 
           <NavMenu>
             {menuItems.map((item, index) => {
@@ -177,9 +164,9 @@ function NavBar() {
             })}
           </NavMenu>
           <HeaderLine />
-        </Wrapper>
+        </Container>
       </Nav>
-    </div>
+    </NavContainer>
   );
 }
 
