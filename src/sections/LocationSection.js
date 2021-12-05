@@ -13,7 +13,7 @@ const LocationBox = styled(Container).attrs({
   justify: "center",
 })`
   width: 80%;
-  border: 1px solid #94703a;
+  border: 1px solid ${({ theme }) => theme.primary.dark};
   border-radius: 5px;
 `;
 

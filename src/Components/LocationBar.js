@@ -3,12 +3,13 @@ import styled from "styled-components";
 import { Typography } from "./Typography";
 import { Container } from "./Container";
 import { Image } from "./Image";
+import { Icon } from "./Icon";
 import mapJakarta from "../assets/map_jakarta.png";
 import mapBandung from "../assets/map_bandung.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { Button } from "./Button.js";
+import { withTheme } from "styled-components";
 
 const MapWrapper = styled.div`
   position: relative;
@@ -27,16 +28,10 @@ const Grid = styled(Container)`
   gap: 20px;
 `;
 
-const Icon = styled(FontAwesomeIcon)`
-  color: #b98d4b;
-  font-size: ${(props) => props.size}px;
-  padding: 4px 8px 4px 0;
-`;
-
 const BreakLine = styled.hr`
   border: none;
-  border-top: 3px double #b98d4b;
-  color: #b98d4b;
+  border-top: 3px double ${({ theme }) => theme.primary.light};
+  color: ${({ theme }) => theme.primary.light};
   overflow: visible;
   text-align: center;
   height: 5px;
@@ -45,7 +40,7 @@ const BreakLine = styled.hr`
   margin-bottom: 20px;
 
   :after {
-    background: #fff;
+    background: ${({ theme }) => theme.background};
     content: "§";
     padding: 0 4px;
     position: relative;
@@ -72,7 +67,7 @@ function LocationBar() {
           <Typography variant="title" align="left">
             Jakarta
           </Typography>
-          <Container>
+          <Container gap="4">
             <Icon icon={faHome} size="18" />
             <Typography variant="body" align="left">
               Jl. Batang Hari No.21, RT.1/RW.2,
@@ -86,7 +81,7 @@ function LocationBar() {
               Indonesia
             </Typography>
           </Container>
-          <Container padding="4">
+          <Container gap="4">
             <Icon icon={faWhatsapp} size="20" />
             <Typography variant="body" align="left">
               <a
@@ -122,7 +117,7 @@ function LocationBar() {
           <Typography variant="title" align="left">
             Bandung
           </Typography>
-          <Container>
+          <Container gap="4">
             <Icon icon={faHome} size="18" />
             <Typography variant="body" align="left">
               Jl. Kalipah Apo No.42,
@@ -136,7 +131,7 @@ function LocationBar() {
               Indonesia
             </Typography>
           </Container>
-          <Container>
+          <Container gap="4">
             <Icon icon={faPhoneAlt} size="18" />
             <Typography variant="body" align="left">
               <Button primary>+62 22-420-5983</Button>
@@ -163,4 +158,4 @@ function LocationBar() {
   );
 }
 
-export default LocationBar;
+export default withTheme(LocationBar);

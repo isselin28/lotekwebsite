@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 import React from "react";
 import menuItems from "./MenuItems";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
@@ -10,6 +9,9 @@ import logoLotek from "../../assets/logo.png";
 import { Typography } from "../Typography";
 import { Container } from "../Container";
 import { Image } from "../Image";
+import { Icon } from "../Icon";
+
+import { withTheme } from "styled-components";
 
 const NavContainer = styled(Container).attrs({
   justify: "center",
@@ -22,20 +24,6 @@ const NavContainer = styled(Container).attrs({
 
 const Nav = styled.nav`
   margin-bottom: 30px;
-`;
-
-const BurgerLogo = styled(FontAwesomeIcon).attrs({
-  icon: faBars,
-  size: "lg",
-})`
-  color: white;
-`;
-
-const SocialMediaIcon = styled(FontAwesomeIcon).attrs({
-  size: "lg",
-})`
-  color: #94703a;
-  padding: 4px;
 `;
 
 const NavMenu = styled.ul`
@@ -65,7 +53,7 @@ const NavMenu = styled.ul`
             transition: all 0.5s ease;
           `
         : css`
-            backround: #6668f4;
+            background: #6668f4;
             left: 0;
             opacity: 1;
             transition: all 0.5s ease;
@@ -76,9 +64,7 @@ const NavMenu = styled.ul`
 `;
 
 const NavLink = styled.a`
-  font-size: 15px;
-  color: #605e5e;
-  text-decoration: none;
+  color: ${({ theme }) => theme.default};
   padding: 4px 16px;
   letter-spacing: -0.5px;
 
@@ -112,7 +98,7 @@ const Title = styled(Typography).attrs({ variant: "title" })`
 
 const HeaderLine = styled.hr`
   border: none;
-  border-bottom: 0.5px solid #94703a;
+  border-bottom: 0.5px solid ${({ theme }) => theme.primary.dark};
   height: 0.5px;
   margin: 4px;
   width: 100vw;
@@ -138,7 +124,7 @@ function NavBar() {
   return (
     <NavContainer>
       <Nav>
-        <BurgerLogo />
+        <Icon icon={faBars} size="lg" />
         <Container direction="column" align="center" justify="center">
           <PositionWrapper top="40" left="150">
             <TextDescription variant="body">
@@ -155,14 +141,14 @@ function NavBar() {
               target="_blank"
               rel="noreferrer"
             >
-              <SocialMediaIcon icon={faInstagram} />
+              <Icon icon={faInstagram} size="lg" />
             </a>
             <a
               href="https://wa.me/6281386041621"
               target="_blank"
               rel="noreferrer"
             >
-              <SocialMediaIcon icon={faWhatsapp} />
+              <Icon icon={faWhatsapp} size="lg" />
             </a>
           </PositionWrapper>
 
@@ -182,4 +168,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default withTheme(NavBar);

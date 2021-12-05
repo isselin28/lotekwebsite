@@ -12,11 +12,12 @@ import { Typography } from "./components/Typography";
 import { Container } from "./components/Container";
 import { Image } from "./components/Image";
 import { Button } from "./components/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Icon } from "./components/Icon";
 import { faPepperHot } from "@fortawesome/free-solid-svg-icons";
 import { FeaturedSection } from "./sections/FeaturedSection.js";
 import { LocationSection } from "./sections/LocationSection.js";
 import GlobalStyle from "./GlobalStyles";
+import { withTheme } from "styled-components";
 
 const ContentWrapper = styled(Container).attrs({
   align: "center",
@@ -50,7 +51,7 @@ const TextContainer = styled.div`
 
 const FooterContainer = styled(Container)`
   height: 40px;
-  background-color: #94703a;
+  background-color: ${({ theme }) => theme.primary.dark};
   color: white;
 `;
 
@@ -60,14 +61,8 @@ const Copywright = styled(Typography).attrs({ variant: "body" })`
   letter-spacing: 1px;
 `;
 
-const Icon = styled(FontAwesomeIcon)`
-  color: #b98d4b;
-  font-size: ${(props) => props.size}px;
-  padding: 4px;
-`;
-
 const Line = styled.hr`
-  border: 1px solid #b98d4b;
+  border: 1px solid ${({ theme }) => theme.primary.light};
   height: 1px;
   min-width: 100px;
   margin: 12px;
@@ -185,4 +180,4 @@ function App() {
   );
 }
 
-export default App;
+export default withTheme(App);
