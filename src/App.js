@@ -14,9 +14,9 @@ import { Image } from "./components/Image";
 import { Button } from "./components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPepperHot } from "@fortawesome/free-solid-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FeaturedSection } from "./sections/FeaturedSection.js";
 import { LocationSection } from "./sections/LocationSection.js";
+import GlobalStyle from "./GlobalStyles";
 
 const ContentWrapper = styled(Container).attrs({
   align: "center",
@@ -48,44 +48,16 @@ const TextContainer = styled.div`
   margin-bottom: 60px;
 `;
 
-const FooterContainer = styled.div`
-  max-height: 240px;
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
+const FooterContainer = styled(Container)`
+  height: 40px;
   background-color: #94703a;
   color: white;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-`;
-
-const IconWrapper = styled(Typography).attrs({
-  variant: "label",
-})`
-  display: flex;
-  color: white;
-  font-size: 13px;
-  padding-bottom: 4px;
-  gap: 8px;
-`;
-
-const SocialMediaWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  left: 220px;
-  top: 40px;
 `;
 
 const Copywright = styled(Typography).attrs({ variant: "body" })`
   color: white;
   font-size: 12px;
   letter-spacing: 1px;
-  position: absolute;
-  bottom: 10px;
 `;
 
 const Icon = styled(FontAwesomeIcon)`
@@ -116,6 +88,7 @@ function Divider() {
 function App() {
   return (
     <>
+      <GlobalStyle />
       <NavBar />
       <StripImage imageUrl={houseImage} position="top center" size="contain" />
       <div id="about" />
@@ -197,13 +170,16 @@ function App() {
         size="cover"
         opacity="0.5"
       />
-      <FooterContainer>
-        <SocialMediaWrapper>
-          <IconWrapper>
-            <Icon icon={faInstagram} size="fa-2x" /> lotekkalipahapo42
-          </IconWrapper>
-        </SocialMediaWrapper>
-        <Copywright>&copy; 2021 by Isselin</Copywright>
+      <FooterContainer align="center" justify="center" fullWidth>
+        <a
+          href="https://www.linkedin.com/in/isselinmoektijono/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Button primary>
+            <Copywright>&copy; 2021 by Isselin</Copywright>
+          </Button>
+        </a>
       </FooterContainer>
     </>
   );

@@ -6,7 +6,7 @@ import { Image } from "./Image";
 import mapJakarta from "../assets/map_jakarta.png";
 import mapBandung from "../assets/map_bandung.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { Button } from "./Button.js";
 
@@ -73,7 +73,7 @@ function LocationBar() {
             Jakarta
           </Typography>
           <Container>
-            <Icon icon={faHome} />
+            <Icon icon={faHome} size="18" />
             <Typography variant="body" align="left">
               Jl. Batang Hari No.21, RT.1/RW.2,
               <br />
@@ -89,7 +89,13 @@ function LocationBar() {
           <Container padding="4">
             <Icon icon={faWhatsapp} size="20" />
             <Typography variant="body" align="left">
-              <Button primary>+62 813-8604-1621</Button>
+              <a
+                href="https://wa.me/6281386041621"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button primary>+62 813-8604-1621</Button>
+              </a>
             </Typography>
           </Container>
         </Container>
@@ -117,7 +123,7 @@ function LocationBar() {
             Bandung
           </Typography>
           <Container>
-            <Icon icon={faHome} />
+            <Icon icon={faHome} size="18" />
             <Typography variant="body" align="left">
               Jl. Kalipah Apo No.42,
               <br />
@@ -131,7 +137,7 @@ function LocationBar() {
             </Typography>
           </Container>
           <Container>
-            <Icon icon={faWhatsapp} size="20" />
+            <Icon icon={faPhoneAlt} size="18" />
             <Typography variant="body" align="left">
               <Button primary>+62 22-420-5983</Button>
             </Typography>

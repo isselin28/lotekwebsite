@@ -150,8 +150,20 @@ function NavBar() {
           <Title>LOTEK KALIPAH APO 42</Title>
 
           <PositionWrapper top="40" right="170">
-            <SocialMediaIcon icon={faInstagram} />
-            <SocialMediaIcon icon={faWhatsapp} />
+            <a
+              href="https://www.instagram.com/lotekkalipahapo42"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <SocialMediaIcon icon={faInstagram} />
+            </a>
+            <a
+              href="https://wa.me/6281386041621"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <SocialMediaIcon icon={faWhatsapp} />
+            </a>
           </PositionWrapper>
 
           <NavMenu>
