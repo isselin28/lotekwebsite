@@ -102,7 +102,7 @@ const HeaderLine = styled.hr`
   border-bottom: 0.5px solid ${({ theme }) => theme.primary.dark};
   height: 0.5px;
   margin: 0;
-  width: calc(100vw - 12px);
+  width: 99vw;
 `;
 
 const TextDescription = styled(Typography).attrs({
@@ -112,6 +112,7 @@ const TextDescription = styled(Typography).attrs({
   text-transform: uppercase;
   letter-spacing: 0.5px;
   line-height: 1.3;
+  color: ${({ theme }) => theme.primary.dark};
 `;
 
 const PositionWrapper = styled.div`
