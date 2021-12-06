@@ -15,11 +15,12 @@ const LocationBox = styled(Container).attrs({
   width: 80%;
   border: 1px solid ${({ theme }) => theme.primary.dark};
   border-radius: 5px;
+  margin-bottom: 60px;
 `;
 
 export function LocationSection() {
   return (
-    <>
+    <Container align="center" justify="center" direction="column">
       <Container
         direction="column"
         justify="center"
@@ -41,6 +42,6 @@ export function LocationSection() {
       <LocationBox>
         <LocationBar />
       </LocationBox>
-    </>
+    </Container>
   );
 }

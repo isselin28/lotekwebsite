@@ -28,10 +28,17 @@ const Copywright = styled(Typography).attrs({ variant: "body" })`
 `;
 
 const Line = styled.hr`
-  border: 1px solid ${({ theme }) => theme.primary.light};
+  border: none;
+  border-bottom: 1px solid ${({ theme }) => theme.primary.light};
   height: 1px;
   min-width: 100px;
   margin: 12px;
+`;
+
+const PageSpacing = styled.div`
+  height: 120px;
+  background-color: ${({ theme }) => theme.background};
+  width: 100%;
 `;
 
 function Divider() {
@@ -52,25 +59,29 @@ function App() {
       <GlobalStyle />
       <NavBar />
       <StripImage imageUrl={houseImage} position="top center" size="contain" />
-      <Container align="center" justify="center" direction="column">
-        <div id="about" />
-        <AboutSection />
 
-        <FeaturedSection />
+      <div id="about" />
+      <AboutSection />
 
+      <PageSpacing />
+
+      <FeaturedSection />
+
+      <PageSpacing />
+
+      <Container direction="column" align="center">
         <Divider />
-
         <div id="menu" />
-        <Container direction="column" align="center">
-          <Typography variant="title">Menu</Typography>
-          <Button primary>Download Our Special Delicacies Here</Button>
-        </Container>
-
+        <Typography variant="title">Menu</Typography>
+        <Button primary>Download Our Special Delicacies Here</Button>
         <Divider />
-
-        <div id="find_us" />
-        <LocationSection />
       </Container>
+
+      <PageSpacing />
+
+      <div id="find_us" />
+      <LocationSection />
+
       <StripImage
         imageUrl={houseInside}
         position="bottom center"

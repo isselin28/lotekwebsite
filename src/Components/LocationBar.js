@@ -52,8 +52,8 @@ const MapButton = styled(Button).attrs({
   primary: false,
 })`
   position: absolute;
-  bottom: 5%;
-  left: 5%;
+  bottom: 15px;
+  left: 20px;
 
   height: 28px;
   width: 360px;
