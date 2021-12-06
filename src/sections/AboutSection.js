@@ -39,6 +39,10 @@ const TextContainer = styled.div`
   margin-bottom: 60px;
 `;
 
+const Underline = styled.p`
+  text-decoration: underline;
+`;
+
 function AboutSection() {
   return (
     <Container align="center" justify="center" direction="column">
@@ -53,29 +57,30 @@ function AboutSection() {
           />
           <TextContainer>
             <Typography variant="label">OUR PLACE</Typography>
-            <Typography variant="title">
-              Hadir di Bandung, Hadir di Jakarta
-            </Typography>
+            <Typography variant="title">Dari Bandung ke Jakarta</Typography>
             <Typography variant="body">
-              Citarasa Lotek Oma telah hadir di jakarta, mengobati kangen. Rumah
-              dengan suasana yang "homey" dan sejuk. Tempat yang tepat bagi para
-              pecinta sayuran dan makanan sehat.
+              Citarasa <i>Lotek Ema</i> telah berada di{" "}
+              <b>Jakarta sejak 1997</b>, mengobati rasa kangen. Kami
+              mempertahankan resep jadul dan menggunakan bahan-bahan alami.
+              Menikmati lotek dalam rumah dengan suasana yang <i>"homey"</i> dan
+              sejuk. Tempat yang tepat bagi para pecinta sayuran dan makanan
+              sehat.
             </Typography>
           </TextContainer>
         </Column>
         <Column>
           <TextContainer>
             <Typography variant="label">OUR RESTAURANT</Typography>
-            <Typography variant="title">Resep Oma sedjak 1953</Typography>
+            <Typography variant="title">Resep Ema sedjak 1953</Typography>
             <Typography variant="body">
               Bermula di jalan <b>Kalipah Apo, Bandung</b>, <i>resep Lotek</i>{" "}
-              yang diwariskan Oma melalui generasi, sering menjadi sasaran
-              kuliner nusantara. Aroma legit bumbu kacang, renyahnya toge dan
-              kacang panjang, bumbu yang manis dan gurih berbaur dalam sebuah
-              piring bundar menjadi <i>menu khas Lotek</i>. Berbagai citarasa
-              Sunda seperti{" "}
-              <i>Gado-gado, Kariayam, Candil, Pacar, Ketan hitam</i> dan menu
-              spesial lainnya kini juga bisa dinikmati di Jakarta.
+              yang diwariskan <i>Ema</i> (Nenek) melalui tiga generasi sering
+              menjadi sasaran kuliner nusantara. Aroma legit bumbu kacang,
+              renyahnya toge dan kangkung, bumbu khas bersensasi kencur yang
+              manis dan gurih berbaur dalam sebuah piring bundar menjadi{" "}
+              <i>menu khas Lotek</i>. Berbagai citarasa Sunda seperti{" "}
+              <i>Kariayam, Laksa, Bubur Sagurangi, Kolak Pisang, Ketan hitam</i>{" "}
+              dan menu spesial lainnya kini juga bisa dinikmati di Jakarta.
             </Typography>
           </TextContainer>
           <Image
