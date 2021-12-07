@@ -39,10 +39,6 @@ const TextContainer = styled.div`
   margin-bottom: 60px;
 `;
 
-const Underline = styled.p`
-  text-decoration: underline;
-`;
-
 function AboutSection() {
   return (
     <Container align="center" justify="center" direction="column">
