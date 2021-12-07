@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import React from "react";
 import NavBar from "./components/NavBar/NavBar";
 import houseImage from "./assets/house_front_pencil.jpeg";
@@ -14,6 +14,7 @@ import { LocationSection } from "./sections/LocationSection.js";
 import AboutSection from "./sections/AboutSection.js";
 import GlobalStyle from "./GlobalStyles";
 import { withTheme } from "styled-components";
+import { FloatingButton } from "./components/FloatingButton";
 
 const FooterContainer = styled(Container)`
   height: 40px;
@@ -88,6 +89,7 @@ function App() {
         size="cover"
         opacity="0.5"
       />
+
       <FooterContainer align="center" justify="center" fullWidth>
         <a
           href="https://www.linkedin.com/in/isselinmoektijono/"
@@ -99,6 +101,8 @@ function App() {
           </Button>
         </a>
       </FooterContainer>
+
+      <FloatingButton />
     </>
   );
 }
