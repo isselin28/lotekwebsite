@@ -58,6 +58,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <FloatingButton />
       <NavBar />
       <StripImage imageUrl={houseImage} position="top center" size="contain" />
 
@@ -101,8 +102,6 @@ function App() {
           </Button>
         </a>
       </FooterContainer>
-
-      <FloatingButton />
     </>
   );
 }
