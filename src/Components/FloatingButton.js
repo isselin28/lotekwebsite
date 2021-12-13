@@ -32,6 +32,14 @@ const RoundButton = styled.div`
     cursor: pointer;
     color: white;
     background-color: ${({ theme }) => theme.primary.light};
+
+    ${({ animate, isOpen }) =>
+      animate &&
+      css`
+        background-color: ${({ theme }) =>
+          isOpen ? theme.primary.light : theme.default};
+      `}
+
     border: 1.5px solid ${({ theme }) => theme.primary.light};
   }
 
@@ -46,7 +54,7 @@ const AnimateText = styled(Typography).attrs({
   variant: "body",
 })`
   display: none;
-  color: white;
+  color: ${({ theme }) => theme.background};
   font-size: 13px;
 
   padding-top: 4px;
@@ -105,6 +113,7 @@ const AnimateButton = styled(RoundButton)`
     }
   }
 
+  :active,
   :hover {
     ${({ animate }) =>
       animate &&
@@ -113,6 +122,7 @@ const AnimateButton = styled(RoundButton)`
         border-radius: 24px;
         transition-duration: 500ms;
         transition-timing-function: ease-in;
+        border: none;
 
         animation: shape;
         animation-duration: 2s;
@@ -173,14 +183,22 @@ const OpeningHourWrapper = styled(Container).attrs({
 })`
   max-width: 100%;
   background-color: ${({ theme }) => theme.background};
-  border: 1.5px solid ${({ theme }) => theme.primary.dark};
-  border-radius: 8px;
   padding: 12px 16px;
   margin-right: 4px;
   margin-bottom: 4px;
+  border-radius: 8px;
+
+  ${({ isOpen }) => css`
+    border: 1.5px solid
+      ${({ theme }) => (isOpen ? theme.primary.dark : theme.default)};
+  `}
 
   box-shadow: 1px 2px 4px #c6c6c6;
   z-index: 1;
+`;
+
+const OpeningHourText = styled.div`
+  font-weight: ${(props) => (props.bold ? 700 : 400)};
 `;
 
 const iconLinkDetails = [
@@ -197,44 +215,54 @@ const iconLinkDetails = [
 ];
 
 const openingHours = [
-  {
-    day: "Monday",
-    time: "10am - 3pm",
-  },
-  {
-    day: "Tuesday",
-    time: "10am - 3pm",
-  },
-  {
-    day: "Wednesday",
-    time: "10am - 3pm",
-  },
-  {
-    day: "Thursday",
-    time: "10am - 3pm",
-  },
-  {
-    day: "Friday",
-    time: "10am - 3pm",
-  },
-  {
-    day: "Saturday",
-    time: "10am - 3pm",
-  },
-  {
-    day: "Sunday",
-    time: "Closed",
-  },
+  { id: 1, day: "Monday", time: "10am - 3pm" },
+  { id: 2, day: "Tuesday", time: "10am - 3pm" },
+  { id: 3, day: "Wednesday", time: "10am - 3pm" },
+  { id: 4, day: "Thursday", time: "10am - 3pm" },
+  { id: 5, day: "Friday", time: "10am - 3pm" },
+  { id: 6, day: "Saturday", time: "10am - 3pm" },
+  { id: 0, day: "Sunday", time: "Closed" },
 ];
 
 export function FloatingButton() {
   const [showDetail, setShowDetail] = useState(false);
+  const [isShopOpen, setIsShopOpen] = useState(true);
+  const [shopStatus, setShopStatus] = useState("");
+  const [dayId, setDayId] = useState(0);
 
   const handleMouseOut = (event) => {
     const button = event.currentTarget;
     if (button) {
       setShowDetail(false);
     }
+  };
+
+  const handleTimeText = () => {
+    const date = new Date();
+    const dayUTC = date.getUTCDay();
+    const hour = date.getUTCHours() + 7; // GMT+7 for Indonesia
+
+    setDayId(dayUTC);
+
+    if (hour > 23 && hour < 32) {
+      if (dayUTC === 6) {
+        setDayId(0);
+      } else {
+        setDayId(dayUTC + 1);
+      }
+    }
+
+    if (hour > 9 && hour < 16 && dayId !== 0) {
+      setIsShopOpen(true);
+      setShopStatus("Opens now until 3pm");
+    }
+
+    if (dayId === 6) {
+      setShopStatus("Closed, opens on Monday 9am ");
+    }
+
+    setIsShopOpen(false);
+    setShopStatus("Closed, opens at 9am ");
   };
 
   return (
@@ -251,20 +279,26 @@ export function FloatingButton() {
         <AnimateButton
           animate
           onClick={() => setShowDetail(true)}
+          onMouseEnter={handleTimeText}
           onMouseLeave={handleMouseOut}
+          isOpen={isShopOpen}
         >
           <Container justify="space-between" align="center">
             <ClockIcon />
-            <AnimateText>Closed, open tomorrow 10am</AnimateText>
+            <AnimateText isOpen={isShopOpen}>{shopStatus}</AnimateText>
             <ArrowDown />
           </Container>
         </AnimateButton>
         {showDetail && (
-          <OpeningHourWrapper>
+          <OpeningHourWrapper isOpen={isShopOpen}>
             {openingHours.map((detail) => (
               <Container justify="space-between" padding="4">
-                <div>{detail.day}</div>
-                <div>{detail.time}</div>
+                <OpeningHourText bold={detail.id === dayId}>
+                  {detail.day}
+                </OpeningHourText>
+                <OpeningHourText bold={detail.id === dayId}>
+                  {detail.time}
+                </OpeningHourText>
               </Container>
             ))}
           </OpeningHourWrapper>
