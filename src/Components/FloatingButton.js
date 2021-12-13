@@ -61,7 +61,16 @@ const ArrowDown = styled(Icon).attrs({
   color: white;
   display: none;
   padding-left: 0;
-  right: 0px;
+  right: -15px;
+`;
+
+const ClockIcon = styled(Icon).attrs({
+  icon: faClock,
+  size: "lg",
+})`
+  position: absolute;
+  padding-left: 0;
+  left: 12px;
 `;
 
 const AnimateButton = styled(RoundButton)`
@@ -100,13 +109,15 @@ const AnimateButton = styled(RoundButton)`
     ${({ animate }) =>
       animate &&
       css`
-        width: 200px;
+        width: 100%;
         border-radius: 24px;
         transition-duration: 500ms;
         transition-timing-function: ease-in;
 
         animation: shape;
         animation-duration: 2s;
+
+        padding: 0 12px 0 20px;
       `}
   }
 
@@ -115,7 +126,6 @@ const AnimateButton = styled(RoundButton)`
       animate &&
       css`
         animation: showup 1.8s;
-        transform: translateX(-15px);
       `}
   }
 
@@ -137,6 +147,7 @@ const AnimateButton = styled(RoundButton)`
       css`
         display: block;
         animation: showup 1.8s;
+        transform: translateX(-25px);
       `}
   }
 `;
@@ -226,8 +237,6 @@ export function FloatingButton() {
     }
   };
 
-  console.log(showDetail);
-
   return (
     <StickyWrapper>
       <FloatingWrapper direction="column" align="flex-end">
@@ -245,8 +254,8 @@ export function FloatingButton() {
           onMouseLeave={handleMouseOut}
         >
           <Container justify="space-between" align="center">
-            <Icon icon={faClock} size="lg" />
-            <AnimateText>Open in 9 hours</AnimateText>
+            <ClockIcon />
+            <AnimateText>Closed, open tomorrow 10am</AnimateText>
             <ArrowDown />
           </Container>
         </AnimateButton>
