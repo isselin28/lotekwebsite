@@ -11,22 +11,11 @@ import { Icon } from "./components/Icon";
 import { faPepperHot } from "@fortawesome/free-solid-svg-icons";
 import { FeaturedSection } from "./sections/FeaturedSection.js";
 import { LocationSection } from "./sections/LocationSection.js";
+import { FooterSection } from "./sections/FooterSection.js";
 import AboutSection from "./sections/AboutSection.js";
 import GlobalStyle from "./GlobalStyles";
 import { withTheme } from "styled-components";
 import { FloatingButton } from "./components/FloatingButton/FloatingButton";
-
-const FooterContainer = styled(Container)`
-  height: 40px;
-  background-color: ${({ theme }) => theme.primary.dark};
-  color: white;
-`;
-
-const Copywright = styled(Typography).attrs({ variant: "body" })`
-  color: white;
-  font-size: 12px;
-  letter-spacing: 1px;
-`;
 
 const Line = styled.hr`
   border: none;
@@ -91,17 +80,7 @@ function App() {
         opacity="0.5"
       />
 
-      <FooterContainer align="center" justify="center" fullWidth>
-        <a
-          href="https://www.linkedin.com/in/isselinmoektijono/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Button primary>
-            <Copywright>&copy; 2021 by Isselin</Copywright>
-          </Button>
-        </a>
-      </FooterContainer>
+      <FooterSection />
     </>
   );
 }
