@@ -217,7 +217,6 @@ export function FloatingButton() {
     }
 
     if (hour > 9 && hour < 16 && dayId !== 0) {
-      console.log("open");
       setIsShopOpen(true);
       setShopStatus("Opens now until 3pm");
     } else if (dayId === 6) {
