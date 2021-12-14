@@ -11,7 +11,7 @@ const LinkedinIcon = styled(Icon).attrs({
 })`
   color: white;
   opacity: 0;
-  padding: 8px 8px;
+  padding: 4px 8px;
 `;
 
 const Copyright = styled(Typography).attrs({ variant: "body" })`
