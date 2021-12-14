@@ -14,7 +14,7 @@ import { LocationSection } from "./sections/LocationSection.js";
 import AboutSection from "./sections/AboutSection.js";
 import GlobalStyle from "./GlobalStyles";
 import { withTheme } from "styled-components";
-import { FloatingButton } from "./components/FloatingButton";
+import { FloatingButton } from "./components/FloatingButton/FloatingButton";
 
 const FooterContainer = styled(Container)`
   height: 40px;
@@ -58,6 +58,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <FloatingButton />
       <NavBar />
       <StripImage imageUrl={houseImage} position="top center" size="contain" />
 
@@ -101,8 +102,6 @@ function App() {
           </Button>
         </a>
       </FooterContainer>
-
-      <FloatingButton />
     </>
   );
 }
