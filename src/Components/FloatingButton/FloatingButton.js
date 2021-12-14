@@ -1,54 +1,15 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
-import { Icon } from "./Icon";
-import { Container } from "./Container";
-import { Typography } from "./Typography";
+import { Icon } from "../Icon";
+import { Container } from "../Container";
+import { Typography } from "../Typography";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import {
   faMapMarkerAlt,
   faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
-import { faClock, faEnvelope } from "@fortawesome/free-regular-svg-icons";
-
-const RoundButton = styled.div`
-  color: ${({ theme }) => theme.primary.dark};
-  background-color: ${({ theme }) => theme.background};
-  border: 1.5px solid ${({ theme }) => theme.primary.dark};
-  box-shadow: 1px 2px 4px #c6c6c6;
-  border-radius: 50%;
-  height: 36px;
-  width: 36px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-
-  padding: 4px;
-  margin: 4px;
-
-  :active,
-  :hover {
-    cursor: pointer;
-    color: white;
-    background-color: ${({ theme }) => theme.primary.light};
-
-    ${({ animate, isOpen }) =>
-      animate &&
-      css`
-        background-color: ${({ theme }) =>
-          isOpen ? theme.primary.light : theme.default};
-      `}
-
-    border: 1.5px solid ${({ theme }) => theme.primary.light};
-  }
-
-  :active,
-  :hover ${Icon} {
-    cursor: pointer;
-    color: white;
-  }
-`;
+import { faClock } from "@fortawesome/free-regular-svg-icons";
+import { RoundButton } from "./RoundButton";
 
 const AnimateText = styled(Typography).attrs({
   variant: "body",
@@ -115,7 +76,7 @@ const AnimateButton = styled(RoundButton)`
 
   :active,
   :hover {
-    ${({ animate }) =>
+    ${({ animate, isOpen }) =>
       animate &&
       css`
         width: 100%;
@@ -127,7 +88,11 @@ const AnimateButton = styled(RoundButton)`
         animation: shape;
         animation-duration: 2s;
 
-        padding: 0 12px 0 20px;
+        padding-right: 16px;
+        padding-left: 20px;
+
+        background-color: ${({ theme }) =>
+          isOpen ? theme.primary.light : theme.default};
       `}
   }
 
@@ -165,7 +130,7 @@ const AnimateButton = styled(RoundButton)`
 const StickyWrapper = styled.div`
   position: -webkit-sticky;
   position: sticky;
-  top: 25%;
+  top: 30%;
   z-index: 1;
 `;
 
@@ -184,8 +149,7 @@ const OpeningHourWrapper = styled(Container).attrs({
   max-width: 100%;
   background-color: ${({ theme }) => theme.background};
   padding: 12px 16px;
-  margin-right: 4px;
-  margin-bottom: 4px;
+  margin: 0 4px 4px 0;
   border-radius: 8px;
 
   ${({ isOpen }) => css`
@@ -201,34 +165,34 @@ const OpeningHourText = styled.div`
   font-weight: ${(props) => (props.bold ? 700 : 400)};
 `;
 
-const iconLinkDetails = [
-  {
-    name: faWhatsapp,
-    url: "https://wa.me/6281386041621",
-    animate: false,
-  },
-  {
-    name: faMapMarkerAlt,
-    url: "https://goo.gl/maps/3bGVGfccvN3KL1Dh9",
-    animate: false,
-  },
-];
-
-const openingHours = [
-  { id: 1, day: "Monday", time: "10am - 3pm" },
-  { id: 2, day: "Tuesday", time: "10am - 3pm" },
-  { id: 3, day: "Wednesday", time: "10am - 3pm" },
-  { id: 4, day: "Thursday", time: "10am - 3pm" },
-  { id: 5, day: "Friday", time: "10am - 3pm" },
-  { id: 6, day: "Saturday", time: "10am - 3pm" },
-  { id: 0, day: "Sunday", time: "Closed" },
-];
-
 export function FloatingButton() {
   const [showDetail, setShowDetail] = useState(false);
   const [isShopOpen, setIsShopOpen] = useState(true);
   const [shopStatus, setShopStatus] = useState("");
   const [dayId, setDayId] = useState(0);
+
+  const iconLinkDetails = [
+    {
+      name: faWhatsapp,
+      url: "https://wa.me/6281386041621",
+      animate: false,
+    },
+    {
+      name: faMapMarkerAlt,
+      url: "https://goo.gl/maps/3bGVGfccvN3KL1Dh9",
+      animate: false,
+    },
+  ];
+
+  const openingHours = [
+    { id: 1, day: "Monday", time: "10am - 3pm" },
+    { id: 2, day: "Tuesday", time: "10am - 3pm" },
+    { id: 3, day: "Wednesday", time: "10am - 3pm" },
+    { id: 4, day: "Thursday", time: "10am - 3pm" },
+    { id: 5, day: "Friday", time: "10am - 3pm" },
+    { id: 6, day: "Saturday", time: "10am - 3pm" },
+    { id: 0, day: "Sunday", time: "Closed" },
+  ];
 
   const handleMouseOut = (event) => {
     const button = event.currentTarget;
@@ -238,7 +202,7 @@ export function FloatingButton() {
   };
 
   const handleTimeText = () => {
-    const date = new Date();
+    const date = new Date("December 14, 2021 13:15:30 GMT+7:00");
     const dayUTC = date.getUTCDay();
     const hour = date.getUTCHours() + 7; // GMT+7 for Indonesia
 
@@ -253,16 +217,15 @@ export function FloatingButton() {
     }
 
     if (hour > 9 && hour < 16 && dayId !== 0) {
+      console.log("open");
       setIsShopOpen(true);
       setShopStatus("Opens now until 3pm");
-    }
-
-    if (dayId === 6) {
+    } else if (dayId === 6) {
       setShopStatus("Closed, opens on Monday 9am ");
+    } else {
+      setIsShopOpen(false);
+      setShopStatus("Closed, opens at 9am ");
     }
-
-    setIsShopOpen(false);
-    setShopStatus("Closed, opens at 9am ");
   };
 
   return (
@@ -303,10 +266,6 @@ export function FloatingButton() {
             ))}
           </OpeningHourWrapper>
         )}
-
-        <AnimateButton animate>
-          <Icon icon={faEnvelope} size="lg" />
-        </AnimateButton>
       </FloatingWrapper>
     </StickyWrapper>
   );
