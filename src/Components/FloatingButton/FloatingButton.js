@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { Icon } from "../Icon";
 import { Container } from "../Container";
@@ -60,13 +60,13 @@ const AnimateButton = styled(RoundButton)`
       display: none;
       opacity: 0;
     }
-    50% {
+    20% {
       display: none;
-      opacity: 0.3;
+      opacity: 0;
     }
-    80% {
-      display: block;
-      opacity: 0.8;
+    60% {
+      display: none;
+      opacity: 0.5;
     }
     100% {
       display: block;
@@ -171,6 +171,32 @@ export function FloatingButton() {
   const [shopStatus, setShopStatus] = useState("");
   const [dayId, setDayId] = useState(0);
 
+  useEffect(() => {
+    const date = new Date();
+    const dayUTC = date.getUTCDay();
+    const hour = date.getUTCHours() + 7; // GMT+7 for Indonesia
+
+    setDayId(dayUTC);
+
+    if (hour > 23 && hour < 32) {
+      if (dayUTC === 6) {
+        setDayId(0);
+      } else {
+        setDayId(dayUTC + 1);
+      }
+    }
+
+    if (hour > 9 && hour < 16 && dayId !== 0) {
+      setIsShopOpen(true);
+      setShopStatus("Opens now until 3pm");
+    } else if (dayId === 6) {
+      setShopStatus("Closed, opens on Monday 9am ");
+    } else {
+      setIsShopOpen(false);
+      setShopStatus("Closed, opens at 9am ");
+    }
+  }, [dayId]);
+
   const iconLinkDetails = [
     {
       name: faWhatsapp,
@@ -201,32 +227,6 @@ export function FloatingButton() {
     }
   };
 
-  const handleTimeText = () => {
-    const date = new Date("December 14, 2021 13:15:30 GMT+7:00");
-    const dayUTC = date.getUTCDay();
-    const hour = date.getUTCHours() + 7; // GMT+7 for Indonesia
-
-    setDayId(dayUTC);
-
-    if (hour > 23 && hour < 32) {
-      if (dayUTC === 6) {
-        setDayId(0);
-      } else {
-        setDayId(dayUTC + 1);
-      }
-    }
-
-    if (hour > 9 && hour < 16 && dayId !== 0) {
-      setIsShopOpen(true);
-      setShopStatus("Opens now until 3pm");
-    } else if (dayId === 6) {
-      setShopStatus("Closed, opens on Monday 9am ");
-    } else {
-      setIsShopOpen(false);
-      setShopStatus("Closed, opens at 9am ");
-    }
-  };
-
   return (
     <StickyWrapper>
       <FloatingWrapper direction="column" align="flex-end">
@@ -241,7 +241,6 @@ export function FloatingButton() {
         <AnimateButton
           animate
           onClick={() => setShowDetail(true)}
-          onMouseEnter={handleTimeText}
           onMouseLeave={handleMouseOut}
           isOpen={isShopOpen}
         >
