@@ -1,0 +1,55 @@
+{
+  "menuItems": {
+    "specialities": [
+      {
+        "name": "Lotek",
+        "body": "Our specialities since 1953. Beansprouts, Cabbage, Water Spinach, blended with peanut sauce, with a hint of aromatic ginger (kencur). Comes with non-spicy | medium | extra spicy options.",
+        "ingredients": "Vegetables, Signature Peanut Sauce, Kerupuk.",
+        "img_url": ""
+      },
+      {
+        "name": "Nasi Rames",
+        "body": "Tender slow cooked beef with rendang paste, vegetables, egg, cucumber. Served with warm rice and Kerupuk.",
+        "ingredients": "Vegetables, Beef, Kerupuk",
+        "img_url": "none"
+      },
+      {
+        "name": "Lotek",
+        "body": "Our specialities since 1953. Beansprouts, Cabbage, Water Spinach, blended with peanut sauce, with a hint of aromatic ginger (kencur). Comes with non-spicy | medium | extra spicy options.",
+        "ingredients": "Vegetables, Signature Peanut Sauce, Kerupuk."
+      },
+      {
+        "name": "Lotek",
+        "body": "Our specialities since 1953. Beansprouts, Cabbage, Water Spinach, blended with peanut sauce, with a hint of aromatic ginger (kencur). Comes with non-spicy | medium | extra spicy options.",
+        "ingredients": "Vegetables, Signature Peanut Sauce, Kerupuk."
+      },
+      {
+        "name": "Lotek",
+        "body": "Our specialities since 1953. Beansprouts, Cabbage, Water Spinach, blended with peanut sauce, with a hint of aromatic ginger (kencur). Comes with non-spicy | medium | extra spicy options.",
+        "ingredients": "Vegetables, Signature Peanut Sauce, Kerupuk."
+      }
+    ],
+    "drinks": [
+      {
+        "name": "Various Kolak",
+        "body": "Mix and match our sweet desserts, with homemade coconut puree.",
+        "ingredients": "Pisang, Bubur Sagurangi, Caca, Pacar, Bubur Jali, Bubur Ketan Hitam, Bubur Kacang Hijau, Candil ..."
+      },
+      {
+        "name": "Lotek",
+        "body": "Our specialities since 1953. Beansprouts, Cabbage, Water Spinach, blended with peanut sauce, with a hint of aromatic ginger (kencur). Comes with non-spicy | medium | extra spicy options.",
+        "ingredients": "Vegetables, Signature Peanut Sauce, Kerupuk."
+      },
+      {
+        "name": "Lotek",
+        "body": "Our specialities since 1953. Beansprouts, Cabbage, Water Spinach, blended with peanut sauce, with a hint of aromatic ginger (kencur). Comes with non-spicy | medium | extra spicy options.",
+        "ingredients": "Vegetables, Signature Peanut Sauce, Kerupuk."
+      },
+      {
+        "name": "Lotek",
+        "body": "Our specialities since 1953. Beansprouts, Cabbage, Water Spinach, blended with peanut sauce, with a hint of aromatic ginger (kencur). Comes with non-spicy | medium | extra spicy options.",
+        "ingredients": "Vegetables, Signature Peanut Sauce, Kerupuk."
+      }
+    ]
+  }
+}
