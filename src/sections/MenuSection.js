@@ -39,11 +39,10 @@ const Item = styled(Typography).attrs({
   ${({ header }) =>
     header &&
     css`
-      margin-top: 20px;
+      margin-top: 40px;
       margin-bottom: 15px;
       border-bottom: 1px solid ${({ theme }) => theme.primary.dark};
       width: 100%;
-      /* padding-right: 8px; */
     `}
 `;
 
@@ -93,7 +92,7 @@ function Divider() {
 
 export function MenuSection() {
   const { menuItems } = menuData.default;
-  const { specialties, drinks } = menuItems;
+  const { main, drinks } = menuItems;
 
   const dishLabel = (veggie, spicy) => {
     return (
@@ -111,24 +110,19 @@ export function MenuSection() {
 
         <Typography variant="title">Our Menu</Typography>
 
-        <Item header>Specialties</Item>
+        <Item header>Main Course</Item>
 
         <Grid>
           <div>
-            <Item>{specialties.featured.name}</Item>
-            <Typography variant="body">{specialties.featured.body}</Typography>
+            <Item>{main.featured.name}</Item>
+            <Typography variant="body">{main.featured.body}</Typography>
             <Container>
-              <ItemIngredient>
-                {specialties.featured.ingredients}
-              </ItemIngredient>
-              {dishLabel(
-                specialties.featured.vegetarian,
-                specialties.featured.spicy
-              )}
+              <ItemIngredient>{main.featured.ingredients}</ItemIngredient>
+              {dishLabel(main.featured.vegetarian, main.featured.spicy)}
             </Container>
           </div>
           <ItemImage src={foodLotek} alt="Lotek khas Kalipah Apo" />
-          {specialties.list.map((item) => (
+          {main.list.map((item) => (
             <div>
               <Item>{item.name}</Item>
               <Typography variant="body">{item.body}</Typography>
@@ -140,24 +134,21 @@ export function MenuSection() {
           ))}
         </Grid>
 
-        <Item>{specialties.additional.name}</Item>
+        <Item>{main.additional.name}</Item>
         <Grid>
-          {specialties.additional.body.map((item) => (
+          {main.additional.body.map((item) => (
             <div>
               <Item>{item.name}</Item>
               <Typography variant="body">{item.submenu}</Typography>
               <Container>
                 <ItemIngredient options>{item.options}</ItemIngredient>
-                {dishLabel(
-                  specialties.additional.vegetarian,
-                  specialties.additional.spicy
-                )}
+                {dishLabel(main.additional.vegetarian, main.additional.spicy)}
               </Container>
             </div>
           ))}
         </Grid>
 
-        <Container gap="8">
+        <Container padding="20" gap="8">
           <Container align="center" gap="8">
             <VegetarianIcon>V</VegetarianIcon>Vegetarian
           </Container>
