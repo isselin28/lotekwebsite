@@ -72,6 +72,13 @@ const SpicyIcon = styled(Icon).attrs({
   color: #de5021;
 `;
 
+const ItemImage = styled(Image)`
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-position: 0 45%;
+`;
+
 function Divider() {
   return (
     <Container align="center" margin="80">
@@ -120,7 +127,7 @@ export function MenuSection() {
               )}
             </Container>
           </div>
-          <Image src={foodLotek} width="320" height="170" />
+          <ItemImage src={foodLotek} alt="Lotek khas Kalipah Apo" />
           {specialties.list.map((item) => (
             <div>
               <Item>{item.name}</Item>
@@ -150,6 +157,16 @@ export function MenuSection() {
           ))}
         </Grid>
 
+        <Container gap="8">
+          <Container align="center" gap="8">
+            <VegetarianIcon>V</VegetarianIcon>Vegetarian
+          </Container>
+          <Container align="center" gap="4">
+            <SpicyIcon />
+            Spicy
+          </Container>
+        </Container>
+
         <Item header>Dessert &amp; Drinks</Item>
 
         <Grid>
@@ -158,7 +175,7 @@ export function MenuSection() {
             <Typography variant="body">{drinks.featured.body}</Typography>
             <ItemIngredient>{drinks.featured.ingredients}</ItemIngredient>
           </div>
-          <Image src={foodKolakCampur} width="320" height="170" />
+          <ItemImage src={foodKolakCampur} alt="Kolak Campur" />
           {drinks.list.map((item) => (
             <div>
               <Item>{item.name}</Item>
