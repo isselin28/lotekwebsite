@@ -18,12 +18,12 @@ const Line = styled.hr`
 `;
 
 const MenuContainer = styled(Container)`
-  width: 50%;
+  width: 55%;
 `;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr minmax(0, 1fr);
   padding-bottom: 40px;
   column-gap: 50px;
   row-gap: 60px;
@@ -43,7 +43,7 @@ const Item = styled(Typography).attrs({
       margin-bottom: 15px;
       border-bottom: 1px solid ${({ theme }) => theme.primary.dark};
       width: 100%;
-      padding-right: 8px;
+      /* padding-right: 8px; */
     `}
 `;
 
@@ -51,7 +51,25 @@ const ItemIngredient = styled(Typography).attrs({
   variant: "body",
 })`
   font-style: italic;
-  padding-top: 14px;
+  padding-top: ${({ options }) => (options ? "4px" : "14px")};
+`;
+
+const VegetarianIcon = styled(Container).attrs({
+  align: "center",
+  justify: "center",
+})`
+  border-radius: 50%;
+  background-color: #e9db89;
+  width: 25px;
+  height: 25px;
+  color: ${({ theme }) => theme.background};
+`;
+
+const SpicyIcon = styled(Icon).attrs({
+  icon: faPepperHot,
+  size: "lg",
+})`
+  color: #de5021;
 `;
 
 function Divider() {
@@ -69,6 +87,16 @@ function Divider() {
 export function MenuSection() {
   const { menuItems } = menuData.default;
   const { specialties, drinks } = menuItems;
+
+  const dishLabel = (veggie, spicy) => {
+    return (
+      <Container align="center" padding="10">
+        {veggie && <VegetarianIcon>V</VegetarianIcon>}
+        {spicy && <SpicyIcon />}
+      </Container>
+    );
+  };
+
   return (
     <Container align="flex-start" justify="center">
       <MenuContainer direction="column" align="center" justify="center">
@@ -82,14 +110,25 @@ export function MenuSection() {
           <div>
             <Item>{specialties.featured.name}</Item>
             <Typography variant="body">{specialties.featured.body}</Typography>
-            <ItemIngredient>{specialties.featured.ingredients}</ItemIngredient>
+            <Container>
+              <ItemIngredient>
+                {specialties.featured.ingredients}
+              </ItemIngredient>
+              {dishLabel(
+                specialties.featured.vegetarian,
+                specialties.featured.spicy
+              )}
+            </Container>
           </div>
           <Image src={foodLotek} width="320" height="170" />
           {specialties.list.map((item) => (
             <div>
               <Item>{item.name}</Item>
               <Typography variant="body">{item.body}</Typography>
-              <ItemIngredient>{item.ingredients}</ItemIngredient>
+              <Container>
+                <ItemIngredient>{item.ingredients}</ItemIngredient>
+                {dishLabel(item.vegetarian, item.spicy)}
+              </Container>
             </div>
           ))}
         </Grid>
@@ -98,9 +137,15 @@ export function MenuSection() {
         <Grid>
           {specialties.additional.body.map((item) => (
             <div>
-              <Typography variant="body">{item.name}</Typography>
+              <Item>{item.name}</Item>
               <Typography variant="body">{item.submenu}</Typography>
-              <ItemIngredient>{item.options}</ItemIngredient>
+              <Container>
+                <ItemIngredient options>{item.options}</ItemIngredient>
+                {dishLabel(
+                  specialties.additional.vegetarian,
+                  specialties.additional.spicy
+                )}
+              </Container>
             </div>
           ))}
         </Grid>
@@ -127,9 +172,9 @@ export function MenuSection() {
         <Grid>
           {drinks.additional.body.map((item) => (
             <div>
-              <Typography variant="body">{item.name}</Typography>
+              <Item>{item.name}</Item>
               <Typography variant="body">{item.submenu}</Typography>
-              <ItemIngredient>{item.options}</ItemIngredient>
+              <ItemIngredient options>{item.options}</ItemIngredient>
             </div>
           ))}
         </Grid>

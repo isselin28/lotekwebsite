@@ -4,53 +4,73 @@
       "featured": {
         "name": "Lotek",
         "body": "Our specialities since 1953. Beansprouts, Cabbage, Water Spinach, blended with peanut sauce, with a hint of aromatic ginger (kencur). Comes with non-spicy | medium | extra spicy options.",
-        "ingredients": "Vegetables, Signature Peanut Sauce, Kerupuk"
+        "ingredients": "Vegetables, Signature Peanut Sauce, Kerupuk",
+        "vegetarian": true,
+        "spicy": false
       },
       "list": [
         {
           "name": "Nasi Rames",
           "body": "Tender slow cooked beef with rendang paste, vegetables, egg, cucumber. Served with warm rice and Kerupuk.",
-          "ingredients": "Vegetables, Beef, Kerupuk"
+          "ingredients": "Vegetables, Beef, Kerupuk",
+          "vegetarian": false,
+          "spicy": false
         },
         {
           "name": "Nasi Kari Ayam / Kari Daging",
           "body": "Shredded chicken or beef rendang, potato, in savory curry sauce. Served with warm rice and Kerupuk.",
-          "ingredients": "Vegetables, Chicken/Beef, Kerupuk"
+          "ingredients": "Vegetables, Chicken/Beef, Kerupuk",
+          "vegetarian": false,
+          "spicy": false
         },
         {
           "name": "Nasi Ayam Goreng Sambal Khas",
           "body": "Free-range chicken, shallow fried until tender with crispy skin. Served with warm rice, our special sambal recipe, tempe, and cucumber. ",
-          "ingredients": "Vegetables, Chicken, Tempe, Sambal"
+          "ingredients": "Vegetables, Chicken, Tempe, Sambal",
+          "vegetarian": false,
+          "spicy": true
         },
         {
           "name": "Laksa Ayam",
           "body": "Shredded Chicken, Potato, Vermicelli, Beansprouts, in savory curry soup. Served with Kerupuk.",
-          "ingredients": "Vegetables, Chicken/Beef, Kerupuk"
+          "ingredients": "Vegetables, Chicken/Beef, Kerupuk",
+          "vegetarian": false,
+          "spicy": false
         },
         {
           "name": "Nasi Bakar",
           "body": "Rice, Mackerel, Basil leaves, Petai wrapped in banana leaves and roasted.",
-          "ingredients": "Vegetables, Fish, Petai"
+          "ingredients": "Vegetables, Fish, Petai",
+          "vegetarian": false,
+          "spicy": false
         },
         {
           "name": "Pepes Peda",
           "body": "Mackerel, Cassava leaves, Petai wrapped in banana leaves and roasted.",
-          "ingredients": "Vegetables, Fish, Petai, Special sauce"
+          "ingredients": "Vegetables, Fish, Petai, Special sauce",
+          "vegetarian": false,
+          "spicy": false
         },
         {
           "name": "Rendang Jengkol",
           "body": "Slow cooked Jengkol and homemade Rendang sauce, a bit spicy.",
-          "ingredients": "Jengkol, Rendang, Spices"
+          "ingredients": "Jengkol, Rendang, Spices",
+          "vegetarian": true,
+          "spicy": true
         },
         {
           "name": "Rendang Sengkel",
           "body": "Slow cooked Beef Tendon and homemade Rendang sauce.",
-          "ingredients": "Beef, Rendang, Spices"
+          "ingredients": "Beef, Rendang, Spices",
+          "vegetarian": false,
+          "spicy": false
         },
         {
           "name": "Tumis Daun Pepaya",
           "body": "Fresh Papaya leaves and Petai, sautéed.",
-          "ingredients": "Vegetables, Petai"
+          "ingredients": "Vegetables, Petai",
+          "vegetarian": true,
+          "spicy": false
         }
       ],
       "additional": {
