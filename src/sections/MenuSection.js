@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Container } from "../components/Container";
 import { Typography } from "../components/Typography";
 import { Icon } from "../components/Icon";
@@ -21,7 +21,7 @@ const MenuContainer = styled(Container)`
   width: 50%;
 `;
 
-const Column = styled.div`
+const Grid = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
   padding-bottom: 40px;
@@ -29,12 +29,22 @@ const Column = styled.div`
   row-gap: 60px;
 `;
 
-const ItemName = styled(Typography).attrs({
+const Item = styled(Typography).attrs({
   variant: "title",
 })`
-  font-size: 20px;
+  font-size: ${({ header }) => (header ? "24px" : "20px")};
   font-style: normal;
   align-self: flex-start;
+
+  ${({ header }) =>
+    header &&
+    css`
+      margin-top: 20px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid ${({ theme }) => theme.primary.dark};
+      width: 100%;
+      padding-right: 8px;
+    `}
 `;
 
 const ItemIngredient = styled(Typography).attrs({
@@ -58,7 +68,7 @@ function Divider() {
 
 export function MenuSection() {
   const { menuItems } = menuData.default;
-  const { specialities, drinks } = menuItems;
+  const { specialties, drinks } = menuItems;
   return (
     <Container align="flex-start" justify="center">
       <MenuContainer direction="column" align="center" justify="center">
@@ -66,51 +76,55 @@ export function MenuSection() {
 
         <Typography variant="title">Our Menu</Typography>
 
-        <Column>
+        <Item header>Specialties</Item>
+
+        <Grid>
           <div>
-            <ItemName>{specialities.featured.name}</ItemName>
-            <Typography variant="body">{specialities.featured.body}</Typography>
-            <ItemIngredient>{specialities.featured.ingredients}</ItemIngredient>
+            <Item>{specialties.featured.name}</Item>
+            <Typography variant="body">{specialties.featured.body}</Typography>
+            <ItemIngredient>{specialties.featured.ingredients}</ItemIngredient>
           </div>
           <Image src={foodLotek} width="320" height="170" />
-          {specialities.list.map((item) => (
+          {specialties.list.map((item) => (
             <div>
-              <ItemName>{item.name}</ItemName>
+              <Item>{item.name}</Item>
               <Typography variant="body">{item.body}</Typography>
               <ItemIngredient>{item.ingredients}</ItemIngredient>
             </div>
           ))}
-        </Column>
+        </Grid>
 
-        <ItemName>{specialities.additional.name}</ItemName>
-        <Column>
-          {specialities.additional.body.map((item) => (
+        <Item>{specialties.additional.name}</Item>
+        <Grid>
+          {specialties.additional.body.map((item) => (
             <div>
               <Typography variant="body">{item.name}</Typography>
               <Typography variant="body">{item.submenu}</Typography>
               <ItemIngredient>{item.options}</ItemIngredient>
             </div>
           ))}
-        </Column>
+        </Grid>
 
-        <Column>
+        <Item header>Dessert &amp; Drinks</Item>
+
+        <Grid>
           <div>
-            <ItemName>{drinks.featured.name}</ItemName>
+            <Item>{drinks.featured.name}</Item>
             <Typography variant="body">{drinks.featured.body}</Typography>
             <ItemIngredient>{drinks.featured.ingredients}</ItemIngredient>
           </div>
           <Image src={foodKolakCampur} width="320" height="170" />
           {drinks.list.map((item) => (
             <div>
-              <ItemName>{item.name}</ItemName>
+              <Item>{item.name}</Item>
               <Typography variant="body">{item.body}</Typography>
               <ItemIngredient>{item.ingredients}</ItemIngredient>
             </div>
           ))}
-        </Column>
+        </Grid>
 
-        <ItemName>{drinks.additional.name}</ItemName>
-        <Column>
+        <Item>{drinks.additional.name}</Item>
+        <Grid>
           {drinks.additional.body.map((item) => (
             <div>
               <Typography variant="body">{item.name}</Typography>
@@ -118,7 +132,7 @@ export function MenuSection() {
               <ItemIngredient>{item.options}</ItemIngredient>
             </div>
           ))}
-        </Column>
+        </Grid>
 
         <Divider />
       </MenuContainer>
