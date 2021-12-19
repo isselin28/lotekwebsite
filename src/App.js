@@ -36,6 +36,7 @@ function App() {
 
       <PageSpacing />
 
+      <div id="menu" />
       <MenuSection />
 
       <PageSpacing />
