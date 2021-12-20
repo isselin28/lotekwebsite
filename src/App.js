@@ -9,7 +9,6 @@ import { LocationSection } from "./sections/LocationSection.js";
 import { MenuSection } from "./sections/MenuSection.js";
 import { FooterSection } from "./sections/FooterSection.js";
 import AboutSection from "./sections/AboutSection.js";
-import GlobalStyle from "./GlobalStyles";
 import { withTheme } from "styled-components";
 import { FloatingButton } from "./components/FloatingButton/FloatingButton";
 
@@ -22,12 +21,11 @@ const PageSpacing = styled.div`
 function App() {
   return (
     <>
-      <GlobalStyle />
       <FloatingButton />
+      <div id="home" />
       <NavBar />
       <StripImage imageUrl={houseImage} position="top center" size="contain" />
 
-      <div id="about" />
       <AboutSection />
 
       <PageSpacing />
@@ -36,12 +34,10 @@ function App() {
 
       <PageSpacing />
 
-      <div id="menu" />
       <MenuSection />
 
       <PageSpacing />
 
-      <div id="find_us" />
       <LocationSection />
 
       <StripImage

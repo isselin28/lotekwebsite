@@ -105,6 +105,7 @@ export function MenuSection() {
 
   return (
     <Container align="flex-start" justify="center">
+      <div id="menu" />
       <MenuContainer direction="column" align="center" justify="center">
         <Divider />
 

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import menuItems from "./MenuItems";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
@@ -10,7 +10,7 @@ import { Typography } from "../Typography";
 import { Container } from "../Container";
 import { Image } from "../Image";
 import { Icon } from "../Icon";
-
+import { Link } from "react-scroll";
 import { withTheme } from "styled-components";
 
 const NavContainer = styled(Container).attrs({
@@ -64,7 +64,7 @@ const NavMenu = styled.ul`
   }
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   color: ${({ theme }) => theme.default};
   padding: 4px 16px;
   letter-spacing: -0.5px;
@@ -79,6 +79,7 @@ const NavLink = styled.a`
   :hover {
     border-radius: 0;
     color: rgb(148, 112, 58);
+    cursor: pointer;
   }
 `;
 
@@ -123,6 +124,22 @@ const PositionWrapper = styled.div`
 `;
 
 function NavBar() {
+  const [navigationLinks, setNavigationLinks] = useState(menuItems);
+
+  useEffect(() => {
+    const load = () => {
+      const navigationLinksWithScroll = menuItems.map((menu) => {
+        const id = menu.name.toString();
+        let element = document.getElementById(id);
+
+        return { ...menu, distanceFromTop: element.offsetTop };
+      });
+
+      setNavigationLinks(navigationLinksWithScroll);
+    };
+    window.onload = load;
+  }, []);
+
   return (
     <NavContainer>
       <Nav>
@@ -155,10 +172,17 @@ function NavBar() {
           </PositionWrapper>
 
           <NavMenu>
-            {menuItems.map((item, index) => {
+            {navigationLinks.map((item, index) => {
               return (
                 <li key={index}>
-                  <NavLink href={item.url}>{item.title}</NavLink>
+                  <NavLink
+                    to={item.name}
+                    spy={true}
+                    smooth={true}
+                    duration={item.distanceFromTop / 1.2}
+                  >
+                    {item.title}
+                  </NavLink>
                 </li>
               );
             })}
