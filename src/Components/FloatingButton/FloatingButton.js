@@ -30,7 +30,7 @@ const ArrowDown = styled(Icon).attrs({
   color: white;
   display: none;
   padding-left: 0;
-  right: -15px;
+  right: -10px;
 `;
 
 const ClockIcon = styled(Icon).attrs({
@@ -39,19 +39,20 @@ const ClockIcon = styled(Icon).attrs({
 })`
   position: absolute;
   padding-left: 0;
-  left: 12px;
+  left: 18px;
+  font-size: 22px;
 `;
 
 const AnimateButton = styled(RoundButton)`
   @keyframes shape {
     20% {
-      border-radius: 40px;
+      border-radius: 48px;
     }
     50% {
-      border-radius: 32px;
+      border-radius: 40px;
     }
     100% {
-      border-radius: 24px;
+      border-radius: 32px;
     }
   }
 
@@ -80,7 +81,7 @@ const AnimateButton = styled(RoundButton)`
       animate &&
       css`
         width: 100%;
-        border-radius: 24px;
+        border-radius: 32px;
         transition-duration: 500ms;
         transition-timing-function: ease-in;
         border: none;
@@ -88,8 +89,8 @@ const AnimateButton = styled(RoundButton)`
         animation: shape;
         animation-duration: 2s;
 
-        padding-right: 16px;
-        padding-left: 20px;
+        padding-right: 20px;
+        padding-left: 24px;
 
         background-color: ${({ theme }) =>
           isOpen ? theme.primary.light : theme.default};
@@ -139,7 +140,7 @@ const FloatingWrapper = styled(Container).attrs({
 })`
   position: absolute;
   top: 50%;
-  right: 20px;
+  right: 40px;
 `;
 
 const OpeningHourWrapper = styled(Container).attrs({
@@ -149,7 +150,7 @@ const OpeningHourWrapper = styled(Container).attrs({
   max-width: 100%;
   background-color: ${({ theme }) => theme.background};
   padding: 12px 16px;
-  margin: 0 4px 4px 0;
+  margin: 0 8px 4px 0;
   border-radius: 8px;
 
   ${({ isOpen }) => css`
@@ -233,7 +234,7 @@ export function FloatingButton() {
         {iconLinkDetails.map((icon) => (
           <a href={icon.url} target="_blank" rel="noreferrer">
             <RoundButton animate={icon.animate}>
-              <Icon icon={icon.name} size="lg" />
+              <Icon icon={icon.name} size="22" />
             </RoundButton>
           </a>
         ))}

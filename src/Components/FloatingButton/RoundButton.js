@@ -8,8 +8,8 @@ export const RoundButton = styled.div`
 
   border: 1.5px solid ${({ theme }) => theme.primary.dark};
   border-radius: 50%;
-  height: 36px;
-  width: 36px;
+  height: 50px;
+  width: 50px;
 
   display: flex;
   align-items: center;
