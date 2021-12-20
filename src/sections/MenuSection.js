@@ -105,10 +105,10 @@ export function MenuSection() {
 
   return (
     <Container align="flex-start" justify="center">
+      <div id="menu" />
       <MenuContainer direction="column" align="center" justify="center">
         <Divider />
 
-        <div id="menu" />
         <Typography variant="title">Our Menu</Typography>
 
         <Item header>Main Course</Item>

@@ -21,6 +21,7 @@ const LocationBox = styled(Container).attrs({
 export function LocationSection() {
   return (
     <Container align="center" justify="center" direction="column">
+      <div id="find_us" />
       <Container
         direction="column"
         justify="center"

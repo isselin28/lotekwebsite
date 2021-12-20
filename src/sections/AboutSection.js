@@ -42,8 +42,8 @@ const TextContainer = styled.div`
 function AboutSection() {
   return (
     <Container align="center" justify="center" direction="column">
+      <div id="about" />
       <ContentWrapper>
-        <div id="about" />
         <Column top="150">
           <Image width="450" height="500" src={foodLotekPrepare} alt="Lotek" />
           <Image
