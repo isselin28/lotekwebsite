@@ -27,7 +27,6 @@ function App() {
       <NavBar />
       <StripImage imageUrl={houseImage} position="top center" size="contain" />
 
-      <div id="about" />
       <AboutSection />
 
       <PageSpacing />
@@ -36,7 +35,6 @@ function App() {
 
       <PageSpacing />
 
-      <div id="menu" />
       <MenuSection />
 
       <PageSpacing />

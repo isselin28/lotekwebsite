@@ -43,6 +43,7 @@ function AboutSection() {
   return (
     <Container align="center" justify="center" direction="column">
       <ContentWrapper>
+        <div id="about" />
         <Column top="150">
           <Image width="450" height="500" src={foodLotekPrepare} alt="Lotek" />
           <Image
