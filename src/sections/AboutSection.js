@@ -33,8 +33,8 @@ const Column = styled(Container).attrs({
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 400px;
-  height: 240px;
+  width: 440px;
+  height: 280px;
   gap: 8px;
   margin-bottom: 60px;
 `;
@@ -54,30 +54,39 @@ function AboutSection() {
           />
           <TextContainer>
             <Typography variant="label">OUR PLACE</Typography>
-            <Typography variant="title">Dari Bandung ke Jakarta</Typography>
+            <Typography variant="title">From Bandung to Jakarta</Typography>
             <Typography variant="body">
-              Citarasa <i>Lotek Ema</i> telah berada di{" "}
-              <b>Jakarta sejak 1997</b>, mengobati rasa kangen. Kami
-              mempertahankan resep jadul dan menggunakan bahan-bahan alami.
-              Menikmati lotek dalam rumah dengan suasana yang <i>"homey"</i> dan
-              sejuk. Tempat yang tepat bagi para pecinta sayuran dan makanan
-              sehat.
+              The flavour of <i>Ema's Lotek</i> has been present in{" "}
+              <b>Jakarta since 1997</b>. We preserves our nuance by using
+              traditional recipe, homemade cooking, and natural, non-artificial
+              ingredients. Enjoy our <i>Lotek</i> and <i>Kolak</i> in a homely,
+              semi-traditional style house. A perfect place to snug yourself
+              into relaxed atmosphere and feel at ease with our healthy
+              comforting food.
             </Typography>
+            <Typography variant="body"></Typography>
           </TextContainer>
         </Column>
         <Column>
           <TextContainer>
             <Typography variant="label">OUR RESTAURANT</Typography>
-            <Typography variant="title">Resep Ema sedjak 1953</Typography>
+            <Typography variant="title">Ema Recipe since 1953</Typography>
             <Typography variant="body">
-              Bermula di jalan <b>Kalipah Apo, Bandung</b>, <i>resep Lotek</i>{" "}
-              yang diwariskan <i>Ema</i> (Nenek) melalui tiga generasi sering
-              menjadi sasaran kuliner nusantara. Aroma legit bumbu kacang,
-              renyahnya toge dan kangkung, bumbu khas bersensasi kencur yang
-              manis dan gurih berbaur dalam sebuah piring bundar menjadi{" "}
-              <i>menu khas Lotek</i>. Berbagai citarasa Sunda seperti{" "}
-              <i>Kariayam, Laksa, Bubur Sagurangi, Kolak Pisang, Ketan hitam</i>{" "}
-              dan menu spesial lainnya kini juga bisa dinikmati di Jakarta.
+              Began in <b>Kalipah Apo street, Bandung</b>. <i>Lotek recipe</i>{" "}
+              that has been passed through three generations from <i>Ema</i>{" "}
+              (Grandma in Sunda), has been known and sought after as a local
+              culinary heritage. Fragrant peanut sauce, crisp beansprout,
+              cabbage and water spinach, sweet-savory signature sauce with a
+              hint of aromatic ginger, blended together becomes our special menu{" "}
+              <i>Lotek</i>.
+              <br />
+              <br />
+              Various Sundanese cuisine and desserts such as{" "}
+              <i>
+                Rendang Jengkol, Chicken Curry, Bubur Jali, Bubur Sagurangi,
+                Kolak Pisang,
+              </i>{" "}
+              and other specialties are also available in Jakarta.
             </Typography>
           </TextContainer>
           <Image

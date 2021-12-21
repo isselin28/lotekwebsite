@@ -107,7 +107,7 @@ function LocationBar() {
       </Grid>
       <Container padding="10">
         <Typography variant="body">
-          Buka Senin - Sabtu, 10.00 - 15.00 . Minggu tutup.
+          Open Monday - Saturday, 10.00 - 15.00 WIB . Close on Sunday &amp; PH.
         </Typography>
       </Container>
 
@@ -151,7 +151,8 @@ function LocationBar() {
       </Grid>
       <Container padding="10">
         <Typography variant="body">
-          Buka Senin, Rabu - Minggu 9.00 - 16.30 . Selasa tutup.
+          Open Monday, Wednesday - Sunday 9.00 - 16.30 WIB. Close on Tuesday
+          &amp; PH.
         </Typography>
       </Container>
     </Container>
