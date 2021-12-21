@@ -11,8 +11,8 @@ export const Container = styled.div`
   ${({ fullHeight }) =>
     fullHeight &&
     css`
-      min-height: 100vh;
-    `};
+      min-height: 110vh;
+    `}
 
   ${({ fullWidth }) =>
     fullWidth &&
