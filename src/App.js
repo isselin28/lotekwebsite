@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar/NavBar";
 import houseImage from "./assets/house_front_pencil.jpeg";
 import houseInside from "./assets/inside_pencil_2.jpeg";
 import StripImage from "./components/StripImage";
+import { Container } from "./components/Container";
 import { FeaturedSection } from "./sections/FeaturedSection.js";
 import { LocationSection } from "./sections/LocationSection.js";
 import { MenuSection } from "./sections/MenuSection.js";
@@ -11,12 +12,6 @@ import { FooterSection } from "./sections/FooterSection.js";
 import AboutSection from "./sections/AboutSection.js";
 import { withTheme } from "styled-components";
 import { FloatingButton } from "./components/FloatingButton/FloatingButton";
-
-const PageSpacing = styled.div`
-  height: 120px;
-  background-color: ${({ theme }) => theme.background};
-  width: 100%;
-`;
 
 function App() {
   return (
@@ -28,15 +23,9 @@ function App() {
 
       <AboutSection />
 
-      <PageSpacing />
-
       <FeaturedSection />
 
-      <PageSpacing />
-
       <MenuSection />
-
-      <PageSpacing />
 
       <LocationSection />
 

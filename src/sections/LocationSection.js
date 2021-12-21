@@ -8,6 +8,11 @@ import { Typography } from "../components/Typography";
 import { Container } from "../components/Container";
 import { Image } from "../components/Image";
 
+const SectionContainer = styled(Container)`
+  margin-top: 20vh;
+  margin-bottom: 5vh;
+`;
+
 const LocationBox = styled(Container).attrs({
   align: "center",
   justify: "center",
@@ -20,7 +25,7 @@ const LocationBox = styled(Container).attrs({
 
 export function LocationSection() {
   return (
-    <Container align="center" justify="center" direction="column">
+    <SectionContainer align="center" justify="center" direction="column">
       <div id="find_us" />
       <Container
         direction="column"
@@ -43,6 +48,6 @@ export function LocationSection() {
       <LocationBox>
         <LocationBar />
       </LocationBox>
-    </Container>
+    </SectionContainer>
   );
 }

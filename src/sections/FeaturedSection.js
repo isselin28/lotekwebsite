@@ -28,7 +28,7 @@ const FeaturedLogoWrapper = styled(Container)`
 
 export function FeaturedSection() {
   return (
-    <Container align="center" justify="center" direction="column">
+    <Container align="center" justify="center" direction="column" fullHeight>
       <Typography variant="body">Featured On</Typography>
       <FeaturedWrapper>
         <FeaturedLogoWrapper
