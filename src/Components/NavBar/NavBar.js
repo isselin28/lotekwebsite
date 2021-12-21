@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 import React, { useEffect, useState } from "react";
 import menuItems from "./MenuItems";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
@@ -21,9 +20,12 @@ const NavContainer = styled(Container).attrs({
   height: 250px;
   position: relative;
   max-width: 100vw;
+  box-shadow: 0 2px 4px 0 rgba(148, 112, 58, 0.1),
+    0 4px 8px 0 rgba(148, 112, 58, 0.1);
 `;
 
 const Nav = styled.nav`
+  margin-top: 28px;
   margin-bottom: 30px;
 `;
 
@@ -103,7 +105,9 @@ const HeaderLine = styled.hr`
   border-bottom: 0.5px solid ${({ theme }) => theme.primary.dark};
   height: 0.5px;
   margin: 0;
+  padding-top: 8px;
   width: 99vw;
+  opacity: 0.6;
 `;
 
 const TextDescription = styled(Typography).attrs({
@@ -143,7 +147,6 @@ function NavBar() {
   return (
     <NavContainer>
       <Nav>
-        <Icon icon={faBars} size="lg" />
         <Container direction="column" align="center" justify="center">
           <PositionWrapper top="40" left="150">
             <TextDescription variant="body">
@@ -161,13 +164,6 @@ function NavBar() {
               rel="noreferrer"
             >
               <Icon icon={faInstagram} size="lg" />
-            </a>
-            <a
-              href="https://wa.me/6281386041621"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Icon icon={faWhatsapp} size="lg" />
             </a>
           </PositionWrapper>
 
