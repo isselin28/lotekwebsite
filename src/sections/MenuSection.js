@@ -5,7 +5,7 @@ import { Typography } from "../components/Typography";
 import { Icon } from "../components/Icon";
 import { Image } from "../components/Image";
 import { faPepperHot } from "@fortawesome/free-solid-svg-icons";
-import * as menuData from "./menu.json";
+import * as menuData from "./data/menu.json";
 import foodLotek from "../assets/food_lotek.jpg";
 import foodKolakCampur from "../assets/food_kolakcampur.jpg";
 
