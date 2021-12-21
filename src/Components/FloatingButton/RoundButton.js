@@ -4,7 +4,7 @@ import { Icon } from "../Icon";
 export const RoundButton = styled.div`
   color: ${({ theme }) => theme.primary.dark};
   background-color: ${({ theme }) => theme.background};
-  box-shadow: 1px 2px 4px #c6c6c6;
+  box-shadow: 2px 3px 4px #c6c6c6;
 
   border: 1.5px solid ${({ theme }) => theme.primary.dark};
   border-radius: 50%;

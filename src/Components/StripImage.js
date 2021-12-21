@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Parallax = styled.div`
   background-image: url(${(props) => props.imageUrl});
-  min-height: 600px;
+  min-height: 40vw;
 
   background-attachment: fixed;
   background-position: ${(props) => props.position};
