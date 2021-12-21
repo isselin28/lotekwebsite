@@ -56,12 +56,13 @@ function AboutSection() {
             <Typography variant="label">OUR PLACE</Typography>
             <Typography variant="title">From Bandung to Jakarta</Typography>
             <Typography variant="body">
-              The flavour of <i>Ema's Lotek</i> has been in{" "}
-              <b>Jakarta since 1997</b>. We preserves traditional recipe and use
-              natural, non-artificial ingredients. Enjoy <i>Lotek</i> and{" "}
-              <i>Kolak</i> in a homely, traditional-modern style house. A
-              perfect place to enjoy relaxed atmosphere and feel at ease with
-              our healthy comforting food.
+              The flavour of <i>Ema's Lotek</i> has been present in{" "}
+              <b>Jakarta since 1997</b>. We preserves our nuance by using
+              traditional recipe, homemade cooking, and natural, non-artificial
+              ingredients. Enjoy our <i>Lotek</i> and <i>Kolak</i> in a homely,
+              semi-traditional style house. A perfect place to snug yourself
+              into relaxed atmosphere and feel at ease with our healthy
+              comforting food.
             </Typography>
             <Typography variant="body"></Typography>
           </TextContainer>
@@ -74,9 +75,10 @@ function AboutSection() {
               Began in <b>Kalipah Apo street, Bandung</b>. <i>Lotek recipe</i>{" "}
               that has been passed through three generations from <i>Ema</i>{" "}
               (Grandma in Sunda), has been known and sought after as a local
-              culinary heritage. Fragrant peanut sauce, crisp beansprout and
-              water spinach, sweet-savory signature sauce with a hint of
-              aromatic ginger, altogether becomes our special menu <i>Lotek</i>.
+              culinary heritage. Fragrant peanut sauce, crisp beansprout,
+              cabbage and water spinach, sweet-savory signature sauce with a
+              hint of aromatic ginger, blended together becomes our special menu{" "}
+              <i>Lotek</i>.
               <br />
               <br />
               Various Sundanese cuisine and desserts such as{" "}

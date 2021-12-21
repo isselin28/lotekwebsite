@@ -189,12 +189,12 @@ export function FloatingButton() {
 
     if (hour > 9 && hour < 15 && dayId !== 0) {
       setIsShopOpen(true);
-      setShopStatus("Opens now until 3pm");
+      setShopStatus("Open now until 3pm");
     } else if (dayId === 6) {
-      setShopStatus("Closed, opens on Monday 9am ");
+      setShopStatus("Close, open on Monday 9am ");
     } else {
       setIsShopOpen(false);
-      setShopStatus("Closed, opens at 9am ");
+      setShopStatus("Close, open tomorrow at 9am ");
     }
   }, [dayId]);
 
