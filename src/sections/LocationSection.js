@@ -16,26 +16,28 @@ const SectionContainer = styled(Container)`
 
 export function LocationSection() {
   return (
-    <Container align="center" justify="center">
-      <SectionContainer
-        align="center"
-        justify="center"
-        direction="column"
-        gap="15"
-      >
-        <div id="find_us" />
-        <Typography variant="title">Find Us</Typography>
-        <Typography variant="body">
-          *Due to Covid measurement, we only offers takeaway and online
-          delivery. Find us via:
-        </Typography>
-        <Container justify="center" align="center" gap="50">
-          <Image width="130" height="130" src={shopeefood} alt="shopee" />
-          <Image width="115" height="110" src={gofood} alt="gojek" />
-          <Image width="100" height="100" src={grabfood} alt="grab" />
-        </Container>
-        <LocationBar />
-      </SectionContainer>
-    </Container>
+    <>
+      <div id="find_us" />
+      <Container align="center" justify="center">
+        <SectionContainer
+          align="center"
+          justify="center"
+          direction="column"
+          gap="15"
+        >
+          <Typography variant="title">Find Us</Typography>
+          <Typography variant="body">
+            *Due to Covid measurement, we only offers takeaway and online
+            delivery. Find us via:
+          </Typography>
+          <Container justify="center" align="center" gap="50">
+            <Image width="130" height="130" src={shopeefood} alt="shopee" />
+            <Image width="115" height="110" src={gofood} alt="gojek" />
+            <Image width="100" height="100" src={grabfood} alt="grab" />
+          </Container>
+          <LocationBar />
+        </SectionContainer>
+      </Container>
+    </>
   );
 }

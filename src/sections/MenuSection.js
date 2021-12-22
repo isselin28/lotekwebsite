@@ -71,10 +71,10 @@ const SpicyIcon = styled(Icon).attrs({
   color: #de5021;
 `;
 
-const ItemImage = styled(Image)`
-  width: 100%;
-  height: auto;
-  max-height: 170px;
+const ItemImage = styled(Image).attrs({
+  height: 170,
+  responsive: true,
+})`
   object-position: 0 45%;
 `;
 
