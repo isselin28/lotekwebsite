@@ -92,15 +92,15 @@ const locationDetails = [
 function LocationBar() {
   return (
     <SectionWrapper direction="column" align="center" justify="center">
-      {locationDetails.map((location) => (
-        <>
+      {locationDetails.map((location, idx) => (
+        <div key={`location_${idx}`}>
           <ContentWrapper align="center" justify="space-between">
             <Container direction="column">
               <Typography variant="title" align="left">
                 {location.location}
               </Typography>
               <Container gap="4">
-                <Icon icon={faHome} size="18" />
+                <Icon icon={faHome} fontSize="18" />
                 <Typography variant="body" align="left">
                   {location.street}
                   <br />
@@ -116,7 +116,7 @@ function LocationBar() {
               <Container gap="4">
                 <Icon
                   icon={location.whatsapp ? faWhatsapp : faPhoneAlt}
-                  size="20"
+                  fontSize="20"
                 />
                 <Typography variant="body" align="left">
                   <a
@@ -143,7 +143,7 @@ function LocationBar() {
           <Container padding="20">
             <Typography variant="body">{location.openingHour}</Typography>
           </Container>
-        </>
+        </div>
       ))}
     </SectionWrapper>
   );

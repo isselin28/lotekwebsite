@@ -86,9 +86,9 @@ function Divider() {
   return (
     <Container align="center" margin="80">
       <Line />
-      <Icon icon={faPepperHot} size="18" />
-      <Icon icon={faPepperHot} size="18" />
-      <Icon icon={faPepperHot} size="18" />
+      <Icon icon={faPepperHot} fontSize="18" />
+      <Icon icon={faPepperHot} fontSize="18" />
+      <Icon icon={faPepperHot} fontSize="18" />
       <Line />
     </Container>
   );
@@ -127,8 +127,8 @@ export function MenuSection() {
             </Container>
           </div>
           <ItemImage src={foodLotek} alt="Lotek khas Kalipah Apo" />
-          {main.list.map((item) => (
-            <div>
+          {main.list.map((item, idx) => (
+            <div key={`main_list_${idx}`}>
               <Item>{item.name}</Item>
               <Typography variant="body">{item.body}</Typography>
               <Container>
@@ -141,8 +141,8 @@ export function MenuSection() {
 
         <Item>{main.additional.name}</Item>
         <Container justify="space-between" gap="50" fullWidth>
-          {main.additional.body.map((item) => (
-            <FlexColumn direction="column">
+          {main.additional.body.map((item, idx) => (
+            <FlexColumn direction="column" key={`main_additional_${idx}`}>
               <Typography variant="body">{item.submenu}</Typography>
               <Container>
                 <ItemIngredient options>{item.options}</ItemIngredient>
@@ -171,8 +171,8 @@ export function MenuSection() {
             <ItemIngredient>{drinks.featured.ingredients}</ItemIngredient>
           </div>
           <ItemImage src={foodKolakCampur} alt="Kolak Campur" />
-          {drinks.list.map((item) => (
-            <div>
+          {drinks.list.map((item, idx) => (
+            <div key={`drinks_list_${idx}`}>
               <Item>{item.name}</Item>
               <Typography variant="body">{item.body}</Typography>
               <ItemIngredient>{item.ingredients}</ItemIngredient>
@@ -182,8 +182,8 @@ export function MenuSection() {
 
         <Item>{drinks.additional.name}</Item>
         <Container justify="space-between" gap="50" fullWidth>
-          {drinks.additional.body.map((item) => (
-            <FlexColumn direction="column">
+          {drinks.additional.body.map((item, idx) => (
+            <FlexColumn direction="column" key={`drinks_additional_${idx}`}>
               <Typography variant="body">{item.submenu}</Typography>
               <ItemIngredient options>{item.options}</ItemIngredient>
             </FlexColumn>
