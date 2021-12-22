@@ -8,6 +8,11 @@ export const Container = styled.div`
   padding: ${({ padding }) => padding}px;
   margin: ${({ margin }) => margin}px;
   gap: ${({ gap }) => gap}px;
+  ${({ fullHeight }) =>
+    fullHeight &&
+    css`
+      min-height: 110vh;
+    `}
 
   ${({ fullWidth }) =>
     fullWidth &&

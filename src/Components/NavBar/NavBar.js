@@ -17,14 +17,17 @@ const NavContainer = styled(Container).attrs({
   align: "center",
 })`
   background: #f7f0e8;
-  height: 250px;
-  position: relative;
-  max-width: 100vw;
   box-shadow: 0 2px 4px 0 rgba(148, 112, 58, 0.1),
     0 4px 8px 0 rgba(148, 112, 58, 0.1);
+
+  width: 100%;
+  max-width: 100vw;
+  height: 250px;
 `;
 
 const Nav = styled.nav`
+  position: relative;
+  width: 80%;
   margin-top: 28px;
   margin-bottom: 30px;
 `;
@@ -34,9 +37,6 @@ const NavMenu = styled.ul`
   grid-template-columns: repeat(4, auto);
   grid-gap: 50px;
   list-style: none;
-  text-align: center;
-  width: 70vw;
-  justify-content: center;
   max-height: 36px;
   margin: 10px;
   padding: 0px;
@@ -122,9 +122,9 @@ const TextDescription = styled(Typography).attrs({
 
 const PositionWrapper = styled.div`
   position: absolute;
-  top: ${(props) => props.top}px;
-  left: ${(props) => props.left}px;
-  right: ${(props) => props.right}px;
+  top: ${(props) => props.top};
+  left: ${(props) => props.left};
+  right: ${(props) => props.right};
 `;
 
 function NavBar() {
@@ -148,7 +148,7 @@ function NavBar() {
     <NavContainer>
       <Nav>
         <Container direction="column" align="center" justify="center">
-          <PositionWrapper top="40" left="150">
+          <PositionWrapper top="40px" left="30px">
             <TextDescription variant="body">
               Jl. Batang Hari No.21,
               <br /> Cideng, Gambir, Jakarta 10150
@@ -157,7 +157,7 @@ function NavBar() {
           <Logo src={logoLotek} alt="Logo" />
           <Title>LOTEK KALIPAH APO 42</Title>
 
-          <PositionWrapper top="40" right="170">
+          <PositionWrapper top="40px" right="30px">
             <a
               href="https://www.instagram.com/lotekkalipahapo42"
               target="_blank"

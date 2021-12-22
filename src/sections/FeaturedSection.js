@@ -1,89 +1,66 @@
 import React from "react";
 import styled from "styled-components";
-import republika from "../assets/logo_republika.png";
-import detikfood from "../assets/logo_detikfood.png";
-import cnn from "../assets/logo_cnn.png";
-import kompastv from "../assets/logo_kompastv.png";
-import sedap from "../assets/logo_sedap.png";
 import { Image } from "../components/Image";
 import { Container } from "../components/Container";
 import { Typography } from "../components/Typography";
+import logoDetails from "./data/featuredLogo.js";
 
 const FeaturedWrapper = styled(Container).attrs({
   align: "center",
   justify: "center",
 })`
   position: relative;
+  min-width: 600px;
+  min-height: 185px;
   gap: 10px;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin: 5vw 0;
 `;
 
-const FeaturedLogoWrapper = styled(Container)`
+const PositioningWrapper = styled(Container)`
   position: absolute;
   top: ${(props) => props.top}px;
+  bottom: ${(props) => props.bottom}px;
   left: ${(props) => props.left}px;
   right: ${(props) => props.right}px;
 `;
 
+function Logo(props) {
+  const { name, ...rest } = props;
+  return (
+    <a href={logoDetails[name].url} target="_blank" rel="noreferrer">
+      <Image src={logoDetails[name].image} alt={name} {...rest} />
+    </a>
+  );
+}
+
 export function FeaturedSection() {
   return (
-    <Container align="center" justify="center" direction="column">
+    <Container align="center" justify="center" direction="column" fullHeight>
       <Typography variant="body">Featured On</Typography>
       <FeaturedWrapper>
-        <FeaturedLogoWrapper
-          direction="column"
-          justify="flex-end"
-          align="flex-end"
-          padding="16"
-          top="-45"
-          right="100"
-        >
-          <FeaturedLogoWrapper padding="16" top="-15" left="-165">
-            <a
-              href="https://youtu.be/mlD6Ly4LtUg?t=222"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image width="210" src={kompastv} alt="kompastv" />
-            </a>
-          </FeaturedLogoWrapper>
-
-          <FeaturedLogoWrapper top="70" left="-175">
-            <a
-              href="https://food.detik.com/berita-boga/d-4870199/menjajal-nikmatnya-lotek-kalipah-apo-42-di-bandung"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image width="195" src={detikfood} alt="detikfood" />
-            </a>
-          </FeaturedLogoWrapper>
-        </FeaturedLogoWrapper>
-        <a
-          href="https://www.cnnindonesia.com/gaya-hidup/20150807152946-262-70734/kalipah-apo-lotek-bandung-warisan-nenek-dari-masa-lampau"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Image width="90" height="90" src={cnn} alt="cnn" />
-        </a>
-        <FeaturedLogoWrapper
+        <PositioningWrapper
           direction="column"
           justify="flex-start"
           align="flex-start"
-          padding="15"
-          top="15"
-          left="95"
-          gap="15"
+          top="0"
+          left="0"
         >
-          <Image width="170" height="45" src={sedap} alt="sedap" />
-          <a
-            href="https://www.republika.co.id/berita/nsp9jd328/lotek-kalipah-apo-bertahan-hingga-tiga-generasi"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Image width="245" src={republika} alt="republika" />
-          </a>
-        </FeaturedLogoWrapper>
+          <PositioningWrapper top="0" left="65">
+            <Logo name="kompastv" width="210" />
+          </PositioningWrapper>
+
+          <PositioningWrapper top="70" left="35">
+            <Logo name="detikfood" width="195" />
+          </PositioningWrapper>
+        </PositioningWrapper>
+
+        <Logo name="cnn" width="90" height="90" />
+
+        <PositioningWrapper direction="column" bottom="10" right="-10" gap="15">
+          <Logo name="sedap" width="170" height="45" />
+
+          <Logo name="republika" width="245" />
+        </PositioningWrapper>
       </FeaturedWrapper>
     </Container>
   );

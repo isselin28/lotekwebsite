@@ -5,7 +5,7 @@ import { Typography } from "../components/Typography";
 import { Icon } from "../components/Icon";
 import { Image } from "../components/Image";
 import { faPepperHot } from "@fortawesome/free-solid-svg-icons";
-import * as menuData from "./menu.json";
+import * as menuData from "./data/menu.json";
 import foodLotek from "../assets/food_lotek.jpg";
 import foodKolakCampur from "../assets/food_kolakcampur.jpg";
 
@@ -71,11 +71,15 @@ const SpicyIcon = styled(Icon).attrs({
   color: #de5021;
 `;
 
-const ItemImage = styled(Image)`
-  width: 100%;
-  height: auto;
-  max-height: 170px;
+const ItemImage = styled(Image).attrs({
+  height: 170,
+  responsive: true,
+})`
   object-position: 0 45%;
+`;
+
+const FlexColumn = styled(Container)`
+  flex: 1;
 `;
 
 function Divider() {
@@ -136,18 +140,17 @@ export function MenuSection() {
         </Grid>
 
         <Item>{main.additional.name}</Item>
-        <Grid>
+        <Container justify="space-between" gap="50" fullWidth>
           {main.additional.body.map((item) => (
-            <div>
-              <Item>{item.name}</Item>
+            <FlexColumn direction="column">
               <Typography variant="body">{item.submenu}</Typography>
               <Container>
                 <ItemIngredient options>{item.options}</ItemIngredient>
                 {dishLabel(main.additional.vegetarian, main.additional.spicy)}
               </Container>
-            </div>
+            </FlexColumn>
           ))}
-        </Grid>
+        </Container>
 
         <Container padding="20" gap="8">
           <Container align="center" gap="8">
@@ -178,15 +181,14 @@ export function MenuSection() {
         </Grid>
 
         <Item>{drinks.additional.name}</Item>
-        <Grid>
+        <Container justify="space-between" gap="50" fullWidth>
           {drinks.additional.body.map((item) => (
-            <div>
-              <Item>{item.name}</Item>
+            <FlexColumn direction="column">
               <Typography variant="body">{item.submenu}</Typography>
               <ItemIngredient options>{item.options}</ItemIngredient>
-            </div>
+            </FlexColumn>
           ))}
-        </Grid>
+        </Container>
 
         <Divider />
       </MenuContainer>

@@ -12,8 +12,11 @@ import { withTheme } from "styled-components";
 const ContentWrapper = styled(Container).attrs({
   align: "center",
   justify: "center",
+  fullWidth: true,
 })`
+  max-width: 950px;
   gap: 40px;
+  margin-top: 10vh;
   margin-bottom: 30px;
 `;
 
@@ -22,6 +25,7 @@ const Column = styled(Container).attrs({
 })`
   flex-wrap: wrap;
   flex: 1;
+  width: 30%;
   gap: 40px;
 
   ${({ top }) =>
@@ -33,10 +37,8 @@ const Column = styled(Container).attrs({
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 440px;
-  height: 280px;
+  width: 100%;
   gap: 8px;
-  margin-bottom: 60px;
 `;
 
 function AboutSection() {
@@ -45,8 +47,15 @@ function AboutSection() {
       <div id="about" />
       <ContentWrapper>
         <Column top="150">
-          <Image width="450" height="500" src={foodLotekPrepare} alt="Lotek" />
           <Image
+            responsive
+            width="450"
+            height="500"
+            src={foodLotekPrepare}
+            alt="Lotek"
+          />
+          <Image
+            responsive
             width="450"
             height="260"
             src={foodKolakBubur}
@@ -90,12 +99,19 @@ function AboutSection() {
             </Typography>
           </TextContainer>
           <Image
+            responsive
             width="450"
             height="300"
             src={foodKolakCampur}
             alt="Kolak Campur"
           />
-          <Image width="450" height="460" src={foodKariayam} alt="Kari Ayam" />
+          <Image
+            responsive
+            width="450"
+            height="460"
+            src={foodKariayam}
+            alt="Kari Ayam"
+          />
         </Column>
       </ContentWrapper>
     </Container>
