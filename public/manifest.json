@@ -3,8 +3,8 @@
   "name": "Lotek Kalipah Apo Website",
   "icons": [
     {
-      "src": "logo.png",
-      "sizes": "1080x750 108x75 54x38 27*19",
+      "src": "favicon_lotek.png",
+      "sizes": "64x64 32x32 16x16",
       "type": "image/png"
     }
   ],
