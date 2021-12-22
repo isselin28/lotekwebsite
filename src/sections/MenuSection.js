@@ -78,6 +78,10 @@ const ItemImage = styled(Image)`
   object-position: 0 45%;
 `;
 
+const FlexColumn = styled(Container)`
+  flex: 1;
+`;
+
 function Divider() {
   return (
     <Container align="center" margin="80">
@@ -136,18 +140,17 @@ export function MenuSection() {
         </Grid>
 
         <Item>{main.additional.name}</Item>
-        <Grid>
+        <Container justify="space-between" gap="50" fullWidth>
           {main.additional.body.map((item) => (
-            <div>
-              <Item>{item.name}</Item>
+            <FlexColumn direction="column">
               <Typography variant="body">{item.submenu}</Typography>
               <Container>
                 <ItemIngredient options>{item.options}</ItemIngredient>
                 {dishLabel(main.additional.vegetarian, main.additional.spicy)}
               </Container>
-            </div>
+            </FlexColumn>
           ))}
-        </Grid>
+        </Container>
 
         <Container padding="20" gap="8">
           <Container align="center" gap="8">
@@ -178,15 +181,14 @@ export function MenuSection() {
         </Grid>
 
         <Item>{drinks.additional.name}</Item>
-        <Grid>
+        <Container justify="space-between" gap="50" fullWidth>
           {drinks.additional.body.map((item) => (
-            <div>
-              <Item>{item.name}</Item>
+            <FlexColumn direction="column">
               <Typography variant="body">{item.submenu}</Typography>
               <ItemIngredient options>{item.options}</ItemIngredient>
-            </div>
+            </FlexColumn>
           ))}
-        </Grid>
+        </Container>
 
         <Divider />
       </MenuContainer>
