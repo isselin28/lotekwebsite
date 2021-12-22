@@ -231,10 +231,10 @@ export function FloatingButton() {
   return (
     <StickyWrapper>
       <FloatingWrapper direction="column" align="flex-end">
-        {iconLinkDetails.map((icon) => (
-          <a href={icon.url} target="_blank" rel="noreferrer">
+        {iconLinkDetails.map((icon, idx) => (
+          <a href={icon.url} target="_blank" rel="noreferrer" key={idx}>
             <RoundButton animate={icon.animate}>
-              <Icon icon={icon.name} size="22" />
+              <Icon icon={icon.name} fontSize="22" />
             </RoundButton>
           </a>
         ))}

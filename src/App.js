@@ -1,10 +1,8 @@
-import styled from "styled-components";
 import React from "react";
 import NavBar from "./components/NavBar/NavBar";
 import houseImage from "./assets/house_front_pencil.jpeg";
 import houseInside from "./assets/inside_pencil_2.jpeg";
 import StripImage from "./components/StripImage";
-import { Container } from "./components/Container";
 import { FeaturedSection } from "./sections/FeaturedSection.js";
 import { LocationSection } from "./sections/LocationSection.js";
 import { MenuSection } from "./sections/MenuSection.js";

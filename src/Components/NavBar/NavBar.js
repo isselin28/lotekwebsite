@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 import React, { useEffect, useState } from "react";
 import menuItems from "./MenuItems";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 import logoLotek from "../../assets/logo.png";
 import { Typography } from "../Typography";
