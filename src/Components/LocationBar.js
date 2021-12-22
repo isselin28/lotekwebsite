@@ -15,13 +15,12 @@ import { withTheme } from "styled-components";
 const MapWrapper = styled.div`
   position: relative;
   width: 100%;
-  max-width: 430px;
+  max-width: 480px;
   max-height: 180px;
 `;
 
 const MapImage = styled(Image)`
   width: 100%;
-  max-width: 480px;
   max-height: 180px;
   border-radius: 5px;
   box-shadow: 0px 2px 4px grey;
@@ -44,10 +43,6 @@ const MapButton = styled(Button).attrs({
   }
 `;
 
-const FlexColumn = styled.div`
-  min-width: 40%;
-`;
-
 const ContentWrapper = styled(Container)`
   gap: 50px;
   width: 100%;
@@ -57,6 +52,7 @@ const ContentWrapper = styled(Container)`
 
 const SectionWrapper = styled(Container)`
   width: 70%;
+  max-width: 800px;
   border: 1px solid ${({ theme }) => theme.primary.dark};
   border-radius: 5px;
   padding: 20px 10vw 30px 10vw;
@@ -98,8 +94,8 @@ function LocationBar() {
     <SectionWrapper direction="column" align="center" justify="center">
       {locationDetails.map((location) => (
         <>
-          <ContentWrapper align="center" justify="center">
-            <FlexColumn direction="column">
+          <ContentWrapper align="center" justify="space-between">
+            <Container direction="column">
               <Typography variant="title" align="left">
                 {location.location}
               </Typography>
@@ -134,7 +130,7 @@ function LocationBar() {
                   </a>
                 </Typography>
               </Container>
-            </FlexColumn>
+            </Container>
             <MapWrapper>
               <MapImage src={location.imageUrl} />
               <a href={location.googleMapUrl} target="_blank" rel="noreferrer">
