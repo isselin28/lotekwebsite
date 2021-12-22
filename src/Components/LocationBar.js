@@ -12,9 +12,35 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { Button } from "./Button.js";
 import { withTheme } from "styled-components";
 
-const MapWrapper = styled.div`
-  position: relative;
+const SectionWrapper = styled(Container)`
+  width: 70%;
+  max-width: 800px;
+  border: 1px solid ${({ theme }) => theme.primary.dark};
+  border-radius: 5px;
+  padding: 20px 10vw 30px 10vw;
+  margin: 20px 0 40px 0;
+`;
+
+const ContentWrapper = styled(Container).attrs({
+  align: "center",
+  justify: "space-between",
+  fullWidth: true,
+})`
+  gap: 50px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+`;
+
+const Column = styled.div`
   width: 100%;
+`;
+
+const MapWrapper = styled(Container).attrs({
+  align: "center",
+  justify: "center",
+  fullWidth: true,
+})`
+  position: relative;
   max-width: 480px;
   max-height: 180px;
 `;
@@ -31,7 +57,7 @@ const MapButton = styled(Button).attrs({
   primary: false,
 })`
   position: absolute;
-  bottom: -10px;
+  bottom: 0px;
   right: 0px;
   transform: translateX(-20%);
 
@@ -41,22 +67,6 @@ const MapButton = styled(Button).attrs({
   :hover ${Icon} {
     color: white;
   }
-`;
-
-const ContentWrapper = styled(Container)`
-  gap: 50px;
-  width: 100%;
-  padding-top: 30px;
-  padding-bottom: 20px;
-`;
-
-const SectionWrapper = styled(Container)`
-  width: 70%;
-  max-width: 800px;
-  border: 1px solid ${({ theme }) => theme.primary.dark};
-  border-radius: 5px;
-  padding: 20px 10vw 30px 10vw;
-  margin: 20px 0 40px 0;
 `;
 
 const locationDetails = [
@@ -93,9 +103,9 @@ function LocationBar() {
   return (
     <SectionWrapper direction="column" align="center" justify="center">
       {locationDetails.map((location, idx) => (
-        <div key={`location_${idx}`}>
-          <ContentWrapper align="center" justify="space-between">
-            <Container direction="column">
+        <Container direction="column" fullWidth key={idx}>
+          <ContentWrapper>
+            <Column direction="column">
               <Typography variant="title" align="left">
                 {location.location}
               </Typography>
@@ -130,7 +140,7 @@ function LocationBar() {
                   </a>
                 </Typography>
               </Container>
-            </Container>
+            </Column>
             <MapWrapper>
               <MapImage src={location.imageUrl} />
               <a href={location.googleMapUrl} target="_blank" rel="noreferrer">
@@ -140,10 +150,10 @@ function LocationBar() {
               </a>
             </MapWrapper>
           </ContentWrapper>
-          <Container padding="20">
+          <Container justify="center" padding="20">
             <Typography variant="body">{location.openingHour}</Typography>
           </Container>
-        </div>
+        </Container>
       ))}
     </SectionWrapper>
   );
