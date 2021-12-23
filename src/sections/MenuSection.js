@@ -152,7 +152,7 @@ export function MenuSection() {
           ))}
         </Container>
 
-        <Container padding="20" gap="8">
+        <Container padding="30" gap="16">
           <Container align="center" gap="8">
             <VegetarianIcon>V</VegetarianIcon>Vegetarian
           </Container>

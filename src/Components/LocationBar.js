@@ -72,7 +72,7 @@ const MapButton = styled(Button).attrs({
 const locationDetails = [
   {
     location: "Jakarta",
-    street: "Jl. Batang Hari No.21, RT.1/RW.2,",
+    street: "Jl. Batang Hari No.21, RT05/RW02,",
     kecamatan: "Cideng, Kecamatan Gambir,",
     city: "Kota Jakarta Pusat,",
     province: "Jakarta 10150,",
@@ -82,7 +82,7 @@ const locationDetails = [
     imageUrl: mapJakarta,
     googleMapUrl: "https://goo.gl/maps/3bGVGfccvN3KL1Dh9",
     openingHour:
-      "Open Monday - Saturday, 10.00 - 15.00 WIB . Close on Sunday & PH.",
+      "Open Monday - Saturday, 10.00 - 15.00 WIB . Close on Sunday & Public Holidays.",
   },
   {
     location: "Bandung",
@@ -95,7 +95,7 @@ const locationDetails = [
     imageUrl: mapBandung,
     googleMapUrl: "https://goo.gl/maps/mdfDjqW91y4TCFJ37",
     openingHour:
-      "Open Monday, Wednesday - Sunday 9.00 - 16.30 WIB. Close on Tuesday & PH.",
+      "Open Monday, Wednesday - Sunday, 9.00 - 16.30 WIB. Close on Tuesday.",
   },
 ];
 

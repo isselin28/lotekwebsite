@@ -69,7 +69,10 @@ export function FooterSection() {
         onMouseEnter={handleHover}
         showLinkedin={showLinkedin}
       >
-        <Copyright>&copy; 2021 by Isselin</Copyright>
+        <Copyright>
+          Lotek Kalipah Apo 42 &copy; 2021 &nbsp;|&nbsp; Website by - Isselin
+          Moektijono
+        </Copyright>
         <Container align="flex-end">
           <LinkedinIcon />
         </Container>

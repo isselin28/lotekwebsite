@@ -3,7 +3,7 @@
     "main": {
       "featured": {
         "name": "Lotek",
-        "body": "Our speciality since 1953. Beansprouts, Cabbage, Water Spinach, blended with peanut sauce, with a hint of aromatic ginger (kencur). Comes with non-spicy | medium | extra spicy options.",
+        "body": "Our specialty since 1953. Beansprouts, Cabbage, Water Spinach, blended with peanut sauce, with a hint of aromatic ginger (kencur). Comes with non-spicy | medium | extra spicy options.",
         "ingredients": "Vegetables, Signature Peanut Sauce, Kerupuk",
         "vegetarian": true,
         "spicy": false
@@ -18,38 +18,38 @@
         },
         {
           "name": "Nasi Kari Ayam / Kari Daging",
-          "body": "Shredded chicken or beef rendang, potato, in savory curry sauce. Served with warm rice and Kerupuk.",
+          "body": "Shredded chicken or beef rendang, potato, egg, in savory yellow curry. Served with warm rice and Kerupuk.",
           "ingredients": "Vegetables, Chicken/Beef, Kerupuk",
           "vegetarian": false,
           "spicy": false
         },
         {
           "name": "Nasi Ayam Goreng Sambal Khas",
-          "body": "Free-range chicken, shallow fried until tender with crispy skin. Served with warm rice, our special sambal recipe, tempe, and cucumber. ",
+          "body": "Free-range chicken (Ayam Kampong), shallow fried until tender with crispy skin. Served with warm rice, our special sambal recipe, tempe, and cucumber. ",
           "ingredients": "Vegetables, Chicken, Tempe, Sambal",
           "vegetarian": false,
           "spicy": true
         },
         {
           "name": "Laksa Ayam",
-          "body": "Shredded Chicken, Potato, Vermicelli, Beansprouts, in savory curry soup. Served with Kerupuk.",
-          "ingredients": "Vegetables, Chicken/Beef, Kerupuk",
+          "body": "Shredded chicken, vermicelli, beansprouts, egg, in savory curry soup. Served with acar timun and Kerupuk.",
+          "ingredients": "Vegetables, Chicken, Pickles, Kerupuk",
           "vegetarian": false,
           "spicy": false
         },
         {
           "name": "Nasi Bakar",
           "body": "Rice, Mackerel, Basil leaves, Petai wrapped in banana leaves and roasted.",
-          "ingredients": "Vegetables, Fish, Petai",
+          "ingredients": "Vegetables, Fish, Petai, Herbs seasoning",
           "vegetarian": false,
           "spicy": false
         },
         {
           "name": "Pepes Peda",
-          "body": "Mackerel, Cassava leaves, Petai wrapped in banana leaves and roasted.",
-          "ingredients": "Vegetables, Fish, Petai, Special sauce",
+          "body": "Mackerel, Cassava leaves, Petai wrapped in banana leaves and roasted. A bit spicy.",
+          "ingredients": "Vegetables, Fish, Petai, Herbs seasoning",
           "vegetarian": false,
-          "spicy": false
+          "spicy": true
         },
         {
           "name": "Rendang Jengkol",
@@ -78,7 +78,7 @@
         "body": [
           {
             "submenu": "Deep Fried Crackers",
-            "options": "Aci Pink, Aci Kuning, Aci Putih, Kerupuk Bawang, Kerupuk Udang, Reginang, Emping Manis, Gendar, Peyek"
+            "options": "Aci Terasi, Aci Kuning, Aci Putih, Kerupuk Bawang, Kerupuk Udang, Reginang, Emping Manis, Gendar, Peyek"
           },
           {
             "submenu": "Traditional Finger Foods",
@@ -91,17 +91,17 @@
       "featured": {
         "name": "Various Kolak",
         "body": "Mix and match our sweet desserts, with homemade coconut puree.",
-        "ingredients": "Pisang, Bubur Sagurangi, Caca, Pacar, Bubur Jali, Bubur Ketan Hitam, Bubur Kacang Hijau, Candil ..."
+        "ingredients": "Bubur Sagurangi, Bubur Jali, Caca, Pacar, Kolak Pisang, Bubur Ketan Hitam, Bubur Kacang Hijau, Candil"
       },
       "list": [
         {
           "name": "Rujak Beubeuk",
-          "body": "Bengkuang, Ambarella (Kedondong), Sour Mango, and Sweet Potato. Pestled and poured with sweet zesty palm sugar sauce",
+          "body": "Jícama (Bengkuang), Ambarella (Kedondong), Sour Mango, and Sweet Potato. Pestled and poured with sweet zesty palm sugar sauce.",
           "ingredients": ""
         },
         {
           "name": "Juices",
-          "body": "Fresh and 100% pure juices.",
+          "body": "Fresh and pure juices.",
           "ingredients": "Ambarella (Kedondong), Mango, Lime, Guava, Tomato, Orange"
         }
       ],
@@ -110,11 +110,11 @@
         "body": [
           {
             "submenu": "Classics",
-            "options": "Lemon tea, Green tea, Chocolate, Cappuccino, Coffee, Mineral water"
+            "options": "Black tea, Lemon tea, Happy Soda, Chocolate, Cappuccino, Coffee, Mineral water"
           },
           {
             "submenu": "Traditional Beverages",
-            "options": "Bandrek, Ginger, Soda susu"
+            "options": "Bandrek, Ginger"
           }
         ]
       }
