@@ -14,6 +14,30 @@ const SectionContainer = styled(Container)`
   margin-bottom: 5vh;
 `;
 
+const deliveryDetails = {
+  shopeefood: {
+    image: shopeefood,
+    url: "",
+  },
+  gofood: {
+    image: gofood,
+    url: "https://gofood.co.id/english/jakarta/restaurant/lotek-kalipah-apo-42-041df2ed-15fc-4deb-a921-65ca8659f130",
+  },
+  grabfood: {
+    image: grabfood,
+    url: "https://food.grab.com/id/en/restaurant/lotek-kalipah-apo-42-cideng-delivery/6-CZN1EA5UNKAJPE",
+  },
+};
+
+function DeliveryLogo(props) {
+  const { name, ...rest } = props;
+  return (
+    <a href={deliveryDetails[name].url} target="_blank" rel="noreferrer">
+      <Image src={deliveryDetails[name].image} alt={name} {...rest} />
+    </a>
+  );
+}
+
 export function LocationSection() {
   return (
     <>
@@ -27,14 +51,19 @@ export function LocationSection() {
         >
           <Typography variant="title">Find Us</Typography>
           <Typography variant="body">
-            *Due to Covid measurement, we only offers takeaway and online
-            delivery. Find us via:
+            Get our specialties delivered to your doorstep via these online
+            platforms,
           </Typography>
+
           <Container justify="center" align="center" gap="50">
-            <Image width="130" height="130" src={shopeefood} alt="shopee" />
-            <Image width="115" height="110" src={gofood} alt="gojek" />
-            <Image width="100" height="100" src={grabfood} alt="grab" />
+            <DeliveryLogo width="130" height="130" name="shopeefood" />
+            <DeliveryLogo width="115" height="110" name="gofood" />
+            <DeliveryLogo width="100" height="100" name="grabfood" />
           </Container>
+
+          <Typography variant="body" padding="10">
+            Or visit our dining places at...
+          </Typography>
           <LocationBar />
         </SectionContainer>
       </Container>
