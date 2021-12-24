@@ -17,6 +17,6 @@ export const Container = styled.div`
   ${({ fullWidth }) =>
     fullWidth &&
     css`
-      width: 100%;
+      width: 100vw;
     `};
 `;

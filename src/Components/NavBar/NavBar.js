@@ -1,7 +1,8 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import React, { useEffect, useState } from "react";
 import menuItems from "./MenuItems";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faBars, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 import logoLotek from "../../assets/logo.png";
 import { Typography } from "../Typography";
@@ -11,7 +12,7 @@ import { Icon } from "../Icon";
 import { Link } from "react-scroll";
 import { withTheme } from "styled-components";
 
-const NavContainer = styled(Container).attrs({
+const SectionContainer = styled(Container).attrs({
   justify: "center",
   align: "center",
 })`
@@ -19,62 +20,80 @@ const NavContainer = styled(Container).attrs({
   box-shadow: 0 2px 4px 0 rgba(148, 112, 58, 0.1),
     0 4px 8px 0 rgba(148, 112, 58, 0.1);
 
-  width: 100%;
-  max-width: 100vw;
-  height: 250px;
+  width: 100vw;
+  height: 260px;
+`;
+
+const ModalContainer = styled.div`
+  z-index: 1;
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+
+  @media (min-width: 900px) {
+    display: none;
+  }
 `;
 
 const Nav = styled.nav`
-  position: relative;
-  width: 80%;
-  margin-top: 28px;
-  margin-bottom: 30px;
+  display: none;
+
+  @media (min-width: 900px) {
+    display: block;
+    position: relative;
+    width: 80%;
+    margin-top: 8px;
+    margin-bottom: 0px;
+  }
+`;
+
+const NavMobileWrapper = styled.nav`
+  display: flex;
+  position: absolute;
+  top: 20%;
 `;
 
 const NavMenu = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-gap: 50px;
+  position: relative;
   list-style: none;
-  max-height: 36px;
-  margin: 10px;
-  padding: 0px;
+  text-align: center;
+  padding: 0;
 
-  @media (max-width: 960px) {
-    ${(active) => {
-      active
-        ? css`
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 500px;
-            position: absolute;
-            top: 80px;
-            left: -100%;
-            opacity: 1;
-            transition: all 0.5s ease;
-          `
-        : css`
-            background: #6668f4;
-            left: 0;
-            opacity: 1;
-            transition: all 0.5s ease;
-            z-index: 1;
-          `;
-    }}
+  @media (min-width: 900px) {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 40px;
+    justify-content: center;
+    max-height: 36px;
+    margin: 0px;
+    padding: 0px;
   }
+`;
+
+const NavLinkWrapper = styled.li`
+  padding: 10px;
+  margin: 0;
 `;
 
 const NavLink = styled(Link)`
   color: ${({ theme }) => theme.default};
-  padding: 4px 16px;
-  letter-spacing: -0.5px;
+  padding: 16px 16px;
+  text-align: center;
+  padding: 0;
 
-  @media (max-width: 960px) {
-    text-align: center;
-    padding: 16px;
-    width: 100%;
+  @media (min-width: 900px) {
     display: table;
+    width: 100%;
+    text-align: left;
+    letter-spacing: -0.5px;
   }
 
   :hover {
@@ -97,6 +116,8 @@ const Title = styled(Typography).attrs({ variant: "title" })`
   font-style: normal;
   letter-spacing: 2px;
   margin-bottom: 4px;
+  text-align: center;
+  width: 80%;
 `;
 
 const HeaderLine = styled.hr`
@@ -112,11 +133,19 @@ const HeaderLine = styled.hr`
 const TextDescription = styled(Typography).attrs({
   variant: "body",
 })`
+  display: none;
+  position: absolute
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   line-height: 1.3;
   color: ${({ theme }) => theme.primary.dark};
+
+  @media (min-width: 900px) {
+    display: block;
+    top: 40px;
+    left: 30px;
+  } ;
 `;
 
 const PositionWrapper = styled.div`
@@ -126,7 +155,52 @@ const PositionWrapper = styled.div`
   right: ${(props) => props.right};
 `;
 
-function NavBar() {
+const InstagramIcon = styled(Icon).attrs({
+  icon: faInstagram,
+  size: "lg",
+})`
+  display: ${({ isModalOpen }) => (isModalOpen ? "block" : "none")};
+  padding: 10px;
+
+  @media (min-width: 900px) {
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: initial;
+    right: 15vw;
+  }
+`;
+
+const BurgerIcon = styled(Icon).attrs({
+  icon: faBars,
+  size: "2x",
+})`
+  display: block;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+
+  @media (min-width: 900px) {
+    display: none;
+  }
+`;
+
+const CloseIcon = styled.div`
+  position: absolute;
+  top: 40px;
+  right: 20px;
+
+  font-size: 50px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.primary.dark};
+`;
+
+const IconWrapper = styled(Icon)`
+  padding: 10px;
+`;
+
+function NavList(props) {
+  const { onClose } = props;
   const [navigationLinks, setNavigationLinks] = useState(menuItems);
 
   useEffect(() => {
@@ -144,10 +218,45 @@ function NavBar() {
   }, []);
 
   return (
-    <NavContainer>
-      <Nav>
+    <NavMenu>
+      {navigationLinks.map((item, index) => {
+        return (
+          <NavLinkWrapper key={index}>
+            <NavLink
+              to={item.name}
+              spy={true}
+              smooth={true}
+              duration={item.distanceFromTop / 1.2}
+              onClick={onClose}
+            >
+              {item.title}
+            </NavLink>
+          </NavLinkWrapper>
+        );
+      })}
+    </NavMenu>
+  );
+}
+
+function NavBar() {
+  const [isMobileNavOpen, setOpenMobileNav] = useState(false);
+
+  const iconLinkDetails = [
+    {
+      name: faWhatsapp,
+      url: "https://wa.me/6281386041621",
+    },
+    {
+      name: faMapMarkerAlt,
+      url: "https://goo.gl/maps/3bGVGfccvN3KL1Dh9",
+    },
+  ];
+
+  return (
+    <>
+      <SectionContainer>
         <Container direction="column" align="center" justify="center">
-          <PositionWrapper top="40px" left="30px">
+          <PositionWrapper top="40px" left="15vw">
             <TextDescription variant="body">
               Jl. Batang Hari No.21,
               <br /> Cideng, Gambir, Jakarta 10150
@@ -156,36 +265,51 @@ function NavBar() {
           <Logo src={logoLotek} alt="Logo" />
           <Title>LOTEK KALIPAH APO 42</Title>
 
-          <PositionWrapper top="40px" right="30px">
-            <a
-              href="https://www.instagram.com/lotekkalipahapo42"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Icon icon={faInstagram} size="lg" />
-            </a>
-          </PositionWrapper>
+          <a
+            href="https://www.instagram.com/lotekkalipahapo42"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <InstagramIcon />
+          </a>
 
-          <NavMenu>
-            {navigationLinks.map((item, index) => {
-              return (
-                <li key={index}>
-                  <NavLink
-                    to={item.name}
-                    spy={true}
-                    smooth={true}
-                    duration={item.distanceFromTop / 1.2}
-                  >
-                    {item.title}
-                  </NavLink>
-                </li>
-              );
-            })}
-          </NavMenu>
+          <BurgerIcon onClick={() => setOpenMobileNav(true)} />
+          <Nav>
+            <NavList />
+          </Nav>
+
           <HeaderLine />
         </Container>
-      </Nav>
-    </NavContainer>
+      </SectionContainer>
+
+      {isMobileNavOpen && (
+        <ModalContainer>
+          <CloseIcon onClick={() => setOpenMobileNav(false)}>&#215;</CloseIcon>
+          <Container direction="column" align="center">
+            <NavMobileWrapper>
+              <NavList
+                onClose={() => setOpenMobileNav(false)}
+                showCloseIcon={isMobileNavOpen}
+              />
+            </NavMobileWrapper>
+            <Container align="center">
+              <a
+                href="https://www.instagram.com/lotekkalipahapo42"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <InstagramIcon isModalOpen={isMobileNavOpen} />
+              </a>
+              {iconLinkDetails.map((icon, idx) => (
+                <a href={icon.url} target="_blank" rel="noreferrer" key={idx}>
+                  <IconWrapper icon={icon.name} size="lg" />
+                </a>
+              ))}
+            </Container>
+          </Container>
+        </ModalContainer>
+      )}
+    </>
   );
 }
 
