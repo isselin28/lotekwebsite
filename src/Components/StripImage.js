@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// not recommended to use on mobile
 const Parallax = styled.div`
   background-image: url(${(props) => props.imageUrl});
   min-height: 40vw;
@@ -17,7 +18,7 @@ const Parallax = styled.div`
 function StripImage(props) {
   const { imageUrl, position, size, ...rest } = props;
   return (
-    <Parallax imageUrl={imageUrl} position={position} size={size} rest={rest} />
+    <Parallax imageUrl={imageUrl} position={position} size={size} {...rest} />
   );
 }
 
