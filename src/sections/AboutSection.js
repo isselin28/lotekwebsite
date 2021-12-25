@@ -8,30 +8,40 @@ import { Typography } from "../components/Typography";
 import { Container } from "../components/Container";
 import { Image } from "../components/Image";
 import { withTheme } from "styled-components";
+import { isMobileDevice } from "../utils.js";
 
 const ContentWrapper = styled(Container).attrs({
   align: "center",
   justify: "center",
   fullWidth: true,
 })`
+  flex-direction: column;
   max-width: 950px;
   gap: 40px;
   margin-top: 10vh;
   margin-bottom: 30px;
+
+  @media (min-width: 900px) {
+    flex-direction: row-reverse;
+  }
 `;
 
-const Column = styled(Container).attrs({
-  direction: "column",
-})`
+const Column = styled(Container)`
+  flex-direction: column-reverse;
   flex-wrap: wrap;
   flex: 1;
-  width: 30%;
+  width: 80%;
   gap: 40px;
 
   ${({ top }) =>
     css`
       margin-top: ${top}px;
     `}
+
+  @media (min-width: 900px) {
+    width: 30%;
+    flex-direction: column;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -39,6 +49,11 @@ const TextContainer = styled.div`
   flex-direction: column;
   width: 100%;
   gap: 8px;
+  order: 1;
+
+  @media (min-width: 900px) {
+    order: initial;
+  }
 `;
 
 function AboutSection() {
@@ -46,36 +61,6 @@ function AboutSection() {
     <Container align="center" justify="center" direction="column">
       <div id="about" />
       <ContentWrapper>
-        <Column top="150">
-          <Image
-            responsive
-            width="450"
-            height="500"
-            src={foodLotekPrepare}
-            alt="Signature's Lotek"
-          />
-          <Image
-            responsive
-            width="450"
-            height="260"
-            src={foodKolakBubur}
-            alt="Kolak Sagurangi"
-          />
-          <TextContainer>
-            <Typography variant="label">OUR PLACE</Typography>
-            <Typography variant="title">From Bandung to Jakarta</Typography>
-            <Typography variant="body">
-              The flavour of <i>Ema's Lotek</i> has been present in{" "}
-              <b>Jakarta since 1997</b>. We preserve our nuance by using
-              traditional recipe, homemade cooking, and natural, non-artificial
-              ingredients. Enjoy our <i>Lotek</i> and <i>Kolak</i> in a homely,
-              semi-traditional style house. A perfect place to snug yourself
-              into a relaxed atmosphere and feel at ease with our healthy
-              comforting food.
-            </Typography>
-            <Typography variant="body"></Typography>
-          </TextContainer>
-        </Column>
         <Column>
           <TextContainer>
             <Typography variant="label">OUR RESTAURANT</Typography>
@@ -108,10 +93,41 @@ function AboutSection() {
           <Image
             responsive
             width="450"
-            height="460"
-            src={foodKariayam}
+            height={isMobileDevice() ? "500" : "460"}
+            src={isMobileDevice() ? foodLotekPrepare : foodKariayam}
             alt="Kari Ayam"
           />
+        </Column>
+
+        <Column top="150">
+          <Image
+            responsive
+            width="450"
+            height={isMobileDevice() ? "460" : "500"}
+            src={isMobileDevice() ? foodKariayam : foodLotekPrepare}
+            alt="Signature's Lotek"
+          />
+          <Image
+            responsive
+            width="450"
+            height="260"
+            src={foodKolakBubur}
+            alt="Kolak Sagurangi"
+          />
+          <TextContainer>
+            <Typography variant="label">OUR PLACE</Typography>
+            <Typography variant="title">From Bandung to Jakarta</Typography>
+            <Typography variant="body">
+              The flavour of <i>Ema's Lotek</i> has been present in{" "}
+              <b>Jakarta since 1997</b>. We preserve our nuance by using
+              traditional recipe, homemade cooking, and natural, non-artificial
+              ingredients. Enjoy our <i>Lotek</i> and <i>Kolak</i> in a homely,
+              semi-traditional style house. A perfect place to snug yourself
+              into a relaxed atmosphere and feel at ease with our healthy
+              comforting food.
+            </Typography>
+            <Typography variant="body"></Typography>
+          </TextContainer>
         </Column>
       </ContentWrapper>
     </Container>
