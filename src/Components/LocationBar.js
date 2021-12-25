@@ -13,12 +13,16 @@ import { Button } from "./Button.js";
 import { withTheme } from "styled-components";
 
 const SectionWrapper = styled(Container)`
-  width: 70%;
-  max-width: 800px;
-  border: 1px solid ${({ theme }) => theme.primary.dark};
-  border-radius: 5px;
-  padding: 20px 10vw 30px 10vw;
+  width: 100%;
   margin: 20px 0 40px 0;
+
+  @media (min-width: 900px) {
+    width: 70%;
+    max-width: 800px;
+    border: 1px solid ${({ theme }) => theme.primary.dark};
+    border-radius: 5px;
+    padding: 20px 10vw 30px 10vw;
+  }
 `;
 
 const ContentWrapper = styled(Container).attrs({
@@ -26,9 +30,18 @@ const ContentWrapper = styled(Container).attrs({
   justify: "space-between",
   fullWidth: true,
 })`
-  gap: 50px;
-  padding-top: 30px;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 40px;
   padding-bottom: 20px;
+  border-top: 1px solid ${({ theme }) => theme.primary.dark};
+
+  @media (min-width: 900px) {
+    flex-direction: row;
+    gap: 50px;
+    padding-top: 30px;
+    border-top: none;
+  }
 `;
 
 const Column = styled.div`
@@ -46,26 +59,60 @@ const MapWrapper = styled(Container).attrs({
 `;
 
 const MapImage = styled(Image)`
-  width: 100%;
-  max-height: 180px;
+  width: 80%;
+  max-height: 150px;
   border-radius: 5px;
   box-shadow: 0px 2px 4px grey;
-  margin-top: 18px;
+  margin-top: 10px;
+
+  @media (min-width: 900px) {
+    width: 100%;
+    max-height: 180px;
+    margin-top: 18px;
+  }
 `;
 
 const MapButton = styled(Button).attrs({
   primary: false,
 })`
   position: absolute;
-  bottom: 0px;
+  bottom: 5px;
   right: 0px;
-  transform: translateX(-20%);
+  transform: translateX(-60%);
 
   height: 28px;
   width: 8%;
 
   :hover ${Icon} {
     color: white;
+  }
+
+  @media (min-width: 900px) {
+    bottom: 0px;
+    transform: translateX(-20%);
+  }
+`;
+
+const LocationTitle = styled(Typography).attrs({
+  variant: "title",
+})`
+  padding-bottom: 20px;
+  text-align: center;
+
+  @media (min-width: 900px) {
+    padding-bottom: 0;
+    padding-left: 20px;
+    text-align: left;
+  }
+`;
+
+const OpeningHourContainer = styled(Container).attrs({
+  justify: "center",
+})`
+  padding-bottom: 40px;
+
+  @media (min-width: 900px) {
+    padding-bottom: 20px;
   }
 `;
 
@@ -106,10 +153,8 @@ function LocationBar() {
         <Container direction="column" fullWidth key={idx}>
           <ContentWrapper>
             <Column direction="column">
-              <Typography variant="title" align="left">
-                {location.location}
-              </Typography>
-              <Container gap="4">
+              <LocationTitle>{location.location}</LocationTitle>
+              <Container gap="8">
                 <Icon icon={faHome} fontSize="18" />
                 <Typography variant="body" align="left">
                   {location.street}
@@ -123,7 +168,7 @@ function LocationBar() {
                   {location.country}
                 </Typography>
               </Container>
-              <Container gap="4">
+              <Container gap="8">
                 <Icon
                   icon={location.whatsapp ? faWhatsapp : faPhoneAlt}
                   fontSize="20"
@@ -142,7 +187,10 @@ function LocationBar() {
               </Container>
             </Column>
             <MapWrapper>
-              <MapImage src={location.imageUrl} />
+              <MapImage
+                src={location.imageUrl}
+                alt={`${location.location}_map`}
+              />
               <a href={location.googleMapUrl} target="_blank" rel="noreferrer">
                 <MapButton>
                   <Image src={googleMapIcon} alt="Google Map icon" width="15" />
@@ -150,9 +198,11 @@ function LocationBar() {
               </a>
             </MapWrapper>
           </ContentWrapper>
-          <Container justify="center" padding="20">
-            <Typography variant="body">{location.openingHour}</Typography>
-          </Container>
+          <OpeningHourContainer justify="center" padding="10">
+            <Typography variant="body" align="center">
+              {location.openingHour}
+            </Typography>
+          </OpeningHourContainer>
         </Container>
       ))}
     </SectionWrapper>

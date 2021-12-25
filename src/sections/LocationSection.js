@@ -8,10 +8,32 @@ import { Typography } from "../components/Typography";
 import { Container } from "../components/Container";
 import { Image } from "../components/Image";
 
-const SectionContainer = styled(Container)`
-  width: 80vw;
+const SectionContainer = styled(Container).attrs({
+  align: "center",
+  justify: "center",
+  direction: "column",
+  gap: "15",
+})`
+  width: 90vw;
   margin-top: 20vh;
   margin-bottom: 5vh;
+  border-bottom: 1px solid ${({ theme }) => theme.primary.dark};
+
+  @media (min-width: 900px) {
+    width: 80vw;
+    border: none;
+  }
+`;
+
+const DeliveryLogoContainer = styled(Container).attrs({
+  justify: "center",
+  align: "center",
+})`
+  gap: 20px;
+
+  @media (min-width: 900px) {
+    gap: 50px;
+  }
 `;
 
 const deliveryDetails = {
@@ -33,7 +55,12 @@ function DeliveryLogo(props) {
   const { name, ...rest } = props;
   return (
     <a href={deliveryDetails[name].url} target="_blank" rel="noreferrer">
-      <Image src={deliveryDetails[name].image} alt={name} {...rest} />
+      <Image
+        src={deliveryDetails[name].image}
+        alt={name}
+        {...rest}
+        responsive
+      />
     </a>
   );
 }
@@ -43,25 +70,20 @@ export function LocationSection() {
     <>
       <div id="find_us" />
       <Container align="center" justify="center">
-        <SectionContainer
-          align="center"
-          justify="center"
-          direction="column"
-          gap="15"
-        >
+        <SectionContainer>
           <Typography variant="title">Find Us</Typography>
-          <Typography variant="body">
+          <Typography variant="body" align="center">
             Get our specialties delivered to your doorstep via these online
             platforms,
           </Typography>
 
-          <Container justify="center" align="center" gap="50">
+          <DeliveryLogoContainer justify="center" align="center" gap="50">
             <DeliveryLogo width="130" height="130" name="shopeefood" />
             <DeliveryLogo width="115" height="110" name="gofood" />
             <DeliveryLogo width="100" height="100" name="grabfood" />
-          </Container>
+          </DeliveryLogoContainer>
 
-          <Typography variant="body" padding="10">
+          <Typography variant="body" padding="10" align="center">
             Or visit our dining places at...
           </Typography>
           <LocationBar />
