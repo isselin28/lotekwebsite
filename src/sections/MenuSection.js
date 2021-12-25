@@ -18,15 +18,24 @@ const Line = styled.hr`
 `;
 
 const MenuContainer = styled(Container)`
-  width: 55%;
+  width: 90%;
+
+  @media (min-width: 900px) {
+    width: 55%;
+  }
 `;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr minmax(0, 1fr);
+  grid-template-columns: 1fr;
   padding-bottom: 40px;
-  column-gap: 50px;
-  row-gap: 60px;
+  row-gap: 40px;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr minmax(0, 1fr);
+    column-gap: 50px;
+    row-gap: 60px;
+  }
 `;
 
 const Item = styled(Typography).attrs({
@@ -79,7 +88,31 @@ const ItemImage = styled(Image).attrs({
 `;
 
 const FlexColumn = styled(Container)`
-  flex: 1;
+  @media (min-width: 900px) {
+    flex: 1;
+  }
+`;
+
+const AdditionalMenuContainer = styled(Container).attrs({
+  justify: "space-between",
+})`
+  flex-direction: column;
+  gap: 40px;
+  padding-bottom: 20px;
+
+  @media (min-width: 900px) {
+    flex-direction: initial;
+    width: 100vw;
+    gap: 50px;
+  }
+`;
+
+const WrapItemWithLabel = styled(Container)`
+  justify-content: space-between;
+
+  @media (min-width: 900px) {
+    justify-content: left;
+  }
 `;
 
 function Divider() {
@@ -121,36 +154,36 @@ export function MenuSection() {
           <div>
             <Item>{main.featured.name}</Item>
             <Typography variant="body">{main.featured.body}</Typography>
-            <Container>
+            <WrapItemWithLabel>
               <ItemIngredient>{main.featured.ingredients}</ItemIngredient>
               {dishLabel(main.featured.vegetarian, main.featured.spicy)}
-            </Container>
+            </WrapItemWithLabel>
           </div>
           <ItemImage src={foodLotek} alt="Lotek khas Kalipah Apo" />
           {main.list.map((item, idx) => (
             <div key={`main_list_${idx}`}>
               <Item>{item.name}</Item>
               <Typography variant="body">{item.body}</Typography>
-              <Container>
+              <WrapItemWithLabel>
                 <ItemIngredient>{item.ingredients}</ItemIngredient>
                 {dishLabel(item.vegetarian, item.spicy)}
-              </Container>
+              </WrapItemWithLabel>
             </div>
           ))}
         </Grid>
 
         <Item>{main.additional.name}</Item>
-        <Container justify="space-between" gap="50" fullWidth>
+        <AdditionalMenuContainer>
           {main.additional.body.map((item, idx) => (
             <FlexColumn direction="column" key={`main_additional_${idx}`}>
               <Typography variant="body">{item.submenu}</Typography>
-              <Container>
+              <WrapItemWithLabel justify="space-between">
                 <ItemIngredient options>{item.options}</ItemIngredient>
                 {dishLabel(main.additional.vegetarian, main.additional.spicy)}
-              </Container>
+              </WrapItemWithLabel>
             </FlexColumn>
           ))}
-        </Container>
+        </AdditionalMenuContainer>
 
         <Container padding="30" gap="16">
           <Container align="center" gap="8">
@@ -181,14 +214,14 @@ export function MenuSection() {
         </Grid>
 
         <Item>{drinks.additional.name}</Item>
-        <Container justify="space-between" gap="50" fullWidth>
+        <AdditionalMenuContainer>
           {drinks.additional.body.map((item, idx) => (
             <FlexColumn direction="column" key={`drinks_additional_${idx}`}>
               <Typography variant="body">{item.submenu}</Typography>
               <ItemIngredient options>{item.options}</ItemIngredient>
             </FlexColumn>
           ))}
-        </Container>
+        </AdditionalMenuContainer>
 
         <Divider />
       </MenuContainer>
