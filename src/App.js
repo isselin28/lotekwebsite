@@ -16,7 +16,7 @@ import { isMobileDevice } from "./utils.js";
 
 const MobileImage = styled(Image)`
   object-position: 0% 100%;
-  max-height: 36vh;
+  max-height: 30vh;
   margin-bottom: -3px;
 `;
 

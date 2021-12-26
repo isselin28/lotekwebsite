@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Button = styled.div`
   color: ${({ theme, primary }) =>
@@ -17,8 +17,12 @@ export const Button = styled.div`
 
   :active,
   :hover {
-    cursor: pointer;
-    color: white;
-    background-color: ${({ theme }) => theme.primary.light};
+    ${({ disabled }) =>
+      !disabled &&
+      css`
+        cursor: pointer;
+        color: white;
+        background-color: ${({ theme }) => theme.primary.light};
+      `}
   }
 `;
