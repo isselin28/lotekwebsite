@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import React, { useEffect, useState } from "react";
 import menuItems from "./MenuItems";
-import { faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import {
+  faInstagram,
+  faWhatsapp,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 import { faBars, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 import logoLotek from "../../assets/logo.png";
@@ -11,21 +15,29 @@ import { Image } from "../Image";
 import { Icon } from "../Icon";
 import { Link } from "react-scroll";
 import { withTheme } from "styled-components";
+import { isMobileDevice } from "../../utils.js";
 
 const SectionContainer = styled(Container).attrs({
   justify: "center",
   align: "center",
 })`
+  position: absolute;
+  top: 0;
+  left: 0;
+
   background: #f7f0e8;
   box-shadow: 0 2px 4px 0 rgba(148, 112, 58, 0.1),
     0 4px 8px 0 rgba(148, 112, 58, 0.1);
 
   width: 100vw;
-  height: 260px;
+  height: 240px;
+
+  @media (min-width: 900px) {
+    height: 260px;
+  }
 `;
 
 const ModalContainer = styled.div`
-  z-index: 1;
   background-color: white;
 
   display: flex;
@@ -55,10 +67,15 @@ const Nav = styled.nav`
   }
 `;
 
-const NavMobileWrapper = styled.nav`
-  display: flex;
+const NavMobileWrapper = styled(Container).attrs({
+  direction: "column",
+  align: "center",
+})`
   position: absolute;
   top: 20%;
+
+  width: 100%;
+  height: 80%;
 `;
 
 const NavMenu = styled.ul`
@@ -159,8 +176,8 @@ const InstagramIcon = styled(Icon).attrs({
   icon: faInstagram,
   size: "lg",
 })`
-  display: ${({ isModalOpen }) => (isModalOpen ? "block" : "none")};
-  padding: 10px;
+  display: ${({ show }) => (show ? "block" : "none")};
+  padding: 10px 15px;
 
   @media (min-width: 900px) {
     display: block;
@@ -177,8 +194,8 @@ const BurgerIcon = styled(Icon).attrs({
 })`
   display: block;
   position: absolute;
-  top: 50px;
-  right: 20px;
+  top: 30px;
+  right: 7vw;
 
   @media (min-width: 900px) {
     display: none;
@@ -187,8 +204,8 @@ const BurgerIcon = styled(Icon).attrs({
 
 const CloseIcon = styled.div`
   position: absolute;
-  top: 40px;
-  right: 20px;
+  top: 20px;
+  right: 7vw;
 
   font-size: 50px;
   font-weight: 400;
@@ -196,7 +213,34 @@ const CloseIcon = styled.div`
 `;
 
 const IconWrapper = styled(Icon)`
-  padding: 10px;
+  padding: 10px 15px;
+`;
+
+const CopyRight = styled(Container).attrs({
+  align: "center",
+})`
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  gap: 4px;
+`;
+
+const Sticky = styled.div`
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100vw;
+  height: 40px;
+  top: 0;
+  left: 0;
+
+  background-color: #f7f0e8;
+  opacity: 0.8;
+`;
+
+const MobileNavBar = styled.div`
+  padding-left: 15px;
+  padding-right: 10px;
+  transform: translateY(20%);
 `;
 
 function NavList(props) {
@@ -204,17 +248,21 @@ function NavList(props) {
   const [navigationLinks, setNavigationLinks] = useState(menuItems);
 
   useEffect(() => {
-    const load = () => {
-      const navigationLinksWithScroll = menuItems.map((menu) => {
+    const loadMenuDistance = () => {
+      return menuItems.map((menu) => {
         const id = menu.name.toString();
         let element = document.getElementById(id);
 
-        return { ...menu, distanceFromTop: element.offsetTop };
+        return {
+          ...menu,
+          distanceFromTop: element.getBoundingClientRect().top,
+        };
       });
-
-      setNavigationLinks(navigationLinksWithScroll);
     };
-    window.onload = load;
+
+    window.onload = loadMenuDistance;
+    let navigationLinksWithScroll = loadMenuDistance();
+    setNavigationLinks(navigationLinksWithScroll);
   }, []);
 
   return (
@@ -225,8 +273,9 @@ function NavList(props) {
             <NavLink
               to={item.name}
               spy={true}
-              smooth={true}
-              duration={item.distanceFromTop / 1.2}
+              smooth="easeInOutQuad"
+              duration={Math.abs(item.distanceFromTop)}
+              isDynamic={true}
               onClick={onClose}
             >
               {item.title}
@@ -254,6 +303,20 @@ function NavBar() {
 
   return (
     <>
+      {isMobileDevice() && (
+        <Sticky>
+          <MobileNavBar>
+            <Container justify="space-between" fullWidth>
+              <Typography variant="label">LOTEK KALIPAH APO 42</Typography>
+              <Icon
+                icon={faBars}
+                size="lg"
+                onClick={() => setOpenMobileNav(true)}
+              />
+            </Container>
+          </MobileNavBar>
+        </Sticky>
+      )}
       <SectionContainer>
         <Container direction="column" align="center" justify="center">
           <PositionWrapper top="40px" left="15vw">
@@ -285,20 +348,18 @@ function NavBar() {
       {isMobileNavOpen && (
         <ModalContainer>
           <CloseIcon onClick={() => setOpenMobileNav(false)}>&#215;</CloseIcon>
-          <Container direction="column" align="center">
-            <NavMobileWrapper>
-              <NavList
-                onClose={() => setOpenMobileNav(false)}
-                showCloseIcon={isMobileNavOpen}
-              />
-            </NavMobileWrapper>
-            <Container align="center">
+          <NavMobileWrapper as="nav">
+            <NavList
+              onClose={() => setOpenMobileNav(false)}
+              showCloseIcon={isMobileNavOpen}
+            />
+            <Container align="center" padding="20">
               <a
                 href="https://www.instagram.com/lotekkalipahapo42"
                 target="_blank"
                 rel="noreferrer"
               >
-                <InstagramIcon isModalOpen={isMobileNavOpen} />
+                <InstagramIcon show={isMobileNavOpen.toString()} />
               </a>
               {iconLinkDetails.map((icon, idx) => (
                 <a href={icon.url} target="_blank" rel="noreferrer" key={idx}>
@@ -306,7 +367,17 @@ function NavBar() {
                 </a>
               ))}
             </Container>
-          </Container>
+            <CopyRight>
+              Website by - Isselin
+              <a
+                href="https://www.linkedin.com/in/isselinmoektijono/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Icon icon={faLinkedin} size="lg" />
+              </a>
+            </CopyRight>
+          </NavMobileWrapper>
         </ModalContainer>
       )}
     </>

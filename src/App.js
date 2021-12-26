@@ -20,42 +20,54 @@ const MobileImage = styled(Image)`
   margin-bottom: -3px;
 `;
 
+const ContentWrapper = styled.div`
+  padding-top: 200px;
+
+  @media (min-width: 900px) {
+    padding-top: 260px;
+  }
+`;
+
 function App() {
   return (
     <>
       {!isMobileDevice() && <FloatingButton />}
+
       <div id="home" />
       <NavBar />
-      {isMobileDevice() ? (
-        <Image src={houseImage} alt="Lotek Kalipah Apo House" responsive />
-      ) : (
-        <StripImage
-          imageUrl={houseImage}
-          position="top center"
-          size="contain"
-        />
-      )}
 
-      <AboutSection />
-      <FeaturedSection />
-      <MenuSection />
-      <LocationSection />
+      <ContentWrapper>
+        {isMobileDevice() ? (
+          <Image src={houseImage} alt="Lotek Kalipah Apo House" responsive />
+        ) : (
+          <StripImage
+            imageUrl={houseImage}
+            position="top center"
+            size="contain"
+          />
+        )}
 
-      {isMobileDevice() ? (
-        <MobileImage
-          src={houseInside}
-          alt="Lotek Kalipah Apo Table"
-          responsive
-        />
-      ) : (
-        <StripImage
-          imageUrl={houseInside}
-          position="bottom center"
-          size="cover"
-          opacity="0.5"
-        />
-      )}
-      <FooterSection />
+        <AboutSection />
+        <FeaturedSection />
+        <MenuSection />
+        <LocationSection />
+
+        {isMobileDevice() ? (
+          <MobileImage
+            src={houseInside}
+            alt="Lotek Kalipah Apo Table"
+            responsive
+          />
+        ) : (
+          <StripImage
+            imageUrl={houseInside}
+            position="bottom center"
+            size="cover"
+            opacity="0.5"
+          />
+        )}
+        <FooterSection />
+      </ContentWrapper>
     </>
   );
 }

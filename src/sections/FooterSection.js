@@ -4,6 +4,7 @@ import { Container } from "../components/Container";
 import { Typography } from "../components/Typography";
 import { Icon } from "../components/Icon";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { isMobileDevice } from "../utils.js";
 
 const LinkedinIcon = styled(Icon).attrs({
   icon: faLinkedin,
@@ -70,8 +71,8 @@ export function FooterSection() {
         showLinkedin={showLinkedin}
       >
         <Copyright>
-          Lotek Kalipah Apo 42 &copy; 2021 &nbsp;|&nbsp; Website by - Isselin
-          Moektijono
+          Lotek Kalipah Apo 42 &copy; 2021 &nbsp;
+          {!isMobileDevice() && "| Website by - Isselin Moektijono"}
         </Copyright>
         <Container align="flex-end">
           <LinkedinIcon />
