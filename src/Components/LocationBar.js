@@ -66,6 +66,7 @@ const MapImage = styled(Image)`
   border-radius: 5px;
   box-shadow: 0px 2px 4px grey;
   margin-top: 10px;
+  z-index: -1;
 
   @media (min-width: 900px) {
     max-height: 180px;

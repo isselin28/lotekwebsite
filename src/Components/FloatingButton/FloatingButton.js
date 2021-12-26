@@ -131,16 +131,24 @@ const AnimateButton = styled(RoundButton)`
 const StickyWrapper = styled.div`
   position: -webkit-sticky;
   position: sticky;
-  top: 30%;
+  top: 10px;
   z-index: 1;
+
+  @media (min-width: 900px) {
+    top: 30%;
+  }
 `;
 
 const FloatingWrapper = styled(Container).attrs({
   justify: "flex-end",
 })`
   position: absolute;
-  top: 50%;
-  right: 40px;
+  right: 2vw;
+
+  @media (min-width: 900px) {
+    top: 50%;
+    right: 40px;
+  }
 `;
 
 const OpeningHourWrapper = styled(Container).attrs({

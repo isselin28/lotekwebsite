@@ -1,12 +1,10 @@
 const menuItems = [
   {
     title: "Home",
-    url: "#home",
     name: "home",
   },
   {
     title: "About",
-    url: "#about",
     name: "about",
   },
   {
@@ -16,7 +14,6 @@ const menuItems = [
   },
   {
     title: "Find Us",
-    url: "#find_us",
     name: "find_us",
   },
 ];
