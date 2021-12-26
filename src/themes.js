@@ -7,10 +7,8 @@ export const LotekTheme = {
   background: "#ffffff",
 };
 
-const size = { desktop: "980px" };
+export const size = { desktop: 960 };
 
 export const device = {
-  desktop: `(min-width: 980px)`,
+  desktop: `(min-width: ${size.desktop}px)`,
 };
-
-// export default LotekTheme;
