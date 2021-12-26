@@ -85,6 +85,8 @@ const MapButton = styled(Button).attrs({
   height: 28px;
   width: 8%;
 
+  z-index: -1;
+
   :hover ${Icon} {
     color: white;
   }

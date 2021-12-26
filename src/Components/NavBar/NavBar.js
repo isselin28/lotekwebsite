@@ -39,10 +39,12 @@ const SectionContainer = styled(Container).attrs({
 
 const ModalContainer = styled.div`
   background-color: white;
+  overflow: hidden;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 3;
 
   position: fixed;
   top: 0;
@@ -70,9 +72,10 @@ const Nav = styled.nav`
 const NavMobileWrapper = styled(Container).attrs({
   direction: "column",
   align: "center",
+  justify: "space-around",
 })`
   position: absolute;
-  top: 20%;
+  top: 15%;
 
   width: 100%;
   height: 80%;
@@ -177,7 +180,7 @@ const InstagramIcon = styled(Icon).attrs({
   size: "lg",
 })`
   display: ${({ show }) => (show ? "block" : "none")};
-  padding: 10px 15px;
+  padding: 10px 20px;
 
   @media (min-width: 900px) {
     display: block;
@@ -213,14 +216,14 @@ const CloseIcon = styled.div`
 `;
 
 const IconWrapper = styled(Icon)`
-  padding: 10px 15px;
+  padding: 10px 20px;
 `;
 
 const CopyRight = styled(Container).attrs({
   align: "center",
 })`
-  position: absolute;
-  bottom: 20px;
+  /* position: absolute; */
+  /* bottom: 20px; */
   text-align: center;
   gap: 4px;
 `;
@@ -229,7 +232,7 @@ const Sticky = styled.div`
   position: -webkit-sticky;
   position: sticky;
   width: 100vw;
-  height: 40px;
+  height: 50px;
   top: 0;
   left: 0;
 
@@ -238,9 +241,13 @@ const Sticky = styled.div`
 `;
 
 const MobileNavBar = styled.div`
-  padding-left: 15px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 15px;
   transform: translateY(20%);
+`;
+
+const MobileIconContainer = styled(Container)`
+  padding-bottom: 20vh;
 `;
 
 function NavList(props) {
@@ -306,11 +313,11 @@ function NavBar() {
       {isMobileDevice() && (
         <Sticky>
           <MobileNavBar>
-            <Container justify="space-between" fullWidth>
+            <Container align="flex-end" justify="space-between" fullWidth>
               <Typography variant="label">LOTEK KALIPAH APO 42</Typography>
               <Icon
                 icon={faBars}
-                size="lg"
+                fontSize="28"
                 onClick={() => setOpenMobileNav(true)}
               />
             </Container>
@@ -319,7 +326,7 @@ function NavBar() {
       )}
       <SectionContainer>
         <Container direction="column" align="center" justify="center">
-          <PositionWrapper top="40px" left="15vw">
+          <PositionWrapper top="40px" left="10vw">
             <TextDescription variant="body">
               Jl. Batang Hari No.21,
               <br /> Cideng, Gambir, Jakarta 10150
@@ -353,7 +360,7 @@ function NavBar() {
               onClose={() => setOpenMobileNav(false)}
               showCloseIcon={isMobileNavOpen}
             />
-            <Container align="center" padding="20">
+            <MobileIconContainer align="center">
               <a
                 href="https://www.instagram.com/lotekkalipahapo42"
                 target="_blank"
@@ -366,17 +373,17 @@ function NavBar() {
                   <IconWrapper icon={icon.name} size="lg" />
                 </a>
               ))}
-            </Container>
-            <CopyRight>
-              Website by - Isselin
-              <a
-                href="https://www.linkedin.com/in/isselinmoektijono/"
-                target="_blank"
-                rel="noreferrer"
-              >
+            </MobileIconContainer>
+            <a
+              href="https://www.linkedin.com/in/isselinmoektijono/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <CopyRight>
+                Website by - Isselin
                 <Icon icon={faLinkedin} size="lg" />
-              </a>
-            </CopyRight>
+              </CopyRight>
+            </a>
           </NavMobileWrapper>
         </ModalContainer>
       )}

@@ -13,17 +13,18 @@ import AboutSection from "./sections/AboutSection.js";
 import { withTheme } from "styled-components";
 import { FloatingButton } from "./components/FloatingButton/FloatingButton";
 import { isMobileDevice } from "./utils.js";
+import device from "./themes.js";
 
 const MobileImage = styled(Image)`
   object-position: 0% 100%;
-  max-height: 30vh;
+  max-height: 60vw;
   margin-bottom: -3px;
 `;
 
 const ContentWrapper = styled.div`
   padding-top: 200px;
 
-  @media (min-width: 900px) {
+  @media (${device.desktop}) {
     padding-top: 260px;
   }
 `;
