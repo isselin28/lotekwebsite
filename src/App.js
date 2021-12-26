@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import NavBar from "./components/NavBar/NavBar";
 import houseImage from "./assets/house_front_pencil.jpeg";
-import houseInside from "./assets/inside_pencil_2.jpeg";
+import houseInside from "./assets/house_inside_pencil.png";
 import StripImage from "./components/StripImage";
 import { Image } from "./components/Image";
 import { FeaturedSection } from "./sections/FeaturedSection.js";
