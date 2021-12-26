@@ -8,6 +8,7 @@ import { faPepperHot } from "@fortawesome/free-solid-svg-icons";
 import * as menuData from "./data/menu.json";
 import foodLotek from "../assets/food_lotek.jpg";
 import foodKolakCampur from "../assets/food_kolakcampur.jpg";
+import { device } from "../themes.js";
 
 const Line = styled.hr`
   border: none;
@@ -20,7 +21,7 @@ const Line = styled.hr`
 const MenuContainer = styled(Container)`
   width: 90%;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     width: 55%;
   }
 `;
@@ -31,7 +32,7 @@ const Grid = styled.div`
   padding-bottom: 40px;
   row-gap: 40px;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     grid-template-columns: 1fr minmax(0, 1fr);
     column-gap: 50px;
     row-gap: 60px;
@@ -88,7 +89,7 @@ const ItemImage = styled(Image).attrs({
 `;
 
 const FlexColumn = styled(Container)`
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     flex: 1;
   }
 `;
@@ -100,7 +101,7 @@ const AdditionalMenuContainer = styled(Container).attrs({
   gap: 40px;
   padding-bottom: 20px;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     flex-direction: row;
     width: 100%;
     gap: 50px;
@@ -110,7 +111,7 @@ const AdditionalMenuContainer = styled(Container).attrs({
 const WrapItemWithLabel = styled(Container)`
   justify-content: space-between;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     justify-content: left;
   }
 `;

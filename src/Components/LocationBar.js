@@ -11,12 +11,13 @@ import { faHome, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { Button } from "./Button.js";
 import { withTheme } from "styled-components";
+import { device } from "../themes.js";
 
 const SectionWrapper = styled(Container)`
   width: 100%;
   margin-top: 20px;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     width: 70%;
     max-width: 800px;
     border: 1px solid ${({ theme }) => theme.primary.dark};
@@ -37,7 +38,7 @@ const ContentWrapper = styled(Container).attrs({
   padding-bottom: 20px;
   border-top: 1px solid ${({ theme }) => theme.primary.dark};
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     flex-direction: row;
     gap: 50px;
     padding-top: 30px;
@@ -68,7 +69,7 @@ const MapImage = styled(Image)`
   margin-top: 10px;
   z-index: -1;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     max-height: 180px;
     margin-top: 18px;
   }
@@ -91,7 +92,7 @@ const MapButton = styled(Button).attrs({
     color: white;
   }
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     bottom: 0px;
     transform: translateX(-20%);
   }
@@ -103,7 +104,7 @@ const LocationTitle = styled(Typography).attrs({
   padding-bottom: 20px;
   text-align: center;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     padding-bottom: 0;
     padding-left: 20px;
     text-align: left;
@@ -115,7 +116,7 @@ const OpeningHourContainer = styled(Container).attrs({
 })`
   padding-bottom: 40px;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     padding-bottom: 20px;
   }
 `;

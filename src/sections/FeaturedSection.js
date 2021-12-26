@@ -5,6 +5,7 @@ import { Container } from "../components/Container";
 import { Typography } from "../components/Typography";
 import logoDetails from "./data/featuredLogo.js";
 import { isMobileDevice } from "../utils.js";
+import { device } from "../themes.js";
 
 const FeaturedWrapper = styled(Container).attrs({
   align: "center",
@@ -17,7 +18,7 @@ const FeaturedWrapper = styled(Container).attrs({
   gap: 15px;
   margin: 5vw 0;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     flex-direction: initial;
     min-width: 600px;
     min-height: 185px;

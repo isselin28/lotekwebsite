@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import LotekTheme from "./themes.js";
+import { LotekTheme } from "./themes.js";
 
 const GlobalStyle = createGlobalStyle`
     body{

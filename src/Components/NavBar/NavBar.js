@@ -16,6 +16,7 @@ import { Icon } from "../Icon";
 import { Link } from "react-scroll";
 import { withTheme } from "styled-components";
 import { isMobileDevice } from "../../utils.js";
+import { device } from "../../themes.js";
 
 const SectionContainer = styled(Container).attrs({
   justify: "center",
@@ -32,7 +33,7 @@ const SectionContainer = styled(Container).attrs({
   width: 100vw;
   height: 240px;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     height: 260px;
   }
 `;
@@ -52,7 +53,7 @@ const ModalContainer = styled.div`
   height: 100%;
   width: 100vw;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     display: none;
   }
 `;
@@ -60,7 +61,7 @@ const ModalContainer = styled.div`
 const Nav = styled.nav`
   display: none;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     display: block;
     position: relative;
     width: 80%;
@@ -87,7 +88,7 @@ const NavMenu = styled.ul`
   text-align: center;
   padding: 0;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     display: grid;
     grid-template-columns: repeat(4, auto);
     grid-gap: 40px;
@@ -109,7 +110,7 @@ const NavLink = styled(Link)`
   text-align: center;
   padding: 0;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     display: table;
     width: 100%;
     text-align: left;
@@ -161,7 +162,7 @@ const TextDescription = styled(Typography).attrs({
   line-height: 1.3;
   color: ${({ theme }) => theme.primary.dark};
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     display: block;
     top: 40px;
     left: 30px;
@@ -182,7 +183,7 @@ const InstagramIcon = styled(Icon).attrs({
   display: ${({ show }) => (show ? "block" : "none")};
   padding: 10px 20px;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     display: block;
     position: absolute;
     top: 40px;
@@ -200,7 +201,7 @@ const BurgerIcon = styled(Icon).attrs({
   top: 30px;
   right: 7vw;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     display: none;
   }
 `;

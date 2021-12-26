@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "styled-components/macro";
-import LotekTheme from "./themes";
+import { LotekTheme } from "./themes";
 import GlobalStyle from "./GlobalStyles";
 
 ReactDOM.render(
