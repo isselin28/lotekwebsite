@@ -18,11 +18,11 @@ import { device } from "./themes.js";
 const MobileImage = styled(Image)`
   object-position: 0% 100%;
   max-height: 60vw;
-  margin-bottom: -3px;
+  margin-bottom: -4px;
 `;
 
 const ContentWrapper = styled.div`
-  padding-top: 200px;
+  padding-top: 180px;
 
   @media ${device.desktop} {
     padding-top: 260px;

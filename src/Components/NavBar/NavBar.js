@@ -39,26 +39,6 @@ const SectionContainer = styled(Container).attrs({
   }
 `;
 
-const ModalContainer = styled.div`
-  background-color: white;
-  overflow: hidden;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100vw;
-
-  @media ${device.desktop} {
-    display: none;
-  }
-`;
-
 const Nav = styled.nav`
   display: none;
 
@@ -69,18 +49,6 @@ const Nav = styled.nav`
     margin-top: 8px;
     margin-bottom: 0px;
   }
-`;
-
-const NavMobileWrapper = styled(Container).attrs({
-  direction: "column",
-  align: "center",
-  justify: "space-around",
-})`
-  position: absolute;
-  top: 15%;
-
-  width: 100%;
-  height: 80%;
 `;
 
 const NavMenu = styled.ul`
@@ -193,6 +161,8 @@ const InstagramIcon = styled(Icon).attrs({
   }
 `;
 
+// Mobile Nav Components
+
 const BurgerIcon = styled(Icon).attrs({
   icon: faBars,
   size: "2x",
@@ -207,27 +177,6 @@ const BurgerIcon = styled(Icon).attrs({
   }
 `;
 
-const CloseIcon = styled.div`
-  position: absolute;
-  top: 20px;
-  right: 7vw;
-
-  font-size: 50px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.primary.dark};
-`;
-
-const IconWrapper = styled(Icon)`
-  padding: 10px 20px;
-`;
-
-const CopyRight = styled(Container).attrs({
-  align: "center",
-})`
-  text-align: center;
-  gap: 4px;
-`;
-
 const Sticky = styled.div`
   position: -webkit-sticky;
   position: sticky;
@@ -238,14 +187,63 @@ const Sticky = styled.div`
 `;
 
 const MobileNavBar = styled.div`
-  padding: 12px 15px 0px 20px;
+  padding: 12px 20px 0px 20px;
   background-color: #f7f0e8;
   opacity: 0.8;
   height: 50px;
 `;
 
-const MobileIconContainer = styled(Container)`
-  padding-bottom: 20vh;
+const ModalContainer = styled.div`
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 125%;
+  width: 100vw;
+
+  @media ${device.desktop} {
+    display: none;
+  }
+`;
+
+const ModalContent = styled(Container).attrs({
+  direction: "column",
+  align: "center",
+  justify: "space-around",
+})`
+  position: absolute;
+  top: 5%;
+  width: 100%;
+  height: 80vh;
+`;
+
+const CloseIcon = styled.div`
+  position: absolute;
+  top: 12px;
+  right: 7vw;
+  z-index: 1; //bring forward icon so it's not overlapped & clickable
+
+  font-size: 50px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.primary.dark};
+`;
+
+const MobileIconWrapper = styled(Icon)`
+  padding: 10px 20px;
+`;
+
+const CopyRight = styled(Container).attrs({
+  align: "center",
+})`
+  text-align: center;
+  gap: 4px;
+  padding: 15px 0;
 `;
 
 function NavList(props) {
@@ -306,6 +304,12 @@ function NavBar() {
     },
   ];
 
+  if (isMobileNavOpen) {
+    document.querySelector("body").style.overflow = "hidden";
+  } else {
+    document.querySelector("body").style.overflow = "visible";
+  }
+
   return (
     <>
       {isMobileDevice() && (
@@ -353,12 +357,12 @@ function NavBar() {
       {isMobileNavOpen && (
         <ModalContainer>
           <CloseIcon onClick={() => setOpenMobileNav(false)}>&#215;</CloseIcon>
-          <NavMobileWrapper as="nav">
+          <ModalContent as="nav">
             <NavList
               onClose={() => setOpenMobileNav(false)}
               showCloseIcon={isMobileNavOpen}
             />
-            <MobileIconContainer align="center">
+            <Container align="center">
               <a
                 href="https://www.instagram.com/lotekkalipahapo42"
                 target="_blank"
@@ -368,10 +372,10 @@ function NavBar() {
               </a>
               {iconLinkDetails.map((icon, idx) => (
                 <a href={icon.url} target="_blank" rel="noreferrer" key={idx}>
-                  <IconWrapper icon={icon.name} size="lg" />
+                  <MobileIconWrapper icon={icon.name} size="lg" />
                 </a>
               ))}
-            </MobileIconContainer>
+            </Container>
             <a
               href="https://www.linkedin.com/in/isselinmoektijono/"
               target="_blank"
@@ -382,7 +386,7 @@ function NavBar() {
                 <Icon icon={faLinkedin} size="lg" />
               </CopyRight>
             </a>
-          </NavMobileWrapper>
+          </ModalContent>
         </ModalContainer>
       )}
     </>
