@@ -62,7 +62,7 @@ const TextContainer = styled.div`
 
 function AboutSection() {
   return (
-    <Container align="center" justify="center" direction="column">
+    <Container align="center" justify="center" direction="column" padding="10">
       <div id="about" />
       <ContentWrapper>
         <Column>

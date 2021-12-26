@@ -67,7 +67,6 @@ const MapImage = styled(Image)`
   border-radius: 5px;
   box-shadow: 0px 2px 4px grey;
   margin-top: 10px;
-  z-index: -1;
 
   @media ${device.desktop} {
     max-height: 180px;
@@ -85,8 +84,6 @@ const MapButton = styled(Button).attrs({
 
   height: 28px;
   width: 8%;
-
-  z-index: -1;
 
   :hover ${Icon} {
     color: white;

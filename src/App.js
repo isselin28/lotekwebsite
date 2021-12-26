@@ -29,9 +29,13 @@ const ContentWrapper = styled.div`
   }
 `;
 
+const FullWidthWrapper = styled.div`
+  width: 100vw;
+`;
+
 function App() {
   return (
-    <>
+    <FullWidthWrapper>
       {!isMobileDevice() && <FloatingButton />}
 
       <div id="home" />
@@ -69,7 +73,7 @@ function App() {
         )}
         <FooterSection />
       </ContentWrapper>
-    </>
+    </FullWidthWrapper>
   );
 }
 

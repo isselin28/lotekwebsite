@@ -25,6 +25,7 @@ const SectionContainer = styled(Container).attrs({
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 2;
 
   background: #f7f0e8;
   box-shadow: 0 2px 4px 0 rgba(148, 112, 58, 0.1),
@@ -223,8 +224,6 @@ const IconWrapper = styled(Icon)`
 const CopyRight = styled(Container).attrs({
   align: "center",
 })`
-  /* position: absolute; */
-  /* bottom: 20px; */
   text-align: center;
   gap: 4px;
 `;
@@ -233,18 +232,16 @@ const Sticky = styled.div`
   position: -webkit-sticky;
   position: sticky;
   width: 100vw;
-  height: 50px;
   top: 0;
   left: 0;
-
-  background-color: #f7f0e8;
-  opacity: 0.8;
+  z-index: 2;
 `;
 
 const MobileNavBar = styled.div`
-  padding-left: 20px;
-  padding-right: 15px;
-  transform: translateY(20%);
+  padding: 12px 15px 0px 20px;
+  background-color: #f7f0e8;
+  opacity: 0.8;
+  height: 50px;
 `;
 
 const MobileIconContainer = styled(Container)`

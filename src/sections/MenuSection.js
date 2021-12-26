@@ -82,10 +82,14 @@ const SpicyIcon = styled(Icon).attrs({
 `;
 
 const ItemImage = styled(Image).attrs({
-  height: 170,
   responsive: true,
 })`
+  height: 25vh;
   object-position: 0 45%;
+
+  @media ${device.desktop} {
+    height: 170px;
+  }
 `;
 
 const FlexColumn = styled(Container)`
@@ -100,10 +104,10 @@ const AdditionalMenuContainer = styled(Container).attrs({
   flex-direction: column;
   gap: 40px;
   padding-bottom: 20px;
+  width: 100%;
 
   @media ${device.desktop} {
     flex-direction: row;
-    width: 100%;
     gap: 50px;
   }
 `;
