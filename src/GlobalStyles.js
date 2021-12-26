@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { LotekTheme } from "./themes.js";
 
 const GlobalStyle = createGlobalStyle`
     body{
@@ -10,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a{
+        color: ${LotekTheme.default};
         text-decoration: none;
     }
 `;

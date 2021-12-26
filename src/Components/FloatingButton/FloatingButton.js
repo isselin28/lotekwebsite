@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import { RoundButton } from "./RoundButton";
+import { device } from "../../themes.js";
 
 const AnimateText = styled(Typography).attrs({
   variant: "body",
@@ -134,7 +135,7 @@ const StickyWrapper = styled.div`
   top: 10px;
   z-index: 1;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     top: 30%;
   }
 `;
@@ -145,7 +146,7 @@ const FloatingWrapper = styled(Container).attrs({
   position: absolute;
   right: 2vw;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     top: 50%;
     right: 40px;
   }

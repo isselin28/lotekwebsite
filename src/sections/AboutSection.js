@@ -9,6 +9,7 @@ import { Container } from "../components/Container";
 import { Image } from "../components/Image";
 import { withTheme } from "styled-components";
 import { isMobileDevice } from "../utils.js";
+import { device } from "../themes.js";
 
 const ContentWrapper = styled(Container).attrs({
   align: "center",
@@ -21,7 +22,7 @@ const ContentWrapper = styled(Container).attrs({
   margin-top: 10vh;
   margin-bottom: 30px;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     flex-direction: row-reverse;
   }
 `;
@@ -41,7 +42,7 @@ const Column = styled(Container).attrs({
       margin-top: ${top}px;
     `}
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     width: 30%;
     flex-direction: column;
   }
@@ -54,14 +55,14 @@ const TextContainer = styled.div`
   gap: 8px;
   order: 1;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     order: initial;
   }
 `;
 
 function AboutSection() {
   return (
-    <Container align="center" justify="center" direction="column">
+    <Container align="center" justify="center" direction="column" padding="10">
       <div id="about" />
       <ContentWrapper>
         <Column>

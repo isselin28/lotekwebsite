@@ -7,6 +7,7 @@ import LocationBar from "../components/LocationBar";
 import { Typography } from "../components/Typography";
 import { Container } from "../components/Container";
 import { Image } from "../components/Image";
+import { device } from "../themes.js";
 
 const SectionContainer = styled(Container).attrs({
   align: "center",
@@ -19,7 +20,7 @@ const SectionContainer = styled(Container).attrs({
   margin-bottom: 15vh;
   border-bottom: 1px solid ${({ theme }) => theme.primary.dark};
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     width: 80vw;
     border: none;
   }
@@ -31,7 +32,7 @@ const DeliveryLogoContainer = styled(Container).attrs({
 })`
   gap: 20px;
 
-  @media (min-width: 900px) {
+  @media ${device.desktop} {
     gap: 50px;
   }
 `;

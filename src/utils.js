@@ -1,3 +1,5 @@
+import { size } from "./themes.js";
+
 export function isMobileDevice() {
-  return window.innerWidth <= 900;
+  return window.innerWidth <= size.desktop;
 }
