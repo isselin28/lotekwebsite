@@ -14,7 +14,7 @@ import { withTheme } from "styled-components";
 
 const SectionWrapper = styled(Container)`
   width: 100%;
-  margin: 20px 0 40px 0;
+  margin-top: 20px;
 
   @media (min-width: 900px) {
     width: 70%;
@@ -22,6 +22,7 @@ const SectionWrapper = styled(Container)`
     border: 1px solid ${({ theme }) => theme.primary.dark};
     border-radius: 5px;
     padding: 20px 10vw 30px 10vw;
+    margin: 20px 0 40px 0;
   }
 `;
 
@@ -46,6 +47,7 @@ const ContentWrapper = styled(Container).attrs({
 
 const Column = styled.div`
   width: 100%;
+  max-width: 480px;
 `;
 
 const MapWrapper = styled(Container).attrs({
@@ -59,14 +61,13 @@ const MapWrapper = styled(Container).attrs({
 `;
 
 const MapImage = styled(Image)`
-  width: 80%;
+  width: 100%;
   max-height: 150px;
   border-radius: 5px;
   box-shadow: 0px 2px 4px grey;
   margin-top: 10px;
 
   @media (min-width: 900px) {
-    width: 100%;
     max-height: 180px;
     margin-top: 18px;
   }
@@ -78,7 +79,7 @@ const MapButton = styled(Button).attrs({
   position: absolute;
   bottom: 5px;
   right: 0px;
-  transform: translateX(-60%);
+  transform: translateX(-10%);
 
   height: 28px;
   width: 8%;
@@ -179,7 +180,7 @@ function LocationBar() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <Button primary>
+                    <Button primary disabled={location.location === "Bandung"}>
                       {location.whatsapp ? location.whatsapp : location.phone}
                     </Button>
                   </a>

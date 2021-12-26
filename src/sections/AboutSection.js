@@ -26,7 +26,10 @@ const ContentWrapper = styled(Container).attrs({
   }
 `;
 
-const Column = styled(Container)`
+const Column = styled(Container).attrs({
+  justify: "center",
+  align: "center",
+})`
   flex-direction: column-reverse;
   flex-wrap: wrap;
   flex: 1;

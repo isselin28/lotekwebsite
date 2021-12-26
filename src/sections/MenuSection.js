@@ -101,8 +101,8 @@ const AdditionalMenuContainer = styled(Container).attrs({
   padding-bottom: 20px;
 
   @media (min-width: 900px) {
-    flex-direction: initial;
-    width: 100vw;
+    flex-direction: row;
+    width: 100%;
     gap: 50px;
   }
 `;

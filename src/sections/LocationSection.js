@@ -16,7 +16,7 @@ const SectionContainer = styled(Container).attrs({
 })`
   width: 90vw;
   margin-top: 20vh;
-  margin-bottom: 5vh;
+  margin-bottom: 15vh;
   border-bottom: 1px solid ${({ theme }) => theme.primary.dark};
 
   @media (min-width: 900px) {
