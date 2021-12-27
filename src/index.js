@@ -6,6 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "styled-components/macro";
 import { LotekTheme } from "./themes";
 import GlobalStyle from "./GlobalStyles";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "./firebaseConfig";
+
+// Initialize Firebase
+initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.StrictMode>

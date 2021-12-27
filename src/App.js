@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import NavBar from "./components/NavBar/NavBar";
 import houseImage from "./assets/house_front_pencil.jpeg";
@@ -14,6 +14,7 @@ import { withTheme } from "styled-components";
 import { FloatingButton } from "./components/FloatingButton/FloatingButton";
 import { isMobileDevice } from "./utils.js";
 import { device } from "./themes.js";
+import { firebaseEvent } from "./firebaseConfig";
 
 const MobileImage = styled(Image)`
   object-position: 0% 100%;
@@ -34,6 +35,10 @@ const FullWidthWrapper = styled.div`
 `;
 
 function App() {
+  useEffect(() => {
+    firebaseEvent("User visits website's Home Page");
+  });
+
   return (
     <FullWidthWrapper>
       {!isMobileDevice() && <FloatingButton />}
