@@ -11,6 +11,7 @@ import {
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import { RoundButton } from "./RoundButton";
 import { device } from "../../themes.js";
+import { firebaseEvent } from "../../firebaseConfig";
 
 const AnimateText = styled(Typography).attrs({
   variant: "body",
@@ -209,12 +210,14 @@ export function FloatingButton() {
 
   const iconLinkDetails = [
     {
-      name: faWhatsapp,
+      fontawesome: faWhatsapp,
+      name: "whatsapp",
       url: "https://wa.me/6281386041621",
       animate: false,
     },
     {
-      name: faMapMarkerAlt,
+      fontawesome: faMapMarkerAlt,
+      name: "location",
       url: "https://goo.gl/maps/3bGVGfccvN3KL1Dh9",
       animate: false,
     },
@@ -242,15 +245,21 @@ export function FloatingButton() {
       <FloatingWrapper direction="column" align="flex-end">
         {iconLinkDetails.map((icon, idx) => (
           <a href={icon.url} target="_blank" rel="noreferrer" key={idx}>
-            <RoundButton animate={icon.animate}>
-              <Icon icon={icon.name} fontSize="22" />
+            <RoundButton
+              animate={icon.animate}
+              onClick={() => firebaseEvent(`Desktop: ${icon.name}`)}
+            >
+              <Icon icon={icon.fontawesome} fontSize="22" />
             </RoundButton>
           </a>
         ))}
 
         <AnimateButton
           animate
-          onClick={() => setShowDetail(true)}
+          onClick={() => {
+            setShowDetail(true);
+            firebaseEvent("Dekstop: Opening hour");
+          }}
           onMouseLeave={handleMouseOut}
           isOpen={isShopOpen}
         >

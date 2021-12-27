@@ -17,6 +17,7 @@ import { Link } from "react-scroll";
 import { withTheme } from "styled-components";
 import { isMobileDevice } from "../../utils.js";
 import { device } from "../../themes.js";
+import { firebaseEvent } from "../../firebaseConfig";
 
 const SectionContainer = styled(Container).attrs({
   justify: "center",
@@ -295,11 +296,13 @@ function NavBar() {
 
   const iconLinkDetails = [
     {
-      name: faWhatsapp,
+      fontawesome: faWhatsapp,
+      name: "whatsapp",
       url: "https://wa.me/6281386041621",
     },
     {
-      name: faMapMarkerAlt,
+      fontawesome: faMapMarkerAlt,
+      name: "location",
       url: "https://goo.gl/maps/3bGVGfccvN3KL1Dh9",
     },
   ];
@@ -342,10 +345,19 @@ function NavBar() {
             target="_blank"
             rel="noreferrer"
           >
-            <InstagramIcon />
+            <InstagramIcon
+              onClick={() => {
+                firebaseEvent("Mobile: Instagram");
+              }}
+            />
           </a>
 
-          <BurgerIcon onClick={() => setOpenMobileNav(true)} />
+          <BurgerIcon
+            onClick={() => {
+              setOpenMobileNav(true);
+              firebaseEvent("Mobile: Burger Menu");
+            }}
+          />
           <Nav>
             <NavList />
           </Nav>
@@ -372,7 +384,11 @@ function NavBar() {
               </a>
               {iconLinkDetails.map((icon, idx) => (
                 <a href={icon.url} target="_blank" rel="noreferrer" key={idx}>
-                  <MobileIconWrapper icon={icon.name} size="lg" />
+                  <MobileIconWrapper
+                    icon={icon.fontawesome}
+                    size="lg"
+                    onClick={() => firebaseEvent(`Mobile: Icon ${icon.name}`)}
+                  />
                 </a>
               ))}
             </Container>
@@ -381,7 +397,7 @@ function NavBar() {
               target="_blank"
               rel="noreferrer"
             >
-              <CopyRight>
+              <CopyRight onClick={() => firebaseEvent("Mobile: Linkedin")}>
                 Website by - Isselin
                 <Icon icon={faLinkedin} size="lg" />
               </CopyRight>

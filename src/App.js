@@ -36,8 +36,11 @@ const FullWidthWrapper = styled.div`
 
 function App() {
   useEffect(() => {
-    firebaseEvent("User visits website's Home Page");
-  });
+    const eventMessage = isMobileDevice()
+      ? "Mobile Home Page"
+      : "Desktop Home Page";
+    firebaseEvent(eventMessage);
+  }, []);
 
   return (
     <FullWidthWrapper>

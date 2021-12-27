@@ -28,7 +28,7 @@ const FooterContainer = styled(Container).attrs({
   position: relative;
   min-height: 36px;
   padding-bottom: 4px;
-  background-color: ${({ theme }) => theme.primary.dark};
+  background-color: ${({ theme }) => theme.primary.light};
   color: white;
   opacity: 1;
 
