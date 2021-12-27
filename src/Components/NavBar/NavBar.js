@@ -157,7 +157,7 @@ const InstagramIcon = styled(Icon).attrs({
     position: absolute;
     top: 40px;
     left: initial;
-    right: 15vw;
+    right: 10vw;
   }
 `;
 

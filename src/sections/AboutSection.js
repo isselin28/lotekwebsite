@@ -18,12 +18,12 @@ const ContentWrapper = styled(Container).attrs({
 })`
   flex-direction: column;
   max-width: 950px;
-  gap: 40px;
   margin-top: 10vh;
   margin-bottom: 30px;
 
   @media ${device.desktop} {
     flex-direction: row-reverse;
+    gap: 40px;
   }
 `;
 
@@ -35,7 +35,6 @@ const Column = styled(Container).attrs({
   flex-wrap: wrap;
   flex: 1;
   width: 80%;
-  gap: 40px;
 
   ${({ top }) =>
     css`
@@ -45,6 +44,7 @@ const Column = styled(Container).attrs({
   @media ${device.desktop} {
     width: 30%;
     flex-direction: column;
+    gap: 40px;
   }
 `;
 
@@ -57,6 +57,14 @@ const TextContainer = styled.div`
 
   @media ${device.desktop} {
     order: initial;
+  }
+`;
+
+const ImageWrap = styled(Image)`
+  padding: 20px 0;
+
+  @media ${device.desktop} {
+    padding: initial;
   }
 `;
 
@@ -93,14 +101,14 @@ function AboutSection() {
                 and other specialties are also available in Jakarta.
               </Typography>
             </TextContainer>
-            <Image
+            <ImageWrap
               responsive
               width="450"
               height="300"
               src={foodKolakCampur}
               alt="Kolak Campur"
             />
-            <Image
+            <ImageWrap
               responsive
               width="450"
               height={isMobileDevice() ? "500" : "460"}
@@ -110,14 +118,14 @@ function AboutSection() {
           </Column>
 
           <Column top="150">
-            <Image
+            <ImageWrap
               responsive
               width="450"
               height={isMobileDevice() ? "460" : "500"}
               src={isMobileDevice() ? foodKariayam : foodLotekPrepare}
               alt="Signature's Lotek"
             />
-            <Image
+            <ImageWrap
               responsive
               width="450"
               height="260"

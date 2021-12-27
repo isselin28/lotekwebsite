@@ -133,7 +133,7 @@ const StickyWrapper = styled.div`
   position: -webkit-sticky;
   position: sticky;
   top: 10px;
-  z-index: 1;
+  z-index: 4;
 
   @media ${device.desktop} {
     top: 30%;
@@ -200,10 +200,10 @@ export function FloatingButton() {
       setIsShopOpen(true);
       setShopStatus("Open now until 3pm");
     } else if (dayId === 6) {
-      setShopStatus("Close, open on Monday 9am ");
+      setShopStatus("Closed, open on Monday 9am ");
     } else {
       setIsShopOpen(false);
-      setShopStatus("Close, open tomorrow at 9am ");
+      setShopStatus("Closed, open tomorrow at 9am ");
     }
   }, [dayId]);
 

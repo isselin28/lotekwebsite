@@ -131,7 +131,7 @@ const locationDetails = [
     imageUrl: mapJakarta,
     googleMapUrl: "https://goo.gl/maps/3bGVGfccvN3KL1Dh9",
     openingHour:
-      "Open Monday - Saturday, 10.00 - 15.00 WIB . Close on Sunday & Public Holidays.",
+      "Open Monday - Saturday, 10.00 - 15.00 WIB . Closed on Sunday & Public Holidays.",
   },
   {
     location: "Bandung",
@@ -144,7 +144,7 @@ const locationDetails = [
     imageUrl: mapBandung,
     googleMapUrl: "https://goo.gl/maps/mdfDjqW91y4TCFJ37",
     openingHour:
-      "Open Monday, Wednesday - Sunday, 9.00 - 16.30 WIB. Close on Tuesday.",
+      "Open Monday, Wednesday - Sunday, 9.00 - 16.30 WIB. Closed on Tuesday.",
   },
 ];
 
