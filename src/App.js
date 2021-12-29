@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import NavBar from "./components/NavBar/NavBar";
 import houseImage from "./assets/house_front_pencil.jpeg";
@@ -36,11 +36,6 @@ const FullWidthWrapper = styled.div`
 
 function App() {
   useEffect(() => {
-    window.onresize = function () {
-      window.location.reload();
-      console.log("reload");
-    };
-
     const eventMessage = isMobileDevice()
       ? "Mobile Home Page"
       : "Desktop Home Page";
