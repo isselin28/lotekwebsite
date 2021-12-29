@@ -36,6 +36,11 @@ const FullWidthWrapper = styled.div`
 
 function App() {
   useEffect(() => {
+    window.onresize = function () {
+      window.location.reload();
+      console.log("reload");
+    };
+
     const eventMessage = isMobileDevice()
       ? "Mobile Home Page"
       : "Desktop Home Page";

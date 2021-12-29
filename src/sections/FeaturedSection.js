@@ -61,7 +61,7 @@ export function FeaturedSection() {
 
       {isMobileDevice() ? (
         <FeaturedWrapper>
-          <Logo name="kompastv" width="180" />
+          <Logo name="kompas" width="165" />
 
           <Logo name="detikfood" width="160" />
 
@@ -80,8 +80,8 @@ export function FeaturedSection() {
             top="0"
             left="0"
           >
-            <PositioningWrapper top="0" left="65">
-              <Logo name="kompastv" width="210" />
+            <PositioningWrapper top="10" left="45">
+              <Logo name="kompas" width="190" />
             </PositioningWrapper>
 
             <PositioningWrapper top="70" left="35">

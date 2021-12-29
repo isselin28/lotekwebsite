@@ -202,7 +202,7 @@ function LocationBar() {
           </ContentWrapper>
           <OpeningHourContainer justify="center" padding="10">
             <Typography variant="body" align="center">
-              {location.openingHour}
+              {`${location.location}, ${location.openingHour}`}
             </Typography>
           </OpeningHourContainer>
         </Container>

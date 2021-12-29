@@ -1,11 +1,11 @@
 import republika from "../../assets/logo_republika.png";
 import detikfood from "../../assets/logo_detikfood.png";
 import cnn from "../../assets/logo_cnn.png";
-import kompastv from "../../assets/logo_kompastv.png";
+import kompas from "../../assets/logo_kompas.png";
 import sedap from "../../assets/logo_sedap.png";
 
 const logoDetails = {
-  kompastv: { url: "https://youtu.be/mlD6Ly4LtUg?t=222", image: kompastv },
+  kompas: { url: "https://youtu.be/mlD6Ly4LtUg?t=222", image: kompas },
   detikfood: {
     url: "https://food.detik.com/berita-boga/d-4870199/menjajal-nikmatnya-lotek-kalipah-apo-42-di-bandung",
     image: detikfood,

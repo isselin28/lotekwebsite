@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import React from "react";
-import foodLotekPrepare from "../assets/food_lotek_prepare.png";
+import foodLotekCobek from "../assets/food_lotek_cobek.jpg";
 import foodKolakBubur from "../assets/food_kolakbubur.jpg";
 import foodKolakCampur from "../assets/food_kolakcampur.jpg";
 import foodKariayam from "../assets/food_kariayam.jpg";
@@ -68,6 +68,11 @@ const ImageWrap = styled(Image)`
   }
 `;
 
+const LotekImageWrap = styled(Image)`
+  align-self: center;
+  padding: 5px 0 20px 0;
+`;
+
 function AboutSection() {
   return (
     <>
@@ -83,6 +88,15 @@ function AboutSection() {
             <TextContainer>
               <Typography variant="label">OUR RESTAURANT</Typography>
               <Typography variant="title">Ema's Recipe since 1953</Typography>
+              {isMobileDevice() && (
+                <LotekImageWrap
+                  responsive
+                  width="450"
+                  height={isMobileDevice() ? "500" : "460"}
+                  src={isMobileDevice() ? foodLotekCobek : foodKariayam}
+                  alt="Lotek"
+                />
+              )}
               <Typography variant="body">
                 Began in <b>Kalipah Apo street, Bandung, 1953</b>.{" "}
                 <i>Lotek recipe</i> that has been passed through three
@@ -108,13 +122,15 @@ function AboutSection() {
               src={foodKolakCampur}
               alt="Kolak Campur"
             />
-            <ImageWrap
-              responsive
-              width="450"
-              height={isMobileDevice() ? "500" : "460"}
-              src={isMobileDevice() ? foodLotekPrepare : foodKariayam}
-              alt="Kari Ayam"
-            />
+            {!isMobileDevice() && (
+              <Image
+                responsive
+                width="450"
+                height="460"
+                src={foodKariayam}
+                alt="Kari Ayam"
+              />
+            )}
           </Column>
 
           <Column top="150">
@@ -122,8 +138,8 @@ function AboutSection() {
               responsive
               width="450"
               height={isMobileDevice() ? "460" : "500"}
-              src={isMobileDevice() ? foodKariayam : foodLotekPrepare}
-              alt="Signature's Lotek"
+              src={isMobileDevice() ? foodKariayam : foodLotekCobek}
+              alt={isMobileDevice() ? "Kari Ayam" : "Signature's Lotek"}
             />
             <ImageWrap
               responsive
@@ -132,17 +148,17 @@ function AboutSection() {
               src={foodKolakBubur}
               alt="Kolak Sagurangi"
             />
-            <TextContainer>
+            <TextContainer order="1">
               <Typography variant="label">OUR PLACE</Typography>
               <Typography variant="title">From Bandung to Jakarta</Typography>
               <Typography variant="body">
                 The flavour of <i>Ema's Lotek</i> has been present in{" "}
                 <b>Jakarta since 1997</b>. We preserve our nuance by using
-                traditional recipe, homemade cooking, and natural,
-                non-artificial ingredients. Enjoy our <i>Lotek</i> and{" "}
-                <i>Kolak</i> in a homely, semi-traditional style house. A
-                perfect place to snug yourself into a relaxed atmosphere and
-                feel at ease with our healthy comforting food.
+                traditional recipe, homemade cooking, and natural, nonartificial
+                ingredients. Enjoy our <i>Lotek</i> and <i>Kolak</i> in a
+                homely, semi-traditional style house. A perfect place to snug
+                yourself into a relaxed atmosphere and feel at ease with our
+                healthy comforting food.
               </Typography>
               <Typography variant="body"></Typography>
             </TextContainer>
