@@ -133,7 +133,7 @@ function AboutSection() {
             )}
           </Column>
 
-          <Column top="150">
+          <Column top={isMobileDevice() ? "75" : "150"}>
             <ImageWrap
               responsive
               width="450"
